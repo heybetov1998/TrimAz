@@ -41,18 +41,45 @@
   src: local("DM Sans Bold Italic"), url("../fonts/dm-sans/DMSans-BoldItalic.woff") format("woff");
 }
 
-* {
+*,
+ul,
+a {
   margin: 0;
   padding: 0;
   font-family: "DM Sans Regular";
-  font-size: 45px;
+  font-size: 16px;
   text-decoration: none;
   list-style-type: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 body {
   background-color: #232323;
   color: #e4911a;
-  font-size: 6rem;
+}
+
+.nav_item {
+  display: block;
+  color: #ffffff;
+  padding: 1rem 2rem;
+}
+
+.nav_item:hover, .nav_item:focus, .nav_item:active, .nav_item.active {
+  color: #e4911a;
+}
+
+.right_header .right_item {
+  width: 50px;
+  height: 50px;
+  background-color: #232323;
+  border-radius: 50%;
+  border: 2px solid #606060;
+  margin-left: 0.5rem;
+  color: #ffffff;
+}
+
+.right_header .right_item:hover, .right_header .right_item:focus, .right_header .right_item:active {
+  background-color: #606060;
 }
 /*# sourceMappingURL=main.css.map */

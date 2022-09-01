@@ -1,0 +1,11 @@
+.nav_item {
+    display: block;
+    color: $colorWhite;
+    padding: 1rem 2rem;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: $mainColor;
+    }
+}
