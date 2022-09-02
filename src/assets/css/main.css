@@ -43,7 +43,7 @@
 
 *,
 ul,
-a {
+a, h3, p {
   margin: 0;
   padding: 0;
   font-family: "DM Sans Regular";
@@ -52,6 +52,8 @@ a {
   list-style-type: none;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -60,8 +62,8 @@ body {
 }
 
 .main_header {
-  background-color: green;
-  max-height: 96px;
+  z-index: 999;
+  background-color: #232323;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -117,5 +119,57 @@ body {
 
 .right_header .right_item:hover, .right_header .right_item:focus, .right_header .right_item:active {
   background-color: #606060;
+}
+
+#intro {
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 6rem 0;
+  min-height: 100vh;
+}
+
+#intro .section_backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgba(35, 35, 35, 0.4);
+}
+
+#intro .section_backdrop .section_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: inherit;
+  height: inherit;
+}
+
+#intro .section_backdrop .section_content .text_part {
+  text-align: center;
+}
+
+#intro .section_backdrop .section_content .text_part h3 {
+  font-size: 4rem;
+  font-family: "DM Sans Bold";
+  color: #ffffff;
+}
+
+#intro .section_backdrop .section_content .search_part {
+  background-color: #ffffff;
+  border-radius: 30px;
 }
 /*# sourceMappingURL=main.css.map */

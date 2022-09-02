@@ -8,7 +8,7 @@ import Row from "./UI/grid/Row";
 
 const Header = () => {
     return (
-        <header className="main_header">
+        <header className="main_header position-fixed top-0 start-0 end-0">
             <ContainerFluid>
                 <Row>
                     <Column default={4} sm={2} md={2} lg={2} xl={2}>

@@ -1,6 +1,7 @@
 .main_header {
-    background-color: green;
-    max-height: 96px;
+    z-index: 999;
+    background-color: $backgroundColor;
+
     @media (min-width: 768px) and (max-width: 991px) {
         padding: 12px 0;
     }
