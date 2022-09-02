@@ -11,15 +11,20 @@ const Header = () => {
         <header className="main_header">
             <ContainerFluid>
                 <Row>
-                    <Column size={2}>
+                    <Column default={4} sm={2} md={2} lg={2} xl={2}>
                         <BrandLogo />
                     </Column>
-                    <Column size={8}>
+                    <Column
+                        className="d-none d-sm-none d-md-block"
+                        md={8}
+                        lg={8}
+                        xl={8}
+                    >
                         <HeaderNavigation>
                             <NavList />
                         </HeaderNavigation>
                     </Column>
-                    <Column size={2}>
+                    <Column default={8} sm={10} md={2} lg={2} xl={2}>
                         <RightHeader />
                     </Column>
                 </Row>

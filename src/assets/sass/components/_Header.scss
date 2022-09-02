@@ -1,3 +1,7 @@
-// .main_header {
-//     padding: 11px 0; //on scroll to padding: 3px 0;
-// }
+.main_header {
+    background-color: green;
+    max-height: 96px;
+    @media (min-width: 768px) and (max-width: 991px) {
+        padding: 12px 0;
+    }
+}

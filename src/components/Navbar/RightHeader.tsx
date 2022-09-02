@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { BiBasket, BiUser } from "react-icons/bi";
+import { BiBasket, BiUser, BiMenu } from "react-icons/bi";
 
 const RightHeader = () => {
     return (
@@ -19,6 +19,14 @@ const RightHeader = () => {
                         to={"#"}
                     >
                         <BiUser size={"1.4rem"} />
+                    </NavLink>
+                </li>
+                <li className="d-md-none">
+                    <NavLink
+                        className="right_item d-flex justify-content-center align-items-center"
+                        to={"#"}
+                    >
+                        <BiMenu size={"1.4rem"} />
                     </NavLink>
                 </li>
             </ul>
