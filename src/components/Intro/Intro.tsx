@@ -69,7 +69,11 @@ const Intro = () => {
                         <div className="search_part w-100">
                             <form>
                                 <Row>
-                                    <Column lg={3} xl={3}>
+                                    <Column
+                                        className="mb-3 m-lg-0"
+                                        lg={3}
+                                        xl={3}
+                                    >
                                         <Select<
                                             ColorOption | FlavorOption,
                                             true,
@@ -81,7 +85,11 @@ const Intro = () => {
                                             isMulti
                                         />
                                     </Column>
-                                    <Column lg={3} xl={3}>
+                                    <Column
+                                        className="mb-3 m-lg-0"
+                                        lg={3}
+                                        xl={3}
+                                    >
                                         <input
                                             type="date"
                                             name="date"
@@ -89,7 +97,11 @@ const Intro = () => {
                                             placeholder={"select"}
                                         />
                                     </Column>
-                                    <Column lg={3} xl={3}>
+                                    <Column
+                                        className="mb-3 m-lg-0"
+                                        lg={3}
+                                        xl={3}
+                                    >
                                         <input
                                             type="time"
                                             name="date"
