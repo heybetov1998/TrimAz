@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Pagination, Navigation } from "swiper";
+import SectionHeader from "../UI/section/SectionHeader";
+import BarberSlide from "./BarberSlide";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import SectionHeader from "../UI/section/SectionHeader";
-import BarberSlide from "./BarberSlide";
+import "swiper/css/navigation";
 
 import image1 from "../../assets/images/1077-500x500.jpg";
 import image2 from "../../assets/images/555-500x500.jpg";
@@ -18,34 +19,67 @@ const TopBarbers = () => {
             <Swiper
                 spaceBetween={24}
                 slidesPerView={6}
-                // pagination={{ clickable: true }}
-                modules={[Pagination]}
+                navigation
+                loop={true}
+                modules={[Pagination, Navigation]}
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
             >
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image1} name="Sinan Engin" rating={4.0} />
+                    <BarberSlide
+                        imageSrc={image1}
+                        name="Sinan Engin"
+                        rating={4.0}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image2} name="Ahmet Çakar" rating={4.5} />
+                    <BarberSlide
+                        imageSrc={image2}
+                        name="Ahmet Çakar"
+                        rating={4.5}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image3} name="Abdülkerim Durmaz" rating={5.0} />
+                    <BarberSlide
+                        imageSrc={image3}
+                        name="Abdülkerim Durmaz"
+                        rating={5.0}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image4} name="Rasim Ozan Kütahyalı" rating={4.5} />
+                    <BarberSlide
+                        imageSrc={image4}
+                        name="Rasim Ozan Kütahyalı"
+                        rating={4.5}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image1} name="Sinan Engin" rating={4.0} />
+                    <BarberSlide
+                        imageSrc={image1}
+                        name="Sinan Engin"
+                        rating={4.0}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image2} name="Ahmet Çakar" rating={4.5} />
+                    <BarberSlide
+                        imageSrc={image2}
+                        name="Ahmet Çakar"
+                        rating={4.5}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image3} name="Abdülkerim Durmaz" rating={5.0} />
+                    <BarberSlide
+                        imageSrc={image3}
+                        name="Abdülkerim Durmaz"
+                        rating={5.0}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <BarberSlide imageSrc={image4} name="Rasim Ozan Kütahyalı" rating={4.5} />
+                    <BarberSlide
+                        imageSrc={image4}
+                        name="Rasim Ozan Kütahyalı"
+                        rating={4.5}
+                    />
                 </SwiperSlide>
             </Swiper>
         </section>

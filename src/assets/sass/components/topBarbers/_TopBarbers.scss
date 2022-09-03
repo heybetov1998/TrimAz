@@ -1,4 +1,6 @@
 #topBarbers {
+    padding: 2rem 0;
+
     .barber_slide {
         .image_container {
             display: block;
@@ -6,7 +8,13 @@
             height: 166px;
             border-radius: 50%;
             overflow: hidden;
+
+            &:hover img {
+                transform: scale(1.2, 1.2);
+            }
+
             img {
+                transition: all 0.1s linear;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;

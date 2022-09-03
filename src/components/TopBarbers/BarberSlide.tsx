@@ -16,7 +16,7 @@ const BarberSlide = (props: Props) => {
                 <Link to={"#"} className="barber_name">
                     {props.name}
                 </Link>
-                <p>{props.rating}</p>
+                <p>Rating: {props.rating}</p>
             </div>
         </div>
     );
