@@ -1,4 +1,17 @@
 .slider_holder {
+    width: 90%;
+    margin: 0 auto;
+
+    // @media (min-width:576px) and (max-width:620px) {
+        
+    // }
+    // @media (min-width: 768px) and (max-width: 794px) {
+    //     width: 90%;
+    // }
+    // @media (min-width: 992px) and (max-width: 1016px) {
+    //     width: 90%;
+    // }
+
     .swiper-custom-prev,
     .swiper-custom-next {
         cursor: pointer;

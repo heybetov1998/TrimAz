@@ -36,8 +36,13 @@ const TopBarbers = () => {
                     <BiRightArrowAlt size={"1.5rem"} />
                 </div>
                 <Swiper
+                    breakpoints={{
+                        576: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        992: { slidesPerView: 4 },
+                        1200: { slidesPerView: 5 },
+                    }}
                     spaceBetween={24}
-                    slidesPerView={6}
                     navigation={{
                         prevEl: ".swiper-custom-prev",
                         nextEl: ".swiper-custom-next",
