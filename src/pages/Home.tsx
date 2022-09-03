@@ -1,5 +1,5 @@
-import Intro from "../components/Intro/Intro";
-import TopBarbers from "../components/TopBarbers/TopBarbers";
+import Intro from "../components/Home/Intro";
+import TopBarbers from "../components/Home/TopBarbers/TopBarbers";
 
 const Home = () => {
     return (

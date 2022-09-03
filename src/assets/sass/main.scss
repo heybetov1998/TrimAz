@@ -15,14 +15,13 @@
 
 //components
 @import "components/Header";
-@import "components/navbar/BrandLogo";
-@import "components/navbar/NavItem";
-@import "components/navbar/RightHeader";
-@import "components/intro/Intro";
-@import "components/topBarbers/TopBarbers";
+@import "components/ui/navbar/BrandLogo";
+@import "components/ui/navbar/NavItem";
+@import "components/ui/navbar/RightHeader";
 @import "components/ui/section/SectionHeader";
 @import "components/ui/FormatGroupLabel";
 @import "components/ui/swiper/Swiper";
+
 //pages
 @import "pages/home";
 
