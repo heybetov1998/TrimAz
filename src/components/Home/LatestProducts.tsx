@@ -1,11 +1,10 @@
-import Card from "../../UI/Card";
-import SectionHeader from "../../UI/section/SectionHeader";
+import Card from "../UI/Card";
+import SectionHeader from "../UI/section/SectionHeader";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
+import NavigationAbove from "../UI/swiper/NavigationAbove";
 
-import image from "../../../assets/images/612-500x500.jpg";
-import SwiperPrev from "../../UI/swiper/SwiperPrev";
-import SwiperNext from "../../UI/swiper/SwiperNext";
+import image from "../../assets/images/612-500x500.jpg";
 
 const DUMMY_PRODUCTS = [
     {
@@ -68,6 +67,21 @@ const DUMMY_PRODUCTS = [
             name: "Atilla Szalai",
         },
     },
+    {
+        id: 5,
+        title: "Termos",
+        price: 80,
+        location: "Yasaml, Baku",
+        afterPrice: null,
+        image: { src: image, alt: "Product image" },
+        author: {
+            image: {
+                src: image,
+                alt: "Author Image",
+            },
+            name: "Serdar Dursun",
+        },
+    },
 ];
 
 const LatestProducts = () => {
@@ -76,10 +90,7 @@ const LatestProducts = () => {
             <div className="container">
                 <SectionHeader text="Latest Products" />
                 <div className="slider_holder position-relative">
-                    <div className="custom-navigation-div d-flex justify-content-end">
-                        <SwiperPrev />
-                        <SwiperNext />
-                    </div>
+                    <NavigationAbove id="latestProdNav" />
                     <Swiper
                         breakpoints={{
                             576: { slidesPerView: 2, slidesPerGroup: 2 },
@@ -89,12 +100,12 @@ const LatestProducts = () => {
                         }}
                         spaceBetween={24}
                         navigation={{
-                            prevEl: ".custom-navigation-div>.swiper-custom-prev",
-                            nextEl: ".custom-navigation-div>.swiper-custom-next",
+                            prevEl: "#latestProdNav .swiper-custom-prev",
+                            nextEl: "#latestProdNav .swiper-custom-next",
                         }}
                         loop={true}
                         pagination={{
-                            el: ".custom-pagination-div",
+                            el: ".paginationProduct",
                             clickable: true,
                             renderBullet: (index, className) => {
                                 return `<span class="${className}"></span>`;
@@ -120,7 +131,7 @@ const LatestProducts = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <div className="custom-pagination-div"></div>
+                    <div className="custom-pagination paginationProduct"></div>
                 </div>
             </div>
         </section>

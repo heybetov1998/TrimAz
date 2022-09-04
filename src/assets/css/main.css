@@ -187,11 +187,11 @@ body {
   background-color: #606060;
 }
 
-.slider_holder .custom-pagination-div {
+.slider_holder .custom-pagination {
   text-align: center;
 }
 
-.slider_holder .custom-pagination-div .swiper-pagination-bullet-active {
+.slider_holder .custom-pagination .swiper-pagination-bullet-active {
   background-color: #e4911a;
 }
 
@@ -458,6 +458,14 @@ body {
 }
 
 #latestProducts .slider_holder {
+  width: 100%;
+}
+
+#bestBarbershops {
+  padding: 2rem 0;
+}
+
+#bestBarbershops .slider_holder {
   width: 100%;
 }
 /*# sourceMappingURL=main.css.map */
