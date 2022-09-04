@@ -71,7 +71,7 @@ const DUMMY_PRODUCTS = [
         id: 5,
         title: "Termos",
         price: 80,
-        location: "Yasaml, Baku",
+        location: "Yasamal, Baku",
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {

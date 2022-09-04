@@ -27,40 +27,42 @@ const sliderItems = [
 
 const TopBarbers = () => {
     return (
-        <section id="topBarbers" className="container">
-            <SectionHeader text="Top barbers" />
-            <div className="slider_holder position-relative">
-                <div className="on_slider_nav">
-                    <SwiperPrev className="absolute-nav" />
-                    <SwiperNext className="absolute-nav" />
+        <section id="topBarbers">
+            <div className="container">
+                <SectionHeader text="Top barbers" />
+                <div className="slider_holder position-relative">
+                    <div className="on_slider_nav">
+                        <SwiperPrev className="absolute-nav" />
+                        <SwiperNext className="absolute-nav" />
+                    </div>
+                    <Swiper
+                        breakpoints={{
+                            576: { slidesPerView: 2 },
+                            768: { slidesPerView: 3 },
+                            992: { slidesPerView: 4 },
+                            1200: { slidesPerView: 5 },
+                        }}
+                        spaceBetween={24}
+                        navigation={{
+                            prevEl: ".on_slider_nav .swiper-custom-prev",
+                            nextEl: ".on_slider_nav .swiper-custom-next",
+                        }}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        onSlideChange={() => console.log("slide change")}
+                        onSwiper={(swiper) => console.log(swiper)}
+                    >
+                        {sliderItems.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <BarberSlide
+                                    imageSrc={item.imageSrc}
+                                    name={item.name}
+                                    rating={item.rating}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
-                <Swiper
-                    breakpoints={{
-                        576: { slidesPerView: 2 },
-                        768: { slidesPerView: 3 },
-                        992: { slidesPerView: 4 },
-                        1200: { slidesPerView: 5 },
-                    }}
-                    spaceBetween={24}
-                    navigation={{
-                        prevEl: ".on_slider_nav .swiper-custom-prev",
-                        nextEl: ".on_slider_nav .swiper-custom-next",
-                    }}
-                    loop={true}
-                    modules={[Pagination, Navigation]}
-                    onSlideChange={() => console.log("slide change")}
-                    onSwiper={(swiper) => console.log(swiper)}
-                >
-                    {sliderItems.map((item) => (
-                        <SwiperSlide key={item.id}>
-                            <BarberSlide
-                                imageSrc={item.imageSrc}
-                                name={item.name}
-                                rating={item.rating}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
             </div>
         </section>
     );

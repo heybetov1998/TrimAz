@@ -414,6 +414,7 @@ body {
 }
 
 #topBarbers {
+  background-color: #282828;
   padding: 2rem 0;
 }
 
@@ -453,7 +454,7 @@ body {
 }
 
 #latestProducts {
-  background-color: #393939;
+  background-color: #232323;
   padding: 2rem 0;
 }
 
@@ -463,6 +464,7 @@ body {
 
 #bestBarbershops {
   padding: 2rem 0;
+  background-color: #282828;
 }
 
 #bestBarbershops .slider_holder {
