@@ -72,6 +72,26 @@ body {
   }
 }
 
+footer {
+  padding: 2rem 0;
+}
+
+footer .rightFooter li a {
+  margin-left: 1.4rem;
+  -webkit-transition: none;
+  transition: none;
+  color: #ffffff;
+}
+
+footer .rightFooter li a:hover {
+  color: #e4911a;
+}
+
+footer .rightFooter li a svg {
+  -webkit-transition: none;
+  transition: none;
+}
+
 .brand_logo {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
