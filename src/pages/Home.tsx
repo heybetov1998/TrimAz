@@ -1,4 +1,5 @@
 import Intro from "../components/Home/Intro";
+import LatestProducts from "../components/Home/LatestProducts/LatestProducts";
 import TopBarbers from "../components/Home/TopBarbers/TopBarbers";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <>
             <Intro />
             <TopBarbers />
+            <LatestProducts />
         </>
     );
 };

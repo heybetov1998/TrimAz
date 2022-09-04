@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import SectionHeader from "../../UI/section/SectionHeader";
 import BarberSlide from "./BarberSlide";
+import SwiperPrev from "../../UI/swiper/SwiperPrev";
+import SwiperNext from "../../UI/swiper/SwiperNext";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -29,11 +30,9 @@ const TopBarbers = () => {
         <section id="topBarbers" className="container">
             <SectionHeader text="Top barbers" />
             <div className="slider_holder position-relative">
-                <div className="swiper-custom-prev d-flex justify-content-center align-items-center position-absolute">
-                    <BiLeftArrowAlt size={"1.5rem"} />
-                </div>
-                <div className="swiper-custom-next d-flex justify-content-center align-items-center position-absolute">
-                    <BiRightArrowAlt size={"1.5rem"} />
+                <div className="on_slider_nav">
+                    <SwiperPrev className="absolute-nav" />
+                    <SwiperNext className="absolute-nav" />
                 </div>
                 <Swiper
                     breakpoints={{
@@ -44,8 +43,8 @@ const TopBarbers = () => {
                     }}
                     spaceBetween={24}
                     navigation={{
-                        prevEl: ".swiper-custom-prev",
-                        nextEl: ".swiper-custom-next",
+                        prevEl: ".on_slider_nav .swiper-custom-prev",
+                        nextEl: ".on_slider_nav .swiper-custom-next",
                     }}
                     loop={true}
                     modules={[Pagination, Navigation]}

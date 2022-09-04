@@ -2,8 +2,8 @@ import NavItem from "./NavItem";
 
 const dataArray = [
     { where: "/", text: "Home" },
-    { where: "/men", text: "Men" },
-    { where: "/women", text: "Women" },
+    { where: "/services", text: "Services" },
+    // { where: "/women", text: "Women" },
     { where: "/market", text: "Market" },
     { where: "/blogs", text: "Blogs" },
     { where: "/contact", text: "Contact" },

@@ -126,6 +126,7 @@ body {
   text-align: center;
   font-family: "DM Sans Medium";
   padding-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 .group_label {
@@ -156,6 +157,19 @@ body {
   margin: 0 auto;
 }
 
+.slider_holder .absolute-nav {
+  position: absolute;
+  top: 25%;
+}
+
+.slider_holder .swiper-custom-prev.absolute-nav {
+  left: -20px;
+}
+
+.slider_holder .swiper-custom-next.absolute-nav {
+  right: -20px;
+}
+
 .slider_holder .swiper-custom-prev,
 .slider_holder .swiper-custom-next {
   cursor: pointer;
@@ -166,7 +180,6 @@ body {
   background-color: #232323;
   color: #ffffff;
   z-index: 100;
-  top: 25%;
 }
 
 .slider_holder .swiper-custom-prev:hover,
@@ -174,12 +187,94 @@ body {
   background-color: #606060;
 }
 
-.slider_holder .swiper-custom-prev {
-  left: -20px;
+.slider_holder .custom-pagination-div {
+  text-align: center;
 }
 
-.slider_holder .swiper-custom-next {
-  right: -20px;
+.slider_holder .custom-pagination-div .swiper-pagination-bullet-active {
+  background-color: #e4911a;
+}
+
+.slider_holder .custom-navigation-div {
+  position: absolute;
+  top: -85px;
+  right: 0;
+}
+
+@media screen and (max-width: 575px) {
+  .slider_holder .custom-navigation-div {
+    position: static;
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    margin-bottom: 15px;
+    margin-top: -15px;
+  }
+}
+
+.slider_holder .custom-navigation-div .swiper-custom-prev {
+  margin-right: 5px;
+}
+
+.card {
+  border: none;
+  -webkit-box-shadow: 0 1px 2px #00000014, 0 4px 12px #0000000d;
+          box-shadow: 0 1px 2px #00000014, 0 4px 12px #0000000d;
+  border-radius: 15px;
+}
+
+.card .image_holder {
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card .image_holder:hover .card-img-top {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.card .image_holder .card-img-top {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card .info_holder {
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #cccccc;
+}
+
+.card .info_holder .card-title {
+  color: #232323;
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+
+.card .info_holder .card-title:hover {
+  color: #606060;
+}
+
+.card .info_holder .location-text {
+  color: #e4911a;
+  font-size: 0.8rem;
+}
+
+.card .price_holder {
+  color: #606060;
+}
+
+.card .price_holder .price {
+  font-weight: 700;
+  color: #232323;
+  margin-left: 5px;
+  margin-right: 2px;
 }
 
 #intro {
@@ -311,5 +406,14 @@ body {
   color: #ffffff;
   margin-top: 1rem;
   margin-bottom: 0.3rem;
+}
+
+#latestProducts {
+  background-color: #393939;
+  padding: 2rem 0;
+}
+
+#latestProducts .slider_holder {
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */
