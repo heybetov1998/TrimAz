@@ -20,6 +20,12 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .heart_holder {
+            top: 15px;
+            right: 15px;
+            color: $mainColor;
+        }
     }
 
     .info_holder {
@@ -51,6 +57,38 @@
             color: $backgroundColor;
             margin-left: 5px;
             margin-right: 2px;
+        }
+    }
+
+    .author_info {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+
+        .author_pp {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                &:hover {
+                    transform: scale(1.2, 1.2);
+                }
+            }
+        }
+
+        .author_name {
+            margin-left: 10px;
+            color: $borderColor;
+
+            &:hover {
+                color: $backgroundColor;
+            }
         }
     }
 }

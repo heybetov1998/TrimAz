@@ -7,6 +7,69 @@ import image from "../../../assets/images/612-500x500.jpg";
 import SwiperPrev from "../../UI/swiper/SwiperPrev";
 import SwiperNext from "../../UI/swiper/SwiperNext";
 
+const DUMMY_PRODUCTS = [
+    {
+        id: 1,
+        title: "HairCutter",
+        price: 400,
+        location: "Baku, Azerbaijan",
+        afterPrice: null,
+        image: { src: image, alt: "Product image" },
+        author: {
+            image: {
+                src: image,
+                alt: "Author Image",
+            },
+            name: "Engin Altan",
+        },
+    },
+    {
+        id: 2,
+        title: "Fen",
+        price: 500,
+        location: "Baku, Azerbaijan",
+        afterPrice: null,
+        image: { src: image, alt: "Product image" },
+        author: {
+            image: {
+                src: image,
+                alt: "Author Image",
+            },
+            name: "Enner Valencia",
+        },
+    },
+    {
+        id: 3,
+        title: "Qayçı",
+        price: 20,
+        location: "Baku, Azerbaijan",
+        afterPrice: null,
+        image: { src: image, alt: "Product image" },
+        author: {
+            image: {
+                src: image,
+                alt: "Author Image",
+            },
+            name: "Altay Bayındır",
+        },
+    },
+    {
+        id: 4,
+        title: "Saç ütüsü",
+        price: 100,
+        location: "Baku, Azerbaijan",
+        afterPrice: null,
+        image: { src: image, alt: "Product image" },
+        author: {
+            image: {
+                src: image,
+                alt: "Author Image",
+            },
+            name: "Atilla Szalai",
+        },
+    },
+];
+
 const LatestProducts = () => {
     return (
         <section id="latestProducts">
@@ -41,41 +104,21 @@ const LatestProducts = () => {
                         onSlideChange={() => console.log("slide change")}
                         onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide>
-                            <Card
-                                hasStars
-                                imageSrc={image}
-                                imageAlt="some image"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card
-                                hasStars
-                                imageSrc={image}
-                                imageAlt="some image"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card
-                                hasStars
-                                imageSrc={image}
-                                imageAlt="some image"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card
-                                hasStars
-                                imageSrc={image}
-                                imageAlt="some image"
-                            />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <Card
-                                hasStars
-                                imageSrc={image}
-                                imageAlt="some image"
-                            />
-                        </SwiperSlide>
+                        {DUMMY_PRODUCTS.map((product) => (
+                            <SwiperSlide key={product.id}>
+                                <Card
+                                    hasHeart
+                                    title={product.title}
+                                    price={product.price}
+                                    image={product.image}
+                                    location={product.location}
+                                    author={{
+                                        name: product.author.name,
+                                        image: product.author.image,
+                                    }}
+                                />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                     <div className="custom-pagination-div"></div>
                 </div>
