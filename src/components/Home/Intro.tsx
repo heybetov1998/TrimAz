@@ -1,6 +1,7 @@
 import Select from "react-select";
 
 import image from "../../assets/images/intro.jpg";
+import SubmitButton from "../UI/Buttons/SubmitButton";
 import Column from "../UI/grid/Column";
 import Row from "../UI/grid/Row";
 
@@ -109,7 +110,7 @@ const Intro = () => {
                                         />
                                     </Column>
                                     <Column lg={3} xl={3}>
-                                        <button type="submit">Search</button>
+                                        <SubmitButton text="Search" />
                                     </Column>
                                 </Row>
                             </form>

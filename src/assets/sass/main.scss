@@ -23,8 +23,12 @@
 @import "components/ui/FormatGroupLabel";
 @import "components/ui/swiper/Swiper";
 @import "components/ui/Card";
+@import "components/ui/CardFrame";
+@import "components/ui/inputs/PriceInput";
+@import "components/ui/buttons/SubmitButton";
 
 //pages
 @import "pages/home";
+@import "pages/market";
 
 //themes

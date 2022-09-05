@@ -209,6 +209,7 @@ footer .rightFooter li a svg {
 
 .slider_holder .custom-pagination {
   text-align: center;
+  margin-top: 20px;
 }
 
 .slider_holder .custom-pagination .swiper-pagination-bullet-active {
@@ -341,6 +342,59 @@ footer .rightFooter li a svg {
   color: #232323;
 }
 
+.card_frame {
+  padding: 30px 20px;
+  margin-bottom: 1.2rem;
+  border-radius: 20px;
+  background-color: #303030;
+}
+
+.card_frame .card_frame_title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.price_holder {
+  margin-bottom: 1rem;
+}
+
+.price_holder label {
+  width: 55%;
+  color: #ffffff;
+}
+
+.price_holder .price_input {
+  width: 45%;
+  background-color: #232323;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #cccccc;
+  text-align: center;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+.price_holder .price_input::-webkit-outer-spin-button, .price_holder .price_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price_holder .price_input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.submit_button {
+  padding: 5px 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #e4911a;
+  border: none;
+  color: #ffffff;
+}
+
 #intro {
   position: relative;
   background-position: center center;
@@ -417,20 +471,13 @@ footer .rightFooter li a svg {
   color: #232323;
 }
 
-#intro .section_backdrop .section_content .search_part input,
-#intro .section_backdrop .section_content .search_part button {
+#intro .section_backdrop .section_content .search_part input {
   padding: 5px 10px;
   width: 100%;
   height: 100%;
   border: 1px solid #cccccc;
   color: #232323;
   border-radius: 4px;
-}
-
-#intro .section_backdrop .section_content .search_part button {
-  background-color: #e4911a;
-  border: none;
-  color: #ffffff;
 }
 
 #topBarbers {
@@ -489,5 +536,10 @@ footer .rightFooter li a svg {
 
 #bestBarbershops .slider_holder {
   width: 100%;
+}
+
+#market {
+  padding-top: 8rem;
+  min-height: 100vh;
 }
 /*# sourceMappingURL=main.css.map */
