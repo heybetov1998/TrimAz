@@ -395,6 +395,57 @@ footer .rightFooter li a svg {
   color: #ffffff;
 }
 
+label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+}
+
+label input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+label .standart_checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20px;
+  width: 20px;
+  background: #232323;
+  border: none;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+
+label .standart_checkbox.checkbox-active {
+  -webkit-transition: none;
+  transition: none;
+  background: #e4911a;
+  color: #232323;
+}
+
 #intro {
   position: relative;
   background-position: center center;

@@ -1,3 +1,4 @@
+import FilterCategory from "../components/UI/Filters/FilterCategory";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
@@ -9,6 +10,7 @@ const Market = () => {
                 <Row>
                     <Column lg={3} xl={3}>
                         <FilterPrice />
+                        <FilterCategory />
                     </Column>
                     <Column lg={9} xl={9}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
