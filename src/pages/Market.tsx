@@ -1,5 +1,5 @@
 import Card from "../components/UI/Card";
-import FilterCategory from "../components/UI/Filters/FilterCategory";
+import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
@@ -97,6 +97,17 @@ const filteredDUMMYProducts = [
     },
 ];
 
+const checkboxes = {
+    title: "Services",
+    items: [
+        { id: "ch1", text: "Ütü" },
+        { id: "ch2", text: "Saçqırxan" },
+        { id: "ch3", text: "Üzqırxan" },
+        { id: "ch4", text: "Qayçı" },
+        { id: "ch5", text: "Streçband" },
+    ],
+};
+
 const Market = () => {
     return (
         <section id="market">
@@ -104,7 +115,7 @@ const Market = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterPrice />
-                        <FilterCategory />
+                        <FilterCheckbox checkboxes={checkboxes} />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <div className="resultsBar">
@@ -120,7 +131,12 @@ const Market = () => {
                             <Row>
                                 {filteredDUMMYProducts.map((product) => {
                                     return (
-                                        <Column className="mb-4" md={6} lg={4} xl={4}>
+                                        <Column
+                                            className="mb-4"
+                                            md={6}
+                                            lg={4}
+                                            xl={4}
+                                        >
                                             <Card
                                                 hasHeart
                                                 title={product.title}

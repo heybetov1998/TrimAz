@@ -1,5 +1,5 @@
 import Card from "../components/UI/Card";
-import FilterCategory from "../components/UI/Filters/FilterCategory";
+import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
@@ -62,6 +62,17 @@ const DUMMY_BARBERSHOPS = [
     },
 ];
 
+const checkboxes = {
+    title: "Services",
+    items: [
+        { id: "ch1", text: "Saç qırxma" },
+        { id: "ch2", text: "Saqqal qırxma" },
+        { id: "ch3", text: "Maska qoyulması" },
+        { id: "ch4", text: "Üz baxımı" },
+        { id: "ch5", text: "Saç rənglənməsi" },
+    ],
+};
+
 const Barbershops = () => {
     return (
         <section id="market">
@@ -69,7 +80,7 @@ const Barbershops = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterPrice />
-                        <FilterCategory />
+                        <FilterCheckbox checkboxes={checkboxes} />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <div className="resultsBar">
