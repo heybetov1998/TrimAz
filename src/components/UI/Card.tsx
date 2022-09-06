@@ -8,6 +8,7 @@ import {
     IoIosHeartEmpty,
     IoIosHeart,
 } from "react-icons/io";
+import Tag from "./Tags/Tag";
 
 interface Props {
     image: {
@@ -18,7 +19,7 @@ interface Props {
     hasStars?: boolean;
     prePrice?: string;
     afterPrice?: string;
-    price: number;
+    price?: number;
     title: string;
     location?: string;
     author?: {
@@ -29,6 +30,9 @@ interface Props {
         name: string;
     };
     hasHeart?: boolean;
+    tags?: { name: string }[];
+    description?: string;
+    createdDate?: string;
 }
 
 const Card = (props: Props) => {
@@ -63,6 +67,8 @@ const Card = (props: Props) => {
             </Link>
 
             <div className="card-body">
+                {props.tags && props.tags.map((tag) => <Tag />)}
+
                 {props.hasStars && (
                     <ReactStars
                         isHalf={true}
@@ -84,13 +90,18 @@ const Card = (props: Props) => {
                     {props.location && (
                         <p className="location-text">{props.location}</p>
                     )}
+                    {props.description && (
+                        <p className="description">{props.description}</p>
+                    )}
                 </div>
 
                 <div className="price_holder">
                     {props.prePrice && (
                         <span className="pre_price">{props.prePrice}</span>
                     )}
-                    <span className="price">{props.price} AZN</span>
+                    {props.price && (
+                        <span className="price">{props.price} AZN</span>
+                    )}
                     {props.afterPrice && (
                         <span className="after_price">{props.afterPrice}</span>
                     )}
@@ -104,9 +115,16 @@ const Card = (props: Props) => {
                                 alt={props.author.image.alt}
                             />
                         </Link>
-                        <Link to={"#"} className="author_name">
-                            {props.author.name}
-                        </Link>
+                        <div className="d-flex align-items-center">
+                            <Link to={"#"} className="author_name">
+                                {props.author.name}
+                            </Link>
+                            {props.createdDate && (
+                                <span className="dateHolder">
+                                    {props.createdDate}
+                                </span>
+                            )}
+                        </div>
                     </div>
                 )}
             </div>

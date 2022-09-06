@@ -121,7 +121,7 @@ const Market = () => {
                         <div className="resultsBar">
                             <div className="leftBar d-flex align-items-center">
                                 <span>24 items found</span>
-                                <button className="clear_filter btn btn-link">
+                                <button className="clear_filter">
                                     Clear filter
                                 </button>
                             </div>
@@ -132,6 +132,7 @@ const Market = () => {
                                 {filteredDUMMYProducts.map((product) => {
                                     return (
                                         <Column
+                                            key={product.id}
                                             className="mb-4"
                                             md={6}
                                             lg={4}

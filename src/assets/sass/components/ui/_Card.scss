@@ -47,6 +47,11 @@
             color: $mainColor;
             font-size: 0.8rem;
         }
+
+        .description {
+            margin-top: 1rem;
+            color: $borderColor;
+        }
     }
 
     .price_holder {
@@ -89,6 +94,14 @@
             &:hover {
                 color: $backgroundColor;
             }
+        }
+
+        .dateHolder {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: $inputBorderColor;
+            border-left: 1px solid $borderColor;
+            padding-left: 10px;
         }
     }
 }

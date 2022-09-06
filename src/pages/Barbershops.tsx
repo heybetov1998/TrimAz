@@ -86,7 +86,7 @@ const Barbershops = () => {
                         <div className="resultsBar">
                             <div className="leftBar d-flex align-items-center">
                                 <span>24 items found</span>
-                                <button className="clear_filter btn btn-link">
+                                <button className="clear_filter">
                                     Clear filter
                                 </button>
                             </div>
@@ -97,6 +97,7 @@ const Barbershops = () => {
                                 {DUMMY_BARBERSHOPS.map((bshop) => {
                                     return (
                                         <Column
+                                            key={bshop.id}
                                             className="mb-4"
                                             md={6}
                                             lg={4}

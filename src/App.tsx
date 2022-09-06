@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import Market from "./pages/Market";
 import Barbershops from "./pages/Barbershops";
+import Blogs from "./pages/Blogs";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path="/barbershops" element={<Barbershops />} />
                 <Route path="/market" element={<Market />} />
+                <Route path="/blogs" element={<Blogs />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

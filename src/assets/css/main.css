@@ -293,6 +293,11 @@ footer .rightFooter li a svg {
   font-size: 0.8rem;
 }
 
+.card .info_holder .description {
+  margin-top: 1rem;
+  color: #606060;
+}
+
 .card .price_holder {
   color: #606060;
 }
@@ -342,6 +347,14 @@ footer .rightFooter li a svg {
   color: #232323;
 }
 
+.card .author_info .dateHolder {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #cccccc;
+  border-left: 1px solid #606060;
+  padding-left: 10px;
+}
+
 .card_frame {
   padding: 30px 20px;
   margin-bottom: 1.2rem;
@@ -351,7 +364,7 @@ footer .rightFooter li a svg {
 
 .card_frame .card_frame_title {
   font-size: 18px;
-  font-weight: 700;
+  font-family: "DM Sans Medium";
   margin-bottom: 1.2rem;
 }
 
@@ -444,6 +457,10 @@ label .standart_checkbox.checkbox-active {
   transition: none;
   background: #e4911a;
   color: #232323;
+}
+
+.tag::after {
+  content: '&dot;';
 }
 
 #intro {
@@ -590,6 +607,22 @@ label .standart_checkbox.checkbox-active {
 }
 
 #market {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+#market .resultsBar {
+  margin-bottom: 15px;
+}
+
+#market .resultsBar .clear_filter {
+  border: none;
+  background-color: transparent;
+  margin-left: 1rem;
+  color: #5e9fff;
+}
+
+#blogs {
   padding-top: 8rem;
   min-height: 100vh;
 }
