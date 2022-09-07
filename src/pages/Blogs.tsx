@@ -133,7 +133,7 @@ const Blogs = () => {
         <section id="blogs">
             <div className="container">
                 <Row>
-                    <Column lg={8} xl={8}>
+                    <Column className="order-1 order-md-0" md={6} lg={8} xl={8}>
                         <Row>
                             {DUMMY_BLOGS.map((blog) => (
                                 <Column
@@ -162,7 +162,7 @@ const Blogs = () => {
                             ))}
                         </Row>
                     </Column>
-                    <Column lg={4} xl={4}>
+                    <Column className="order-0 order-md-1" md={6} lg={4} xl={4}>
                         <FilterSearch />
                         <PopularPosts posts={DUMMY_POSTS} />
                     </Column>

@@ -11,6 +11,21 @@
                 min-height: 90px;
                 object-fit: cover;
 
+                @media screen and (max-width: 575px) {
+                    max-width: 123px;
+                    min-height: 123px;
+                }
+
+                @media (min-width: 576px) and (max-width: 767px) {
+                    max-width: 142px;
+                    min-height: 142px;
+                }
+
+                @media (min-width: 768px) and (max-width: 991px) {
+                    max-width: 82px;
+                    min-height: 82px;
+                }
+
                 @media (min-width: 992px) and (max-width: 1199px) {
                     max-width: 68px;
                     min-height: 68px;
@@ -26,6 +41,14 @@
             color: $colorWhite;
             margin-bottom: 1rem;
 
+            @media screen and (max-width: 575px) {
+                font-size: 1.5rem;
+            }
+
+            @media (min-width: 576px) and (max-width: 767px) {
+                font-size: 1.5rem;
+            }
+
             @media (min-width: 992px) and (max-width: 1199px) {
                 margin-bottom: 0.7rem;
             }
@@ -39,6 +62,14 @@
         p {
             color: $borderColor;
             font-size: 0.9rem;
+
+            @media screen and (max-width: 575px) {
+                font-size: 1.1rem;
+            }
+
+            @media (min-width: 576px) and (max-width: 767px) {
+                font-size: 1.1rem;
+            }
         }
     }
 }

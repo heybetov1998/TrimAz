@@ -522,6 +522,27 @@ label .standart_checkbox.checkbox-active {
      object-fit: cover;
 }
 
+@media screen and (max-width: 575px) {
+  .popular_posts .post_item .post_image img {
+    max-width: 123px;
+    min-height: 123px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .popular_posts .post_item .post_image img {
+    max-width: 142px;
+    min-height: 142px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .popular_posts .post_item .post_image img {
+    max-width: 82px;
+    min-height: 82px;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .popular_posts .post_item .post_image img {
     max-width: 68px;
@@ -540,6 +561,18 @@ label .standart_checkbox.checkbox-active {
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 575px) {
+  .popular_posts .post_item .post_title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .popular_posts .post_item .post_title {
+    font-size: 1.5rem;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .popular_posts .post_item .post_title {
     margin-bottom: 0.7rem;
@@ -553,6 +586,18 @@ label .standart_checkbox.checkbox-active {
 .popular_posts .post_item p {
   color: #606060;
   font-size: 0.9rem;
+}
+
+@media screen and (max-width: 575px) {
+  .popular_posts .post_item p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .popular_posts .post_item p {
+    font-size: 1.1rem;
+  }
 }
 
 #intro {

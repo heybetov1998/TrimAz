@@ -20,12 +20,12 @@ const PopularPosts = (props: PropsType) => {
         <CardFrame className="popular_posts" title="Popular blogs">
             {props.posts.map((post) => (
                 <Row key={post.id} className="post_item mb-3">
-                    <Column lg={4} xl={4}>
+                    <Column default={4} sm={4} md={4} lg={4} xl={4}>
                         <Link className="post_image" to={"#"}>
                             <img src={post.image.src} alt={post.image.alt} />
                         </Link>
                     </Column>
-                    <Column lg={8} xl={8}>
+                    <Column default={8} sm={8} md={8} lg={8} xl={8}>
                         <Link to={"#"} className="post_title">
                             {post.title}
                         </Link>
