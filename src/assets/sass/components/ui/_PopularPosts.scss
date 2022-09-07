@@ -1,0 +1,44 @@
+.popular_posts {
+    .post_item {
+        .post_image {
+            display: block;
+            width: fit-content !important;
+            border-radius: 5px;
+            overflow: hidden;
+
+            img {
+                max-width: 90px;
+                min-height: 90px;
+                object-fit: cover;
+
+                @media (min-width: 992px) and (max-width: 1199px) {
+                    max-width: 68px;
+                    min-height: 68px;
+                }
+
+                &:hover {
+                    transform: scale(1.2, 1.2);
+                }
+            }
+        }
+        .post_title {
+            display: block;
+            color: $colorWhite;
+            margin-bottom: 1rem;
+
+            @media (min-width: 992px) and (max-width: 1199px) {
+                margin-bottom: 0.7rem;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $mainColor;
+            }
+        }
+        p {
+            color: $borderColor;
+            font-size: 0.9rem;
+        }
+    }
+}
