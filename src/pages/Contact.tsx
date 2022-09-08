@@ -10,7 +10,12 @@ const Contact = () => {
             <div className="container">
                 <form>
                     <Row>
-                        <Column md={6} lg={6} xl={6}></Column>
+                        <Column md={6} lg={6} xl={6}>
+                            <div className="contact_information">
+                                <h3>Send Feedback</h3>
+                                <p>You can send us feedback by filling form</p>
+                            </div>
+                        </Column>
                         <Column md={6} lg={6} xl={6}>
                             <CardFrame title="Send a message">
                                 <Row>

@@ -801,4 +801,14 @@ label .standart_checkbox.checkbox-active {
   padding-top: 8rem;
   min-height: 100vh;
 }
+
+#contact .contact_information h3 {
+  font-size: 2rem;
+  color: #e4911a;
+}
+
+#contact .contact_information p {
+  margin: 30px 0;
+  color: #ffffff;
+}
 /*# sourceMappingURL=main.css.map */
