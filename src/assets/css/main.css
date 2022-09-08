@@ -405,6 +405,39 @@ footer .rightFooter li a svg {
   -moz-appearance: textfield;
 }
 
+.contact_input,
+.message {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #232323;
+  border-radius: 10px;
+  color: #cccccc;
+}
+
+.message {
+  -webkit-transition: none;
+  transition: none;
+  min-height: 240px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .message {
+    min-height: 150px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .message {
+    min-height: 200px;
+  }
+}
+
+.curved_button {
+  border-radius: 10px !important;
+  padding: 10px !important;
+}
+
 .submit_button {
   padding: 5px 10px;
   width: 100%;
@@ -760,6 +793,11 @@ label .standart_checkbox.checkbox-active {
 }
 
 #blogs {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+#contact {
   padding-top: 8rem;
   min-height: 100vh;
 }

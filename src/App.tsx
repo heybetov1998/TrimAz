@@ -7,6 +7,7 @@ import "./App.css";
 import Market from "./pages/Market";
 import Barbershops from "./pages/Barbershops";
 import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path="/barbershops" element={<Barbershops />} />
                 <Route path="/market" element={<Market />} />
                 <Route path="/blogs" element={<Blogs />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
