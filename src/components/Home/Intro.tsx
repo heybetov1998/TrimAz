@@ -1,9 +1,13 @@
 import Select from "react-select";
-
-import image from "../../assets/images/intro.jpg";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
 import SubmitButton from "../UI/Buttons/SubmitButton";
 import Column from "../UI/grid/Column";
 import Row from "../UI/grid/Row";
+
+import image from "../../assets/images/intro.jpg";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 // const options = [
 //     { value: "test", label: "test" },
@@ -58,6 +62,12 @@ const FormatGroupLabel = (group: GroupedOption) => {
 };
 
 const Intro = () => {
+    const [reservationDate, setReservationDate] = useState(new Date());
+
+    const reservationHandler = (date: Date) => {
+        setReservationDate(date);
+    };
+
     return (
         <section id="intro" style={{ backgroundImage: `url("${image}")` }}>
             <div className="section_backdrop">
@@ -72,8 +82,8 @@ const Intro = () => {
                                 <Row>
                                     <Column
                                         className="mb-3 m-lg-0"
-                                        lg={3}
-                                        xl={3}
+                                        lg={4}
+                                        xl={4}
                                     >
                                         <Select<
                                             ColorOption | FlavorOption,
@@ -88,28 +98,22 @@ const Intro = () => {
                                     </Column>
                                     <Column
                                         className="mb-3 m-lg-0"
-                                        lg={3}
-                                        xl={3}
+                                        lg={4}
+                                        xl={4}
                                     >
-                                        <input
+                                        {/* <input
                                             type="date"
                                             name="date"
                                             id="date"
                                             placeholder={"select"}
+                                        /> */}
+                                        <DatePicker
+                                            selected={reservationDate}
+                                            onChange={reservationHandler}
+                                            className="no_transition"
                                         />
                                     </Column>
-                                    <Column
-                                        className="mb-3 m-lg-0"
-                                        lg={3}
-                                        xl={3}
-                                    >
-                                        <input
-                                            type="time"
-                                            name="date"
-                                            id="date"
-                                        />
-                                    </Column>
-                                    <Column lg={3} xl={3}>
+                                    <Column lg={4} xl={4}>
                                         <SubmitButton text="Search" />
                                     </Column>
                                 </Row>

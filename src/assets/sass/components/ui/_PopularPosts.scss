@@ -12,8 +12,8 @@
                 object-fit: cover;
 
                 @media screen and (max-width: 575px) {
-                    max-width: 123px;
-                    min-height: 123px;
+                    max-width: 87px;
+                    min-height: 87px;
                 }
 
                 @media (min-width: 576px) and (max-width: 767px) {
@@ -42,7 +42,8 @@
             margin-bottom: 1rem;
 
             @media screen and (max-width: 575px) {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+                margin-bottom: 0.7rem;
             }
 
             @media (min-width: 576px) and (max-width: 767px) {
