@@ -776,6 +776,10 @@ label .standart_checkbox.checkbox-active {
   }
 }
 
+.reviews .comments .comment:last-child .comment_text {
+  border: none;
+}
+
 .reviews .comments .comment .comment_author {
   padding: 20px;
 }

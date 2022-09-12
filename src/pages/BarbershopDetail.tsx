@@ -30,27 +30,7 @@ const BarbershopDetail = () => {
                 <div className="our_barbers">
                     <SectionPartName text="Our Barbers" />
                     <Row>
-                        <Column lg={4} xl={4}>
-                            <Link to="#" className="card_holder">
-                                <BarberCard barber={custBarber} />
-                            </Link>
-                        </Column>
-                        <Column lg={4} xl={4}>
-                            <Link to="#" className="card_holder">
-                                <BarberCard barber={custBarber} />
-                            </Link>
-                        </Column>
-                        <Column lg={4} xl={4}>
-                            <Link to="#" className="card_holder">
-                                <BarberCard barber={custBarber} />
-                            </Link>
-                        </Column>
-                        <Column lg={4} xl={4}>
-                            <Link to="#" className="card_holder">
-                                <BarberCard barber={custBarber} />
-                            </Link>
-                        </Column>
-                        <Column lg={4} xl={4}>
+                        <Column md={6} lg={4} xl={4}>
                             <Link to="#" className="card_holder">
                                 <BarberCard barber={custBarber} />
                             </Link>
@@ -60,70 +40,7 @@ const BarbershopDetail = () => {
                 <div className="our_services">
                     <SectionPartName text="Our Services" />
                     <Row>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
-                            <CardFrame className="services_list_item">
-                                <StandartCheckbox
-                                    text="test"
-                                    isDisabled
-                                    isChecked
-                                />
-                            </CardFrame>
-                        </Column>
-                        <Column lg={3} xl={3}>
+                        <Column md={6} lg={4} xl={3}>
                             <CardFrame className="services_list_item">
                                 <StandartCheckbox
                                     text="test"

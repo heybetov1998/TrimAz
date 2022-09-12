@@ -27,6 +27,12 @@
 
     .comments {
         .comment {
+            &:last-child {
+                .comment_text {
+                    border: none;
+                }
+            }
+
             .comment_author {
                 padding: 20px;
 
