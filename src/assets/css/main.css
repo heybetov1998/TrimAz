@@ -229,7 +229,7 @@ footer .rightFooter li a svg {
   font-size: 1.7rem;
   font-family: "DM Sans Medium";
   margin-bottom: 1.4rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .group_label {
@@ -818,6 +818,50 @@ label .standart_checkbox.checkbox-active {
   color: #ffffff;
   padding: 0 20px 20px 20px;
   border-bottom: 1px solid #cccccc;
+}
+
+.gallery {
+  overflow: hidden;
+  height: 512px;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+}
+
+.gallery .row {
+  height: 100%;
+}
+
+.gallery .row > div {
+  height: inherit;
+}
+
+.gallery .row > div .gallery_item_holder {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gallery .row > div .gallery_item_holder.single .gallery_item {
+  height: 100%;
+}
+
+.gallery .row > div .gallery_item_holder .gallery_item {
+  height: 47.6%;
+}
+
+.gallery .row > div .gallery_item_holder .gallery_item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #intro {

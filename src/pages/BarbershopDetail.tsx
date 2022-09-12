@@ -2,7 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import BarberCard from "../components/Cards/BarberCard";
 import CardFrame from "../components/UI/CardFrame";
 import StandartCheckbox from "../components/UI/Checkboxes/StandartCheckbox";
+import Gallery from "../components/UI/Gallery";
 import Column from "../components/UI/grid/Column";
+import ContainerFluid from "../components/UI/grid/ContainerFluid";
 import Row from "../components/UI/grid/Row";
 import Map from "../components/UI/Map";
 import Reviews from "../components/UI/Reviews/Reviews";
@@ -17,6 +19,10 @@ const custBarber = {
     rating: 4.5,
 };
 
+const images = [
+    { id: "img1", src: require("../assets/images/555-500x500.jpg") },
+];
+
 const BarbershopDetail = () => {
     const params = useParams();
     const { id } = params;
@@ -27,6 +33,7 @@ const BarbershopDetail = () => {
         <section id="barbershopDetail">
             <div className="container">
                 <SectionHeader text="Barbershop name here" />
+                <Gallery images={images} />
                 <div className="our_barbers">
                     <SectionPartName text="Our Barbers" />
                     <Row>
