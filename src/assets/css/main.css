@@ -125,6 +125,8 @@ a, h3, p {
 }
 
 body {
+  -webkit-transition: none;
+  transition: none;
   background-color: #232323;
   color: #e4911a;
 }
@@ -221,6 +223,13 @@ footer .rightFooter li a svg {
   font-family: "DM Sans Medium";
   padding-bottom: 2rem;
   text-transform: capitalize;
+}
+
+.section_part_name {
+  font-size: 1.7rem;
+  font-family: "DM Sans Medium";
+  margin-bottom: 1.4rem;
+  margin-top: 2rem;
 }
 
 .group_label {
@@ -708,6 +717,36 @@ label .standart_checkbox.checkbox-active {
   }
 }
 
+.barber_card {
+  padding: 20px;
+}
+
+.barber_card .profile_image {
+  display: block;
+  width: 70px;
+  min-height: 70px;
+  margin-right: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.barber_card .profile_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.barber_card .info {
+  width: calc(100% - 82px);
+}
+
+.barber_card .info .name {
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
 #intro {
   position: relative;
   background-position: center center;
@@ -885,5 +924,38 @@ label .standart_checkbox.checkbox-active {
 #contact .contact_information p {
   margin: 30px 0;
   color: #ffffff;
+}
+
+#barbershopDetail {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+.our_barbers .card_holder:hover .card_frame {
+  background-color: #3e3e3e;
+}
+
+.our_barbers .card_holder:hover .name {
+  color: #e4911a;
+}
+
+.our_barbers .card_holder:hover img {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.services_list_item {
+  padding: 10px;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+}
+
+.map div {
+  -webkit-transition: none;
+  transition: none;
 }
 /*# sourceMappingURL=main.css.map */

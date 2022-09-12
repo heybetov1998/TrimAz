@@ -8,16 +8,24 @@ import Market from "./pages/Market";
 import Barbershops from "./pages/Barbershops";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
+import BarbershopDetail from "./pages/BarbershopDetail";
+import BarbershopSubLayout from "./layouts/BarbershopSubLayout";
 
 const App = () => {
     return (
         <Routes>
             <Route path="/" element={<MainLayout />}>
                 <Route index element={<Home />} />
-                <Route path="/barbershops" element={<Barbershops />} />
-                <Route path="/market" element={<Market />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/contact" element={<Contact />} />
+
+                <Route path="barbershops" element={<BarbershopSubLayout />}>
+                    <Route index element={<Barbershops />} />
+                    <Route path=":id" element={<BarbershopDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+
+                <Route path="market" element={<Market />} />
+                <Route path="blogs" element={<Blogs />} />
+                <Route path="contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

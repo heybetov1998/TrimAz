@@ -21,6 +21,7 @@
 @import "components/ui/navbar/NavItem";
 @import "components/ui/navbar/RightHeader";
 @import "components/ui/section/SectionHeader";
+@import "components/ui/section/SectionPartName";
 @import "components/ui/FormatGroupLabel";
 @import "components/ui/swiper/Swiper";
 @import "components/ui/Card";
@@ -33,11 +34,13 @@
 @import "components/ui/buttons/SearchButton";
 @import "components/ui/filters/FilterSearch";
 @import "components/ui/PopularPosts";
+@import "components/ui/cards/BarberCard";
 
 //pages
 @import "pages/home";
 @import "pages/market";
 @import "pages/blogs";
 @import "pages/contact";
+@import "pages/barbershopDetail";
 
 //themes

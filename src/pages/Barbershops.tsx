@@ -104,6 +104,7 @@ const Barbershops = () => {
                                             xl={4}
                                         >
                                             <Card
+                                                goto={`${bshop.id}`}
                                                 title={bshop.title}
                                                 price={bshop.price}
                                                 image={bshop.image}

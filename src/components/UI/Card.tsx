@@ -28,11 +28,13 @@ interface Props {
             alt: string;
         };
         name: string;
+        goto?: string;
     };
     hasHeart?: boolean;
     tags?: { name: string }[];
     description?: string;
     createdDate?: string;
+    goto?: string;
 }
 
 const Card = (props: Props) => {
@@ -46,7 +48,10 @@ const Card = (props: Props) => {
 
     return (
         <div className={`card ${props.className ?? ""}`}>
-            <Link to={"#"} className="image_holder position-relative">
+            <Link
+                to={props.goto ?? "#"}
+                className="image_holder position-relative"
+            >
                 <img
                     src={props.image.src}
                     className="card-img-top"
@@ -84,7 +89,7 @@ const Card = (props: Props) => {
                 )}
 
                 <div className="info_holder">
-                    <Link to={"#"} className="card-title">
+                    <Link to={props.goto ?? "#"} className="card-title">
                         {props.title}
                     </Link>
                     {props.location && (
@@ -109,14 +114,20 @@ const Card = (props: Props) => {
 
                 {props.author && (
                     <div className="author_info">
-                        <Link to={"#"} className="author_pp">
+                        <Link
+                            to={props.author.goto ?? "#"}
+                            className="author_pp"
+                        >
                             <img
                                 src={props.author.image.src}
                                 alt={props.author.image.alt}
                             />
                         </Link>
                         <div className="d-flex align-items-center">
-                            <Link to={"#"} className="author_name">
+                            <Link
+                                to={props.author.goto ?? "#"}
+                                className="author_name"
+                            >
                                 {props.author.name}
                             </Link>
                             {props.createdDate && (

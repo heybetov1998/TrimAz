@@ -5,7 +5,7 @@ type Props = {
     className?: string;
 };
 
-const Row: React.FC<Props> = (props: Props) => {
+const Row = (props: Props) => {
     return (
         <div className={`row ${props.className ?? ""}`}>{props.children}</div>
     );
