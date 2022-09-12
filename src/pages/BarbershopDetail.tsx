@@ -21,6 +21,8 @@ const BarbershopDetail = () => {
     const params = useParams();
     const { id } = params;
 
+    console.log(id);
+
     return (
         <section id="barbershopDetail">
             <div className="container">

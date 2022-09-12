@@ -7,7 +7,10 @@ type PropsType = {
 };
 
 const Map = (props: PropsType) => {
-    const center = useMemo(() => ({ lat: props.lat, lng: props.lng }), []);
+    const center = useMemo(
+        () => ({ lat: props.lat, lng: props.lng }),
+        [props.lat, props.lng]
+    );
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: "AIzaSyDDy4oCPjx23wQeEJpV3D2uITVu5N3eFIs",
