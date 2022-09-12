@@ -747,6 +747,75 @@ label .standart_checkbox.checkbox-active {
   text-transform: capitalize;
 }
 
+.reviews .write_review .rate_name {
+  color: #ffffff;
+}
+
+.reviews .write_review .userComment {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #232323;
+  border-radius: 10px;
+  color: #cccccc;
+  -webkit-transition: none;
+  transition: none;
+  min-height: 240px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .reviews .write_review .userComment {
+    min-height: 150px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .reviews .write_review .userComment {
+    min-height: 200px;
+  }
+}
+
+.reviews .comments .comment .comment_author {
+  padding: 20px;
+}
+
+.reviews .comments .comment .comment_author .profile_image {
+  display: block;
+  width: 90px;
+  min-height: 70px;
+  margin-right: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.reviews .comments .comment .comment_author .profile_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.reviews .comments .comment .comment_author .info {
+  width: calc(100% - 102px);
+}
+
+.reviews .comments .comment .comment_author .info .name {
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.reviews .comments .comment .comment_author .info .date {
+  font-size: 0.8rem;
+}
+
+.reviews .comments .comment .comment_text {
+  color: #ffffff;
+  padding: 0 20px 20px 20px;
+  border-bottom: 1px solid #cccccc;
+}
+
 #intro {
   position: relative;
   background-position: center center;

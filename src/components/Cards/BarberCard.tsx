@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import CardFrame from "../UI/CardFrame";
-import ReactStars from "react-rating-stars-component";
-import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
+import Stars from "../UI/Stars";
 
 type PropsType = {
     barber: {
@@ -18,7 +16,7 @@ type PropsType = {
 const BarberCard = (props: PropsType) => {
     return (
         <CardFrame className="barber_card d-flex">
-            <Link className="profile_image" to={props.barber.link ?? "#"}>
+            <div className="profile_image">
                 <img
                     src={
                         props.barber.image?.src ??
@@ -26,22 +24,10 @@ const BarberCard = (props: PropsType) => {
                     }
                     alt={props.barber.image?.alt ?? "Barber profile picture"}
                 />
-            </Link>
+            </div>
             <div className="info">
-                <Link className="name" to={props.barber.link ?? "#"}>
-                    {props.barber.name}
-                </Link>
-                <ReactStars
-                    isHalf={true}
-                    size={24}
-                    emptyIcon={<IoIosStarOutline />}
-                    halfIcon={<IoIosStarHalf />}
-                    fullIcon={<IoIosStar />}
-                    activeColor="#e4911a"
-                    color="#cccccc"
-                    edit={false}
-                    value={props.barber.rating}
-                />
+                <div className="name">{props.barber.name}</div>
+                <Stars edit={false} value={props.barber.rating} />
             </div>
         </CardFrame>
     );
