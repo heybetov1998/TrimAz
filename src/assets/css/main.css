@@ -1123,15 +1123,15 @@ label .standart_checkbox.checkbox-active {
 .portfolio .portfolio_images .portfolio_item {
   border-radius: 20px;
   cursor: pointer;
-  width: 189px;
-  height: 189px;
-  overflow: hidden;
+  width: 100%;
+  padding-bottom: 100%;
   margin-bottom: 24px;
+  height: 0;
+  overflow: hidden;
 }
 
 .portfolio .portfolio_images .portfolio_item img {
   width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1141,6 +1141,34 @@ label .standart_checkbox.checkbox-active {
   height: 189px;
   margin-bottom: 19px;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 575px) {
+  .videos iframe {
+    width: 163px;
+    height: 163px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .videos iframe {
+    width: 156px;
+    height: 156px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .videos iframe {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .videos iframe {
+    width: 156px;
+    height: 156px;
+  }
 }
 
 .barber_info .profile_picture {

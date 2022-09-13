@@ -3,6 +3,7 @@ import Portfolio from "../components/BarberDetail/Portfolio";
 import Videos from "../components/BarberDetail/Videos";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
+import Reviews from "../components/UI/Reviews/Reviews";
 
 const DUMMY_IMAGES = [
     { src: require("../assets/images/685-500x500.jpg"), alt: "test" },
@@ -15,12 +16,13 @@ const BarberDetail = () => (
     <section id="barbershopDetail">
         <div className="container">
             <Row>
-                <Column lg={9} xl={9}>
+                <Column className="order-1 order-md-0" md={8} lg={9} xl={9}>
                     <Portfolio images={DUMMY_IMAGES} />
                     <Videos />
+                    <Reviews />
                 </Column>
-                <Column lg={3} xl={3}>
-                    <BarberInfo/>
+                <Column className="order-0 order-md-1" md={4} lg={3} xl={3}>
+                    <BarberInfo />
                 </Column>
             </Row>
         </div>

@@ -7,28 +7,28 @@ const Videos = () => (
     <div className="videos">
         <SectionPartName text="My Videos" />
         <Row>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
-            <Column lg={3} xl={3}>
+            <Column default={6} sm={4} md={4} lg={3} xl={3}>
                 <YoutubeVideo videoId="PS9wzU6iWYc" />
             </Column>
         </Row>

@@ -33,7 +33,7 @@ const Portfolio = (props: PropsType) => {
             >
                 <div className="portfolio_images">
                     <Row>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -49,7 +49,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -65,7 +65,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -81,7 +81,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -97,7 +97,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -113,7 +113,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -129,7 +129,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
@@ -145,7 +145,7 @@ const Portfolio = (props: PropsType) => {
                                 </div>
                             </div>
                         </Column>
-                        <Column lg={3} xl={3}>
+                        <Column default={6} sm={4} md={4} lg={3} xl={3}>
                             <div className="d-flex justify-content-center">
                                 <div
                                     className="portfolio_item"
