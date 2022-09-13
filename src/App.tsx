@@ -10,6 +10,9 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import BarbershopDetail from "./pages/BarbershopDetail";
 import BarbershopSubLayout from "./layouts/BarbershopSubLayout";
+import BarberDetail from "./pages/BarberDetail";
+import BarberSubLayout from "./layouts/BarberSubLayout";
+import Barbers from "./pages/Barbers";
 
 const App = () => {
     return (
@@ -20,6 +23,12 @@ const App = () => {
                 <Route path="barbershops" element={<BarbershopSubLayout />}>
                     <Route index element={<Barbershops />} />
                     <Route path=":id" element={<BarbershopDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+
+                <Route path="barbers" element={<BarberSubLayout />}>
+                    <Route index element={<Barbers />} />
+                    <Route path=":id" element={<BarberDetail />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
 

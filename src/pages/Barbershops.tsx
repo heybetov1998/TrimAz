@@ -1,6 +1,8 @@
+import ResultBar from "../components/UI/Bars/ResultBar";
 import Card from "../components/UI/Card";
 import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
+import FilterSearch from "../components/UI/Filters/FilterSearch";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 
@@ -79,19 +81,12 @@ const Barbershops = () => {
             <div className="container">
                 <Row>
                     <Column md={4} lg={3} xl={3}>
+                        <FilterSearch />
                         <FilterPrice />
                         <FilterCheckbox checkboxes={checkboxes} />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
-                        <div className="resultsBar">
-                            <div className="leftBar d-flex align-items-center">
-                                <span>24 items found</span>
-                                <button className="clear_filter">
-                                    Clear filter
-                                </button>
-                            </div>
-                            <div className="rightBar"></div>
-                        </div>
+                        <ResultBar itemCount={33} />
                         <div className="results">
                             <Row>
                                 {DUMMY_BARBERSHOPS.map((bshop) => {

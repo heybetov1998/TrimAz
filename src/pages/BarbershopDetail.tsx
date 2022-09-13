@@ -11,6 +11,7 @@ import SectionHeader from "../components/UI/section/SectionHeader";
 import SectionPartName from "../components/UI/section/SectionPartName";
 
 const custBarber = {
+    id: "barber1",
     name: "Teymur badirbayli",
     image: {
         src: require("../assets/images/685-500x500.jpg"),
@@ -47,7 +48,10 @@ const BarbershopDetail = () => {
                     <SectionPartName text="Our Barbers" />
                     <Row>
                         <Column md={6} lg={4} xl={4}>
-                            <Link to="#" className="card_holder">
+                            <Link
+                                to={`/barbers/${custBarber.id}`}
+                                className="card_holder"
+                            >
                                 <BarberCard barber={custBarber} />
                             </Link>
                         </Column>

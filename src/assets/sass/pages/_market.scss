@@ -2,14 +2,19 @@
     padding-top: 8rem;
     min-height: 100vh;
 
-    .resultsBar {
-        margin-bottom: 15px;
+    .card_holder {
+        &:hover {
+            .card_frame {
+                background-color: $cardHoverBackground;
+            }
 
-        .clear_filter{
-            border: none;
-            background-color: transparent;
-            margin-left: 1rem;
-            color:$linkColor;
+            .name {
+                color: $mainColor;
+            }
+
+            img {
+                transform: scale(1.2, 1.2);
+            }
         }
     }
 }
