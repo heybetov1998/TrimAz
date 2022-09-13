@@ -827,6 +827,30 @@ label .standart_checkbox.checkbox-active {
   border-radius: 20px;
 }
 
+@media screen and (max-width: 575px) {
+  .gallery {
+    height: 212px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .gallery {
+    height: 212px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .gallery {
+    height: 312px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .gallery {
+    height: 412px;
+  }
+}
+
 .gallery .row {
   height: 100%;
 }

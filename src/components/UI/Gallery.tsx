@@ -24,76 +24,307 @@ const Gallery = (props: PropsType) => {
         console.log("lightGallery has been initialized");
     };
 
-    return (
-        <LightGallery
-            onInit={onInit}
-            speed={500}
-            plugins={[lgThumbnail, lgZoom]}
-            selector={".gallery_item"}
-        >
-            <div className="gallery">
-                <Row>
-                    <Column lg={4} xl={4}>
-                        <div className="gallery_item_holder">
-                            <div
-                                className="gallery_item"
-                                data-src={props.images[0].src}
-                            >
-                                <img
-                                    src={props.images[0].src}
-                                    alt={props.images[0].alt ?? "Gallery image"}
-                                />
+    if (props.images.length === 1) {
+        return (
+            <LightGallery
+                onInit={onInit}
+                speed={500}
+                plugins={[lgThumbnail, lgZoom]}
+                selector={".gallery_item"}
+            >
+                <div className="gallery">
+                    <Row>
+                        <Column>
+                            <div className="gallery_item_holder single">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[0].src}
+                                >
+                                    <img
+                                        src={props.images[0].src}
+                                        alt={
+                                            props.images[0].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
                             </div>
-                            <div
-                                className="gallery_item"
-                                data-src={props.images[0].src}
-                            >
-                                <img
-                                    src={props.images[0].src}
-                                    alt={props.images[0].alt ?? "Gallery image"}
-                                />
+                        </Column>
+                    </Row>
+                </div>
+            </LightGallery>
+        );
+    }
+
+    if (props.images.length === 2) {
+        return (
+            <LightGallery
+                onInit={onInit}
+                speed={500}
+                plugins={[lgThumbnail, lgZoom]}
+                selector={".gallery_item"}
+            >
+                <div className="gallery">
+                    <Row>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder single">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[0].src}
+                                >
+                                    <img
+                                        src={props.images[0].src}
+                                        alt={
+                                            props.images[0].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </Column>
-                    <Column lg={4} xl={4}>
-                        <div className="gallery_item_holder single">
-                            <div
-                                className="gallery_item"
-                                data-src={props.images[0].src}
-                            >
-                                <img
-                                    src={props.images[0].src}
-                                    alt={props.images[0].alt ?? "Gallery image"}
-                                />
+                        </Column>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder single">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[1].src}
+                                >
+                                    <img
+                                        src={props.images[1].src}
+                                        alt={
+                                            props.images[1].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </Column>
-                    <Column lg={4} xl={4}>
-                        <div className="gallery_item_holder">
-                            <div
-                                className="gallery_item"
-                                data-src={props.images[0].src}
-                            >
-                                <img
-                                    src={props.images[0].src}
-                                    alt={props.images[0].alt ?? "Gallery image"}
-                                />
+                        </Column>
+                    </Row>
+                </div>
+            </LightGallery>
+        );
+    }
+
+    if (props.images.length === 3) {
+        return (
+            <LightGallery
+                onInit={onInit}
+                speed={500}
+                plugins={[lgThumbnail, lgZoom]}
+                selector={".gallery_item"}
+            >
+                <div className="gallery">
+                    <Row>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[0].src}
+                                >
+                                    <img
+                                        src={props.images[0].src}
+                                        alt={
+                                            props.images[0].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[1].src}
+                                >
+                                    <img
+                                        src={props.images[1].src}
+                                        alt={
+                                            props.images[1].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
                             </div>
-                            <div
-                                className="gallery_item"
-                                data-src={props.images[0].src}
-                            >
-                                <img
-                                    src={props.images[0].src}
-                                    alt={props.images[0].alt ?? "Gallery image"}
-                                />
+                        </Column>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder single">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[2].src}
+                                >
+                                    <img
+                                        src={props.images[2].src}
+                                        alt={
+                                            props.images[2].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </Column>
-                </Row>
-            </div>
-        </LightGallery>
-    );
+                        </Column>
+                    </Row>
+                </div>
+            </LightGallery>
+        );
+    }
+
+    if (props.images.length === 4) {
+        return (
+            <LightGallery
+                onInit={onInit}
+                speed={500}
+                plugins={[lgThumbnail, lgZoom]}
+                selector={".gallery_item"}
+            >
+                <div className="gallery">
+                    <Row>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[0].src}
+                                >
+                                    <img
+                                        src={props.images[0].src}
+                                        alt={
+                                            props.images[0].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[1].src}
+                                >
+                                    <img
+                                        src={props.images[1].src}
+                                        alt={
+                                            props.images[1].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </Column>
+                        <Column default={6} sm={6} md={6} lg={6} xl={6}>
+                            <div className="gallery_item_holder">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[2].src}
+                                >
+                                    <img
+                                        src={props.images[2].src}
+                                        alt={
+                                            props.images[2].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[3].src}
+                                >
+                                    <img
+                                        src={props.images[3].src}
+                                        alt={
+                                            props.images[3].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </Column>
+                    </Row>
+                </div>
+            </LightGallery>
+        );
+    }
+
+    if (props.images.length >= 5) {
+        return (
+            <LightGallery
+                onInit={onInit}
+                speed={500}
+                plugins={[lgThumbnail, lgZoom]}
+                selector={".gallery_item"}
+            >
+                <div className="gallery">
+                    <Row>
+                        <Column default={4} sm={4} md={4} lg={4} xl={4}>
+                            <div className="gallery_item_holder">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[0].src}
+                                >
+                                    <img
+                                        src={props.images[0].src}
+                                        alt={
+                                            props.images[0].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[1].src}
+                                >
+                                    <img
+                                        src={props.images[1].src}
+                                        alt={
+                                            props.images[1].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </Column>
+                        <Column default={4} sm={4} md={4} lg={4} xl={4}>
+                            <div className="gallery_item_holder single">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[2].src}
+                                >
+                                    <img
+                                        src={props.images[2].src}
+                                        alt={
+                                            props.images[2].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </Column>
+                        <Column default={4} sm={4} md={4} lg={4} xl={4}>
+                            <div className="gallery_item_holder">
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[3].src}
+                                >
+                                    <img
+                                        src={props.images[3].src}
+                                        alt={
+                                            props.images[3].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                                <div
+                                    className="gallery_item"
+                                    data-src={props.images[4].src}
+                                >
+                                    <img
+                                        src={props.images[4].src}
+                                        alt={
+                                            props.images[4].alt ??
+                                            "Gallery image"
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </Column>
+                    </Row>
+                </div>
+            </LightGallery>
+        );
+    }
+
+    return <div></div>;
 };
 
 export default Gallery;

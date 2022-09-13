@@ -18,8 +18,18 @@ const custBarber = {
     rating: 4.5,
 };
 
-const images = [
+type ImageType = {
+    id: string | number;
+    src: any;
+    alt?: string;
+};
+
+const images: ImageType[] = [
     { id: "img1", src: require("../assets/images/555-500x500.jpg") },
+    { id: "img2", src: require("../assets/images/1077-500x500.jpg") },
+    { id: "img3", src: require("../assets/images/612-500x500.jpg") },
+    { id: "img4", src: require("../assets/images/685-500x500.jpg") },
+    { id: "img5", src: require("../assets/images/intro.jpg") },
 ];
 
 const BarbershopDetail = () => {
