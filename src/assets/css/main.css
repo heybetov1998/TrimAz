@@ -855,6 +855,8 @@ label .standart_checkbox.checkbox-active {
 
 .gallery .row > div .gallery_item_holder .gallery_item {
   height: 47.6%;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .gallery .row > div .gallery_item_holder .gallery_item img {
@@ -862,6 +864,11 @@ label .standart_checkbox.checkbox-active {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.gallery .row > div .gallery_item_holder .gallery_item:hover img {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
 }
 
 #intro {

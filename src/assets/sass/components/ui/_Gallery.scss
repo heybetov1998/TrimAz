@@ -3,7 +3,7 @@
     height: 512px;
     margin-bottom: 2rem;
     border-radius: 20px;
-    
+
     .row {
         height: 100%;
 
@@ -24,11 +24,19 @@
 
                 .gallery_item {
                     height: 47.6%;
+                    overflow: hidden;
+                    cursor: pointer;
 
                     img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                    }
+
+                    &:hover {
+                        img {
+                            transform: scale(1.2, 1.2);
+                        }
                     }
                 }
             }
