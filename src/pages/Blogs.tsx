@@ -13,6 +13,7 @@ const DUMMY_BLOGS = [
             alt: "Booking alt",
         },
         author: {
+            id:'aut1',
             name: "Adil Heybetov",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
@@ -30,6 +31,7 @@ const DUMMY_BLOGS = [
             alt: "Booking alt",
         },
         author: {
+            id:'aut1',
             name: "Adil Heybetov",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
@@ -47,6 +49,7 @@ const DUMMY_BLOGS = [
             alt: "Booking alt",
         },
         author: {
+            id:'aut1',
             name: "Adil Heybetov",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
@@ -64,6 +67,7 @@ const DUMMY_BLOGS = [
             alt: "Booking alt",
         },
         author: {
+            id:'aut1',
             name: "Adil Heybetov",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
@@ -143,12 +147,14 @@ const Blogs = () => {
                                     xl={6}
                                 >
                                     <Card
+                                        goto={`/blogs/${blog.id}`}
                                         image={{
                                             src: blog.image.src,
                                             alt: blog.image.alt,
                                         }}
                                         title={blog.title}
                                         author={{
+                                            id:blog.author.id,
                                             image: {
                                                 src: blog.author.image.src,
                                                 alt: blog.author.image.alt,

@@ -18,6 +18,7 @@ const filteredDUMMYProducts = [
             alt: "Product image",
         },
         author: {
+            id: "aut1",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
                 alt: "Author Image",
@@ -37,6 +38,7 @@ const filteredDUMMYProducts = [
             alt: "Product image",
         },
         author: {
+            id: "aut1",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
                 alt: "Author Image",
@@ -56,6 +58,7 @@ const filteredDUMMYProducts = [
             alt: "Product image",
         },
         author: {
+            id: "aut1",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
                 alt: "Author Image",
@@ -75,6 +78,7 @@ const filteredDUMMYProducts = [
             alt: "Product image",
         },
         author: {
+            id: "aut1",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
                 alt: "Author Image",
@@ -94,6 +98,7 @@ const filteredDUMMYProducts = [
             alt: "Product image",
         },
         author: {
+            id: "aut1",
             image: {
                 src: require("../assets/images/555-500x500.jpg"),
                 alt: "Author Image",
@@ -146,9 +151,9 @@ const Market = () => {
                                                 image={product.image}
                                                 location={product.location}
                                                 author={{
+                                                    id: product.author.id,
                                                     name: product.author.name,
                                                     image: product.author.image,
-                                                    goto: product.author.goto,
                                                 }}
                                             />
                                         </Column>

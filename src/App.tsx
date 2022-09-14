@@ -17,6 +17,8 @@ import ProductDetail from "./pages/ProductDetail";
 import MarketSubLayout from "./layouts/MarketSubLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import BlogDetail from "./pages/BlogDetail";
+import BlogSubLayout from "./layouts/BlogSubLayout";
 
 const App = () => {
     return (
@@ -42,11 +44,15 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                 </Route>
 
+                <Route path="blogs" element={<BlogSubLayout />}>
+                    <Route index element={<Blogs />} />
+                    <Route path=":id" element={<BlogDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+
+                <Route path="contact" element={<Contact />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
-
-                <Route path="blogs" element={<Blogs />} />
-                <Route path="contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

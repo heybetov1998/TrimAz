@@ -9,6 +9,7 @@ import {
     IoIosHeart,
 } from "react-icons/io";
 import Tag from "./Tags/Tag";
+import AuthorInfo from "./Author/AuthorInfo";
 
 interface Props {
     image: {
@@ -23,12 +24,12 @@ interface Props {
     title: string;
     location?: string;
     author?: {
+        id: string;
         image: {
             src: string;
             alt: string;
         };
         name: string;
-        goto?: string;
     };
     hasHeart?: boolean;
     tags?: { name: string }[];
@@ -113,30 +114,10 @@ const Card = (props: Props) => {
                 </div>
 
                 {props.author && (
-                    <div className="author_info">
-                        <Link
-                            to={props.author.goto ?? "#"}
-                            className="author_pp"
-                        >
-                            <img
-                                src={props.author.image.src}
-                                alt={props.author.image.alt}
-                            />
-                        </Link>
-                        <div className="d-flex align-items-center">
-                            <Link
-                                to={props.author.goto ?? "#"}
-                                className="author_name"
-                            >
-                                {props.author.name}
-                            </Link>
-                            {props.createdDate && (
-                                <span className="dateHolder">
-                                    {props.createdDate}
-                                </span>
-                            )}
-                        </div>
-                    </div>
+                    <AuthorInfo
+                        author={props.author}
+                        createdDate={props.createdDate}
+                    />
                 )}
             </div>
         </div>
