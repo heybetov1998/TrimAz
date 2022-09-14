@@ -1,17 +1,17 @@
 type PropsType = {
     type?: string;
     placeholder?: string;
+    value?: any;
     className?: string;
-    id?: string;
 };
 
-const ContactInput = (props: PropsType) => (
+const CustomInput = (props: PropsType) => (
     <input
-        id={props.id ?? ""}
-        className={`contact_input ${props.className ?? ""}`}
+        className={`custom_input ${props.className ?? ""}`}
         type={props.type ?? "text"}
         placeholder={props.placeholder ?? ""}
+        value={props.value ?? ""}
     />
 );
 
-export default ContactInput;
+export default CustomInput;

@@ -1,5 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
     BiBasket,
     BiUser,
@@ -16,6 +16,11 @@ type PropsType = {
 
 const RightHeader = (props: PropsType) => {
     const [isUserOptionsOpened, setIsUserOptionsOpened] = useState(false);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        setIsUserOptionsOpened(false);
+    }, [pathname]);
 
     const optionsHandler = (event: React.MouseEvent) => {
         event.preventDefault();

@@ -15,6 +15,8 @@ import BarberSubLayout from "./layouts/BarberSubLayout";
 import Barbers from "./pages/Barbers";
 import ProductDetail from "./pages/ProductDetail";
 import MarketSubLayout from "./layouts/MarketSubLayout";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
     return (
@@ -39,6 +41,9 @@ const App = () => {
                     <Route path="products/:id" element={<ProductDetail />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
+
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
 
                 <Route path="blogs" element={<Blogs />} />
                 <Route path="contact" element={<Contact />} />

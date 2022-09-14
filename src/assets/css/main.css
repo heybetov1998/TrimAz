@@ -589,6 +589,23 @@ footer .rightFooter li a svg {
   padding: 10px !important;
 }
 
+.custom_input {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #232323;
+}
+
+.input_block {
+  margin-bottom: 1.5rem;
+}
+
+.input_block label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .submit_button {
   padding: 5px 10px;
   width: 100%;
@@ -974,6 +991,12 @@ label .standart_checkbox.checkbox-active {
   color: #5e9fff;
 }
 
+.forgot_password {
+  color: #5e9fff;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
 #intro {
   position: relative;
   background-position: center center;
@@ -1273,6 +1296,11 @@ label .standart_checkbox.checkbox-active {
 }
 
 #product_detail {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+#login_page {
   padding-top: 8rem;
   min-height: 100vh;
 }
