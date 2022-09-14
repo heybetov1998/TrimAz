@@ -1,5 +1,4 @@
 import AuthorInfo from "../components/UI/Author/AuthorInfo";
-import Card from "../components/UI/Card";
 import FilterSearch from "../components/UI/Filters/FilterSearch";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";

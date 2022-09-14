@@ -1,4 +1,5 @@
 import BarberInfo from "../components/BarberDetail/BarberInfo";
+import MyServices from "../components/BarberDetail/MyServices";
 import Portfolio from "../components/BarberDetail/Portfolio";
 import Videos from "../components/BarberDetail/Videos";
 import Column from "../components/UI/grid/Column";
@@ -18,6 +19,7 @@ const BarberDetail = () => (
             <Row>
                 <Column className="order-1 order-md-0" md={8} lg={9} xl={9}>
                     <Portfolio images={DUMMY_IMAGES} />
+                    <MyServices />
                     <Videos />
                     <Reviews />
                 </Column>

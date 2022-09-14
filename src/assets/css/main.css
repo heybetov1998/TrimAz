@@ -467,6 +467,24 @@ footer .rightFooter li a svg {
   margin-right: 2px;
 }
 
+.service_card {
+  padding: 15px 20px !important;
+}
+
+.service_card .name {
+  margin-bottom: 0;
+}
+
+.service_card .time {
+  color: #606060;
+  font-size: 0.9rem;
+}
+
+.service_card .price {
+  text-align: right;
+  color: #ffffff;
+}
+
 .card_frame {
   padding: 30px 20px;
   margin-bottom: 1.2rem;
