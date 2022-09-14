@@ -13,6 +13,8 @@ import BarbershopSubLayout from "./layouts/BarbershopSubLayout";
 import BarberDetail from "./pages/BarberDetail";
 import BarberSubLayout from "./layouts/BarberSubLayout";
 import Barbers from "./pages/Barbers";
+import ProductDetail from "./pages/ProductDetail";
+import MarketSubLayout from "./layouts/MarketSubLayout";
 
 const App = () => {
     return (
@@ -32,7 +34,12 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                 </Route>
 
-                <Route path="market" element={<Market />} />
+                <Route path="market" element={<MarketSubLayout />}>
+                    <Route index element={<Market />} />
+                    <Route path="products/:id" element={<ProductDetail />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+
                 <Route path="blogs" element={<Blogs />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />

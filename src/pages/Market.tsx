@@ -1,6 +1,8 @@
+import ResultBar from "../components/UI/Bars/ResultBar";
 import Card from "../components/UI/Card";
 import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
+import FilterSearch from "../components/UI/Filters/FilterSearch";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 
@@ -21,6 +23,7 @@ const filteredDUMMYProducts = [
                 alt: "Author Image",
             },
             name: "Engin Altan",
+            goto: `/users/enginAltan`,
         },
     },
     {
@@ -39,6 +42,7 @@ const filteredDUMMYProducts = [
                 alt: "Author Image",
             },
             name: "Enner Valencia",
+            goto: "/users/ennerValencia",
         },
     },
     {
@@ -57,6 +61,7 @@ const filteredDUMMYProducts = [
                 alt: "Author Image",
             },
             name: "Altay Bayındır",
+            goto: "/users/altayBayindir",
         },
     },
     {
@@ -75,6 +80,7 @@ const filteredDUMMYProducts = [
                 alt: "Author Image",
             },
             name: "Atilla Szalai",
+            goto: "/users/atillaSzalai",
         },
     },
     {
@@ -93,6 +99,7 @@ const filteredDUMMYProducts = [
                 alt: "Author Image",
             },
             name: "Serdar Dursun",
+            goto: "/users/serdarDursun",
         },
     },
 ];
@@ -114,19 +121,12 @@ const Market = () => {
             <div className="container">
                 <Row>
                     <Column md={4} lg={3} xl={3}>
+                        <FilterSearch />
                         <FilterPrice />
                         <FilterCheckbox checkboxes={checkboxes} />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
-                        <div className="resultsBar">
-                            <div className="leftBar d-flex align-items-center">
-                                <span>24 items found</span>
-                                <button className="clear_filter">
-                                    Clear filter
-                                </button>
-                            </div>
-                            <div className="rightBar"></div>
-                        </div>
+                        <ResultBar itemCount={12} />
                         <div className="results">
                             <Row>
                                 {filteredDUMMYProducts.map((product) => {
@@ -139,6 +139,7 @@ const Market = () => {
                                             xl={4}
                                         >
                                             <Card
+                                                goto={`/market/products/${product.id}`}
                                                 hasHeart
                                                 title={product.title}
                                                 price={product.price}
@@ -147,6 +148,7 @@ const Market = () => {
                                                 author={{
                                                     name: product.author.name,
                                                     image: product.author.image,
+                                                    goto: product.author.goto,
                                                 }}
                                             />
                                         </Column>

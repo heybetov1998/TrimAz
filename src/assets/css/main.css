@@ -142,6 +142,39 @@ body {
   }
 }
 
+.main_header .mini_navbar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  background-color: #303030;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .main_header .mini_navbar {
+    display: block;
+  }
+}
+
+.main_header .mini_navbar.active {
+  -webkit-box-shadow: 5px 5px 15px 5px #232323;
+  box-shadow: 5px 5px 15px 5px #232323;
+  width: 40%;
+}
+
+.main_header .mini_navbar .link {
+  display: block;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.main_header .mini_navbar .link:hover, .main_header .mini_navbar .link:focus, .main_header .mini_navbar .link.active {
+  background-color: #e4911a;
+}
+
 footer {
   padding: 2rem 0;
 }
@@ -203,6 +236,10 @@ footer .rightFooter li a svg {
   color: #e4911a;
 }
 
+.right_header {
+  position: relative;
+}
+
 .right_header .right_item {
   width: 50px;
   height: 50px;
@@ -213,8 +250,39 @@ footer .rightFooter li a svg {
   color: #ffffff;
 }
 
-.right_header .right_item:hover, .right_header .right_item:focus, .right_header .right_item:active {
+.right_header .right_item:hover, .right_header .right_item:active {
   background-color: #606060;
+}
+
+.right_header .user_manager_popup {
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+  min-width: 150px;
+  background-color: #303030;
+  -webkit-box-shadow: 5px 5px 15px 5px #232323;
+  box-shadow: 5px 5px 15px 5px #232323;
+}
+
+.right_header .user_manager_popup a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+  padding: 5px 0;
+}
+
+.right_header .user_manager_popup a:hover {
+  color: #cccccc;
+}
+
+.right_header .user_manager_popup a .popup_text {
+  margin-left: 5px;
 }
 
 .section_header {
@@ -1202,5 +1270,10 @@ label .standart_checkbox.checkbox-active {
   margin-bottom: 1rem;
   text-align: center;
   color: #ffffff;
+}
+
+#product_detail {
+  padding-top: 8rem;
+  min-height: 100vh;
 }
 /*# sourceMappingURL=main.css.map */
