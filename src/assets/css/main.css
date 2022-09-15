@@ -986,6 +986,21 @@ label .standart_checkbox.checkbox-active {
   padding-left: 10px;
 }
 
+.square_image {
+  overflow: hidden;
+  border-radius: 20px;
+  width: 100%;
+  padding-bottom: 100%;
+  margin-bottom: 1rem;
+  height: 0;
+}
+
+.square_image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #intro {
   position: relative;
   background-position: center center;
@@ -1251,21 +1266,6 @@ label .standart_checkbox.checkbox-active {
   }
 }
 
-.barber_info .profile_picture {
-  overflow: hidden;
-  border-radius: 20px;
-  width: 100%;
-  padding-bottom: 100%;
-  margin-bottom: 1rem;
-  height: 0;
-}
-
-.barber_info .profile_picture img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .barber_info .name {
   text-align: center;
   font-size: 1.4rem;
@@ -1326,5 +1326,31 @@ label .standart_checkbox.checkbox-active {
 #login_page {
   padding-top: 8rem;
   min-height: 100vh;
+}
+
+#user_settings {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+#user_settings .name {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+#user_settings .management_options {
+  background-color: #232323;
+  padding: 20px;
+}
+
+#user_settings .management_options .option_item {
+  display: inline-block;
+  color: #ffffff;
+  padding: 5px 0;
+}
+
+#user_settings .management_options .option_item:hover, #user_settings .management_options .option_item.active {
+  color: #e4911a;
 }
 /*# sourceMappingURL=main.css.map */

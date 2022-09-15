@@ -43,6 +43,7 @@
 @import "components/ui/bars/ResultBar";
 @import "components/ui/LoginCard";
 @import "components/ui/author/AuthorInfo";
+@import "components/ui/images/SquareImage.scss";
 
 //pages
 @import "pages/home";
@@ -54,5 +55,6 @@
 @import "pages/productDetail";
 @import "pages/blogDetail";
 @import "pages/login";
+@import "pages/userSettings";
 
 //themes

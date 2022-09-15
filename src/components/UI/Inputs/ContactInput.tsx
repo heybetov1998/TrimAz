@@ -3,6 +3,7 @@ type PropsType = {
     placeholder?: string;
     className?: string;
     id?: string;
+    value?: string | number;
 };
 
 const ContactInput = (props: PropsType) => (
@@ -11,6 +12,7 @@ const ContactInput = (props: PropsType) => (
         className={`contact_input ${props.className ?? ""}`}
         type={props.type ?? "text"}
         placeholder={props.placeholder ?? ""}
+        defaultValue={props.value ?? ""}
     />
 );
 

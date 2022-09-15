@@ -1,15 +1,13 @@
 import SubmitButton from "../UI/Buttons/SubmitButton";
 import CardFrame from "../UI/CardFrame";
+import SquareImage from "../UI/Images/SquareImage";
 import Stars from "../UI/Stars";
 
 const BarberInfo = () => (
     <CardFrame className="barber_info">
-        <div className="profile_picture">
-            <img
-                src={require("../../assets/images/profile-picture.png")}
-                alt="testtest"
-            />
-        </div>
+        <SquareImage
+            img={{ src: require("../../assets/images/profile-picture.png") }}
+        />
         <div>
             <div>
                 <h2 className="name">Barber Name</h2>

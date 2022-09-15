@@ -4,6 +4,7 @@ type PropsType = {
     name?: string;
     inputId?: string;
     inputType?: string;
+    inputValue?: string | number;
 };
 
 const InputBlock = (props: PropsType) => (
@@ -14,6 +15,7 @@ const InputBlock = (props: PropsType) => (
         <ContactInput
             id={props.inputId ?? ""}
             type={props.inputType ?? "text"}
+            value={props.inputValue ?? ""}
         />
     </div>
 );
