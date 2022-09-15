@@ -1289,6 +1289,32 @@ label .standart_checkbox.checkbox-active {
   min-height: 100vh;
 }
 
+#product_detail .product_image {
+  cursor: pointer;
+}
+
+#product_detail .name_holder .product_name {
+  margin-right: 2rem;
+  font-size: 2rem;
+}
+
+#product_detail .name_holder .product_price {
+  color: #cccccc;
+  font-size: 2rem;
+}
+
+#product_detail .product_description {
+  color: #ffffff;
+}
+
+#product_detail .product_seller .author_name {
+  color: #ffffff;
+}
+
+#product_detail .product_seller .author_name:hover {
+  color: #e4911a;
+}
+
 .blog_part .main_image {
   border-radius: 20px;
   overflow: hidden;

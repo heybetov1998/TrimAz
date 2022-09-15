@@ -149,7 +149,6 @@ const Market = () => {
                                                 title={product.title}
                                                 price={product.price}
                                                 image={product.image}
-                                                location={product.location}
                                                 author={{
                                                     id: product.author.id,
                                                     name: product.author.name,
