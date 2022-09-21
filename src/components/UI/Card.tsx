@@ -8,6 +8,8 @@ import {
     IoIosHeartEmpty,
     IoIosHeart,
 } from "react-icons/io";
+import Tag from "./Tags/Tag";
+import AuthorInfo from "./Author/AuthorInfo";
 
 interface Props {
     image: {
@@ -18,10 +20,11 @@ interface Props {
     hasStars?: boolean;
     prePrice?: string;
     afterPrice?: string;
-    price: number;
+    price?: number;
     title: string;
     location?: string;
     author?: {
+        id: string;
         image: {
             src: string;
             alt: string;
@@ -29,6 +32,10 @@ interface Props {
         name: string;
     };
     hasHeart?: boolean;
+    tags?: { name: string }[];
+    description?: string;
+    createdDate?: string;
+    goto?: string;
 }
 
 const Card = (props: Props) => {
@@ -42,7 +49,10 @@ const Card = (props: Props) => {
 
     return (
         <div className={`card ${props.className ?? ""}`}>
-            <Link to={"#"} className="image_holder position-relative">
+            <Link
+                to={props.goto ?? "#"}
+                className="image_holder position-relative"
+            >
                 <img
                     src={props.image.src}
                     className="card-img-top"
@@ -63,6 +73,8 @@ const Card = (props: Props) => {
             </Link>
 
             <div className="card-body">
+                {props.tags && props.tags.map((tag) => <Tag />)}
+
                 {props.hasStars && (
                     <ReactStars
                         isHalf={true}
@@ -78,34 +90,34 @@ const Card = (props: Props) => {
                 )}
 
                 <div className="info_holder">
-                    <Link to={"#"} className="card-title">
+                    <Link to={props.goto ?? "#"} className="card-title">
                         {props.title}
                     </Link>
                     {props.location && (
                         <p className="location-text">{props.location}</p>
                     )}
+                    {props.description && (
+                        <p className="description">{props.description}</p>
+                    )}
                 </div>
 
                 <div className="price_holder">
-                    {props.prePrice && <span className="pre_price">From:</span>}
-                    <span className="price">{props.price} AZN</span>
+                    {props.prePrice && (
+                        <span className="pre_price">{props.prePrice}</span>
+                    )}
+                    {props.price && (
+                        <span className="price">{props.price} AZN</span>
+                    )}
                     {props.afterPrice && (
-                        <span className="after_price">/night</span>
+                        <span className="after_price">{props.afterPrice}</span>
                     )}
                 </div>
 
                 {props.author && (
-                    <div className="author_info">
-                        <Link to={"#"} className="author_pp">
-                            <img
-                                src={props.author.image.src}
-                                alt={props.author.image.alt}
-                            />
-                        </Link>
-                        <Link to={"#"} className="author_name">
-                            {props.author.name}
-                        </Link>
-                    </div>
+                    <AuthorInfo
+                        author={props.author}
+                        createdDate={props.createdDate}
+                    />
                 )}
             </div>
         </div>

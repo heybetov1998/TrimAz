@@ -15,6 +15,7 @@ const DUMMY_PRODUCTS = [
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {
+            id: "auth1",
             image: {
                 src: image,
                 alt: "Author Image",
@@ -30,6 +31,7 @@ const DUMMY_PRODUCTS = [
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {
+            id: "aut2",
             image: {
                 src: image,
                 alt: "Author Image",
@@ -45,6 +47,7 @@ const DUMMY_PRODUCTS = [
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {
+            id: "aut3",
             image: {
                 src: image,
                 alt: "Author Image",
@@ -60,6 +63,7 @@ const DUMMY_PRODUCTS = [
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {
+            id: "aut4",
             image: {
                 src: image,
                 alt: "Author Image",
@@ -71,10 +75,11 @@ const DUMMY_PRODUCTS = [
         id: 5,
         title: "Termos",
         price: 80,
-        location: "Yasaml, Baku",
+        location: "Yasamal, Baku",
         afterPrice: null,
         image: { src: image, alt: "Product image" },
         author: {
+            id: "aut5",
             image: {
                 src: image,
                 alt: "Author Image",
@@ -124,6 +129,7 @@ const LatestProducts = () => {
                                     image={product.image}
                                     location={product.location}
                                     author={{
+                                        id: product.author.id,
                                         name: product.author.name,
                                         image: product.author.image,
                                     }}

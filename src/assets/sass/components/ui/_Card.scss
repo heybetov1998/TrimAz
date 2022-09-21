@@ -47,6 +47,17 @@
             color: $mainColor;
             font-size: 0.8rem;
         }
+
+        .description {
+            margin-top: 1rem;
+            color: $borderColor;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
     }
 
     .price_holder {
@@ -57,38 +68,6 @@
             color: $backgroundColor;
             margin-left: 5px;
             margin-right: 2px;
-        }
-    }
-
-    .author_info {
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-
-        .author_pp {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-
-                &:hover {
-                    transform: scale(1.2, 1.2);
-                }
-            }
-        }
-
-        .author_name {
-            margin-left: 10px;
-            color: $borderColor;
-
-            &:hover {
-                color: $backgroundColor;
-            }
         }
     }
 }
