@@ -94,7 +94,7 @@ const BestBarbershops = () => {
                         onSlideChange={() => console.log("slide change")}
                         onSwiper={(swiper) => console.log(swiper)}
                     >
-                        {DUMMY_BARBERSHOPS.map((bshop) => (
+                        {/* {DUMMY_BARBERSHOPS.map((bshop) => (
                             <SwiperSlide key={bshop.id}>
                                 <Card
                                     title={bshop.title}
@@ -103,7 +103,7 @@ const BestBarbershops = () => {
                                     location={bshop.location}
                                 />
                             </SwiperSlide>
-                        ))}
+                        ))} */}
                     </Swiper>
                     <div className="custom-pagination paginationBarbershop"></div>
                 </div>

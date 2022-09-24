@@ -55,7 +55,7 @@ const DUMMY_AUTHOR = {
     id: "auth1",
     name: "Aliashraf Merdanov",
     image: {
-        src: require("../assets/images/555-500x500.jpg"),
+        name: require("../assets/images/555-500x500.jpg"),
         alt: "qariban bir author",
     },
 };

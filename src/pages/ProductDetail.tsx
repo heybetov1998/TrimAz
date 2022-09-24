@@ -120,7 +120,7 @@ const ProductDetail = () => (
                             author={{
                                 id: "sell2",
                                 image: {
-                                    src: require("../assets/images/profile-picture.png"),
+                                    name: "profile-picture.png",
                                     alt: "some seller info",
                                 },
                                 name: "Aliyar Aliyev",

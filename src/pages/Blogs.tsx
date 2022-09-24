@@ -139,7 +139,7 @@ const Blogs = () => {
                 <Row>
                     <Column className="order-1 order-md-0" md={6} lg={8} xl={8}>
                         <Row>
-                            {DUMMY_BLOGS.map((blog) => (
+                            {/* {DUMMY_BLOGS.map((blog) => (
                                 <Column
                                     key={blog.id}
                                     className="mb-4"
@@ -165,7 +165,7 @@ const Blogs = () => {
                                         createdDate={dateString}
                                     />
                                 </Column>
-                            ))}
+                            ))} */}
                         </Row>
                     </Column>
                     <Column className="order-0 order-md-1" md={6} lg={4} xl={4}>

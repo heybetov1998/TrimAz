@@ -89,7 +89,7 @@ const Barbershops = () => {
                         <ResultBar itemCount={33} />
                         <div className="results">
                             <Row>
-                                {DUMMY_BARBERSHOPS.map((bshop) => {
+                                {/* {DUMMY_BARBERSHOPS.map((bshop) => {
                                     return (
                                         <Column
                                             key={bshop.id}
@@ -108,7 +108,7 @@ const Barbershops = () => {
                                             />
                                         </Column>
                                     );
-                                })}
+                                })} */}
                             </Row>
                         </div>
                     </Column>

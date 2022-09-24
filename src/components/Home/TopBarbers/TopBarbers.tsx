@@ -13,6 +13,7 @@ import Loader from "../../UI/Loaders/Loader";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import NotFoundMessage from "../../UI/Messages/NotFoundMessage";
 
 const TopBarbers = () => {
     const { topBarbers, loading } = useSelector(
@@ -30,13 +31,15 @@ const TopBarbers = () => {
             <div className="container">
                 <SectionHeader text="Top barbers" />
                 {loading && <Loader />}
-                {!loading && topBarbers.length===0 && <h2 className="text-center text-white-50">Barbers Not Found</h2>}
+                {!loading && topBarbers.length === 0 && <NotFoundMessage />}
                 {!loading && topBarbers.length > 0 && (
                     <div className="slider_holder position-relative">
-                        <div className="on_slider_nav">
-                            <SwiperPrev className="absolute-nav" />
-                            <SwiperNext className="absolute-nav" />
-                        </div>
+                        {topBarbers.length > 5 && (
+                            <div className="on_slider_nav">
+                                <SwiperPrev className="absolute-nav" />
+                                <SwiperNext className="absolute-nav" />
+                            </div>
+                        )}
                         <Swiper
                             breakpoints={{
                                 576: { slidesPerView: 2 },
@@ -49,7 +52,7 @@ const TopBarbers = () => {
                                 prevEl: ".on_slider_nav .swiper-custom-prev",
                                 nextEl: ".on_slider_nav .swiper-custom-next",
                             }}
-                            loop={true}
+                            loop={false}
                             modules={[Pagination, Navigation]}
                             onSlideChange={() => console.log("slide change")}
                             onSwiper={(swiper) => console.log(swiper)}

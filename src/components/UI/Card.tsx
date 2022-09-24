@@ -13,7 +13,7 @@ import AuthorInfo from "./Author/AuthorInfo";
 
 interface Props {
     image: {
-        src: string;
+        name: string;
         alt: string;
     };
     className?: string;
@@ -26,7 +26,7 @@ interface Props {
     author?: {
         id: string;
         image: {
-            src: string;
+            name: string;
             alt: string;
         };
         name: string;
@@ -54,7 +54,7 @@ const Card = (props: Props) => {
                 className="image_holder position-relative"
             >
                 <img
-                    src={props.image.src}
+                    src={`https://localhost:7231/img/${props.image.name}`}
                     className="card-img-top"
                     alt={props.image.alt}
                 />
