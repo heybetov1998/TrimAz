@@ -8,16 +8,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopBarbers } from "../../../redux/features/topBarbersSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../UI/Loaders/Loader";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import image1 from "../../../assets/images/1077-500x500.jpg";
-import image2 from "../../../assets/images/555-500x500.jpg";
-import image3 from "../../../assets/images/612-500x500.jpg";
-import image4 from "../../../assets/images/685-500x500.jpg";
-import Loader from "../../UI/Loaders/Loader";
 
 const TopBarbers = () => {
     const { topBarbers, loading } = useSelector(
@@ -34,9 +29,9 @@ const TopBarbers = () => {
         <section id="topBarbers">
             <div className="container">
                 <SectionHeader text="Top barbers" />
-                {loading ? (
-                    <Loader />
-                ) : (
+                {loading && <Loader />}
+                {!loading && topBarbers.length===0 && <h2 className="text-center text-white-50">Barbers Not Found</h2>}
+                {!loading && topBarbers.length > 0 && (
                     <div className="slider_holder position-relative">
                         <div className="on_slider_nav">
                             <SwiperPrev className="absolute-nav" />
@@ -62,7 +57,7 @@ const TopBarbers = () => {
                             {topBarbers.map((item) => (
                                 <SwiperSlide key={item.id}>
                                     <BarberSlide
-                                        imageSrc={item.imageSrc}
+                                        imageSrc={`https://localhost:7231/img/${item.imageName}`}
                                         name={`${item.firstName} ${item.lastName}`}
                                         rating={item.starRating}
                                     />
