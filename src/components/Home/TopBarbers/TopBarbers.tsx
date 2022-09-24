@@ -9,11 +9,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTopBarbers } from "../../../redux/features/topBarbersSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 import Loader from "../../UI/Loaders/Loader";
+import NotFoundMessage from "../../UI/Messages/NotFoundMessage";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import NotFoundMessage from "../../UI/Messages/NotFoundMessage";
 
 const TopBarbers = () => {
     const { topBarbers, loading } = useSelector(
@@ -34,12 +34,10 @@ const TopBarbers = () => {
                 {!loading && topBarbers.length === 0 && <NotFoundMessage />}
                 {!loading && topBarbers.length > 0 && (
                     <div className="slider_holder position-relative">
-                        {topBarbers.length > 5 && (
-                            <div className="on_slider_nav">
-                                <SwiperPrev className="absolute-nav" />
-                                <SwiperNext className="absolute-nav" />
-                            </div>
-                        )}
+                        <div className="on_slider_nav">
+                            <SwiperPrev className="absolute-nav" />
+                            <SwiperNext className="absolute-nav" />
+                        </div>
                         <Swiper
                             breakpoints={{
                                 576: { slidesPerView: 2 },
