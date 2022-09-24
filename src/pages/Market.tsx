@@ -134,7 +134,7 @@ const Market = () => {
                         <ResultBar itemCount={12} />
                         <div className="results">
                             <Row>
-                                {filteredDUMMYProducts.map((product) => {
+                                {/* {filteredDUMMYProducts.map((product) => {
                                     return (
                                         <Column
                                             key={product.id}
@@ -157,7 +157,7 @@ const Market = () => {
                                             />
                                         </Column>
                                     );
-                                })}
+                                })} */}
                             </Row>
                         </div>
                     </Column>
