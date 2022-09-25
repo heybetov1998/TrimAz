@@ -13,7 +13,7 @@ const initialState: BestBarbershopsState = {
 export const getBestBarbershops = createAsyncThunk(
     "barbershops/getBestBarbershops",
     async () => {
-        return fetch("https://localhost:7231/api/Barbershops").then(
+        return fetch("https://localhost:7231/api/Barbershops?take=12").then(
             (response) => response.json()
         );
     }

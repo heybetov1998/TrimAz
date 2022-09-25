@@ -13,7 +13,7 @@ const initialState: TopBarbersState = {
 export const getTopBarbers = createAsyncThunk(
     "barbers/getTopBarbers",
     async () => {
-        return fetch("https://localhost:7231/api/Barbers").then((response) =>
+        return fetch("https://localhost:7231/api/Barbers?take=15").then((response) =>
             response.json()
         );
     }
