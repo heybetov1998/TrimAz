@@ -118,6 +118,7 @@ const BestBarbershops = () => {
                             {bestBarbershops.map((bshop) => (
                                 <SwiperSlide key={bshop.id}>
                                     <Card
+                                        barbershopId={bshop.id}
                                         title={bshop.name}
                                         price={bshop.price}
                                         afterPrice={bshop.afterPrice}

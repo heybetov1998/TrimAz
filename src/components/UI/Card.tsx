@@ -36,6 +36,8 @@ interface Props {
     description?: string;
     createdDate?: string;
     goto?: string;
+    productId?: number;
+    barbershopId?: number;
 }
 
 const Card = (props: Props) => {
@@ -50,7 +52,13 @@ const Card = (props: Props) => {
     return (
         <div className={`card ${props.className ?? ""}`}>
             <Link
-                to={props.goto ?? "#"}
+                to={
+                    props.productId
+                        ? `/market/products/${props.productId}`
+                        : props.barbershopId
+                        ? `/barbershops/${props.barbershopId}`
+                        : "#"
+                }
                 className="image_holder position-relative"
             >
                 <img
@@ -90,7 +98,16 @@ const Card = (props: Props) => {
                 )}
 
                 <div className="info_holder">
-                    <Link to={props.goto ?? "#"} className="card-title">
+                    <Link
+                        to={
+                            props.productId
+                                ? `/market/products/${props.productId}`
+                                : props.barbershopId
+                                ? `/barbershops/${props.barbershopId}`
+                                : "#"
+                        }
+                        className="card-title"
+                    >
                         {props.title}
                     </Link>
                     {props.location && (

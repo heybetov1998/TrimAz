@@ -1,72 +1,49 @@
 import Select from "react-select";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import SubmitButton from "../UI/Buttons/SubmitButton";
 import Column from "../UI/grid/Column";
 import Row from "../UI/grid/Row";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../redux/store";
+import { getServices } from "../../redux/features/servicesSlice";
 
 import image from "../../assets/images/intro.jpg";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-// const options = [
-//     { value: "test", label: "test" },
-//     { value: "hello", label: "hello" },
-// ];
-
-interface ColorOption {
-    readonly value: string;
+interface ServicesOption {
+    readonly value: number;
     readonly label: string;
-    readonly color: string;
-    readonly isFixed?: boolean;
-    readonly isDisabled?: boolean;
 }
-
-interface FlavorOption {
-    readonly value: string;
-    readonly label: string;
-    readonly rating: string;
-}
-
-interface GroupedOption {
-    readonly label: string;
-    readonly options: readonly ColorOption[] | readonly FlavorOption[];
-}
-
-const colorList: ColorOption[] = [
-    { value: "blue", label: "Blue", color: "blue" },
-    { value: "red", label: "Red", color: "red" },
-    { value: "yellow", label: "Yellow", color: "yellow" },
-    { value: "green", label: "Green", color: "green" },
-];
-
-const flavorList: FlavorOption[] = [
-    { value: "vanilla", label: "Vanilla", rating: "safe" },
-    { value: "chocolate", label: "Chocolate", rating: "good" },
-    { value: "strawberry", label: "Strawberry", rating: "wild" },
-    { value: "salted-caramel", label: "Salted Caramel", rating: "crazy" },
-];
-
-const groupList: GroupedOption[] = [
-    { label: "Colors", options: colorList },
-    { label: "Flavors", options: flavorList },
-];
-
-const FormatGroupLabel = (group: GroupedOption) => {
-    return (
-        <div className="group_label">
-            <span>{group.label} </span>
-            <span className="group_badge">{group.options.length}</span>
-        </div>
-    );
-};
 
 const Intro = () => {
+    const { services, loading } = useSelector(
+        (state: RootState) => state.services
+    );
     const [reservationDate, setReservationDate] = useState(new Date());
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(getServices());
+    }, [dispatch]);
 
     const reservationHandler = (date: Date) => {
         setReservationDate(date);
     };
+
+    const serviceOptions: ServicesOption[] = services.map((n) => ({
+        value: n.id,
+        label: n.name,
+    }));
+
+    // const serviceOptions: ServicesOption[] = [
+    //     { value: 1, label: "test" },
+    //     { value: 2, label: "test" },
+    //     { value: 3, label: "test" },
+    //     { value: 4, label: "test" },
+    // ];
 
     return (
         <section id="intro" style={{ backgroundImage: `url("${image}")` }}>
@@ -85,15 +62,11 @@ const Intro = () => {
                                         lg={4}
                                         xl={4}
                                     >
-                                        <Select<
-                                            ColorOption | FlavorOption,
-                                            true,
-                                            GroupedOption
-                                        >
-                                            formatGroupLabel={FormatGroupLabel}
-                                            className="service_selection"
-                                            options={groupList}
+                                        <Select
                                             isMulti
+                                            name="services"
+                                            options={serviceOptions}
+                                            className="service_selection"
                                         />
                                     </Column>
                                     <Column

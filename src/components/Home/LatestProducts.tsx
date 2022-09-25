@@ -59,6 +59,7 @@ const LatestProducts = () => {
                                 <SwiperSlide key={product.id}>
                                     <Card
                                         hasHeart
+                                        productId={product.id}
                                         title={product.title}
                                         price={product.price}
                                         image={product.image}

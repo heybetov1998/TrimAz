@@ -58,6 +58,7 @@ const TopBarbers = () => {
                             {topBarbers.map((item) => (
                                 <SwiperSlide key={item.id}>
                                     <BarberSlide
+                                        barberId={item.id}
                                         imageSrc={`https://localhost:7231/img/${item.imageName}`}
                                         name={`${item.firstName} ${item.lastName}`}
                                         rating={item.starRating}

@@ -13,7 +13,7 @@ const initialState: LatestProductsSliceState = {
 export const getlatestProducts = createAsyncThunk(
     "products/getLatestProducts",
     async () => {
-        return fetch("https://localhost:7231/api/Products").then((response) =>
+        return fetch("https://localhost:7231/api/Products?take=12").then((response) =>
             response.json()
         );
     }
