@@ -37,6 +37,7 @@ interface Props {
     createdDate?: string;
     goto?: string;
     productId?: number;
+    barbershopId?: number;
 }
 
 const Card = (props: Props) => {
@@ -54,6 +55,8 @@ const Card = (props: Props) => {
                 to={
                     props.productId
                         ? `/market/products/${props.productId}`
+                        : props.barbershopId
+                        ? `/barbershops/${props.barbershopId}`
                         : "#"
                 }
                 className="image_holder position-relative"
@@ -99,6 +102,8 @@ const Card = (props: Props) => {
                         to={
                             props.productId
                                 ? `/market/products/${props.productId}`
+                                : props.barbershopId
+                                ? `/barbershops/${props.barbershopId}`
                                 : "#"
                         }
                         className="card-title"
