@@ -11,6 +11,8 @@ import Row from "../components/UI/grid/Row";
 import { AppDispatch, RootState } from "../redux/store";
 import { getBarbers } from "../redux/features/barbersSlice";
 import { getServices } from "../redux/features/servicesSlice";
+import Loader from "../components/UI/Loaders/Loader";
+import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
 
 const Barbers = () => {
     const { barbers, loading } = useSelector(
@@ -37,30 +39,39 @@ const Barbers = () => {
                         <FilterCheckbox
                             title="Services"
                             checkboxes={services}
+                            isLoading={serviceLoading}
                         />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={barbers.length} />
                         <div className="results">
                             <Row>
-                                {barbers.map((barber) => {
-                                    return (
-                                        <Column
-                                            key={barber.id}
-                                            className="mb-4"
-                                            md={6}
-                                            lg={6}
-                                            xl={6}
-                                        >
-                                            <Link
-                                                className="card_holder"
-                                                to={`${barber.id}`}
+                                {loading && <Loader />}
+                                {!loading && barbers.length === 0 && (
+                                    <NotFoundMessage />
+                                )}
+                                {!loading &&
+                                    barbers.length > 0 &&
+                                    barbers.map((barber) => {
+                                        return (
+                                            <Column
+                                                key={barber.id}
+                                                className="mb-4"
+                                                md={6}
+                                                lg={6}
+                                                xl={6}
                                             >
-                                                <BarberCard barber={barber} />
-                                            </Link>
-                                        </Column>
-                                    );
-                                })}
+                                                <Link
+                                                    className="card_holder"
+                                                    to={`${barber.id}`}
+                                                >
+                                                    <BarberCard
+                                                        barber={barber}
+                                                    />
+                                                </Link>
+                                            </Column>
+                                        );
+                                    })}
                             </Row>
                         </div>
                     </Column>
