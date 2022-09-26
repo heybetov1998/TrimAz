@@ -1,13 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getBlogs } from "../../redux/features/blogsSlice";
+import { AppDispatch, RootState } from "../../redux/store";
 import { convertDate } from "./Author/AuthorInfo";
 import CardFrame from "./CardFrame";
 import Column from "./grid/Column";
 import Row from "./grid/Row";
 import Loader from "./Loaders/Loader";
 import NotFoundMessage from "./Messages/NotFoundMessage";
+import { useEffect } from "react";
 
 type PropsType = {
-    isLoading?: boolean;
     posts: {
         id: string | number;
         title: string;
@@ -20,13 +23,19 @@ type PropsType = {
 };
 
 const PopularPosts = (props: PropsType) => {
+    const { blogs, loading } = useSelector((state: RootState) => state.blogs);
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(getBlogs(5));
+    }, [dispatch]);
+
     return (
         <CardFrame className="popular_posts" title="Popular blogs">
-            {props.isLoading && <Loader />}
-            {!props.isLoading && props.posts.length === 0 && (
-                <NotFoundMessage />
-            )}
-            {!props.isLoading &&
+            {loading && <Loader />}
+            {!loading && props.posts.length === 0 && <NotFoundMessage />}
+            {!loading &&
                 props.posts.length > 0 &&
                 props.posts.map((post) => {
                     const createdDate = convertDate(post.createdDate);
