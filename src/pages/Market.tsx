@@ -109,16 +109,13 @@ const filteredDUMMYProducts = [
     },
 ];
 
-const checkboxes = {
-    title: "Services",
-    items: [
-        { id: "ch1", text: "Ütü" },
-        { id: "ch2", text: "Saçqırxan" },
-        { id: "ch3", text: "Üzqırxan" },
-        { id: "ch4", text: "Qayçı" },
-        { id: "ch5", text: "Streçband" },
-    ],
-};
+const checkboxes = [
+    { id: "ch1", name: "Ütü" },
+    { id: "ch2", name: "Saçqırxan" },
+    { id: "ch3", name: "Üzqırxan" },
+    { id: "ch4", name: "Qayçı" },
+    { id: "ch5", name: "Streçband" },
+];
 
 const Market = () => {
     return (
@@ -128,7 +125,10 @@ const Market = () => {
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
                         <FilterPrice />
-                        <FilterCheckbox checkboxes={checkboxes} />
+                        <FilterCheckbox
+                            title="Services"
+                            checkboxes={checkboxes}
+                        />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={12} />

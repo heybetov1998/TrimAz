@@ -3,20 +3,21 @@ import CategoryItem from "./CategoryItem";
 import CategoryList from "./CategoryList";
 
 type ItemType = {
-    id: string;
-    text: string;
+    id: string | number;
+    name: string;
 };
 
 type PropsType = {
-    checkboxes: { title: string; items: ItemType[] };
+    title: string;
+    checkboxes: ItemType[];
 };
 
 const FilterCheckbox = (props: PropsType) => {
     return (
-        <CardFrame title={props.checkboxes.title}>
+        <CardFrame title={props.title}>
             <CategoryList>
-                {props.checkboxes.items.map((item) => (
-                    <CategoryItem key={item.id} text={item.text} />
+                {props.checkboxes.map((item) => (
+                    <CategoryItem key={item.id} text={item.name} />
                 ))}
             </CategoryList>
         </CardFrame>

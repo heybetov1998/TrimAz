@@ -12,11 +12,10 @@ import SectionPartName from "../components/UI/section/SectionPartName";
 
 const custBarber = {
     id: "barber1",
-    name: "Teymur badirbayli",
-    image: {
-        src: require("../assets/images/685-500x500.jpg"),
-    },
-    rating: 4.5,
+    firstName: "Teymur",
+    lastName: "Badirbayli",
+    imageName:"../assets/images/685-500x500.jpg",
+    starRating: 4.5,
 };
 
 type ImageType = {

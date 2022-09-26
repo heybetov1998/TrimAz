@@ -64,16 +64,13 @@ const DUMMY_BARBERSHOPS = [
     },
 ];
 
-const checkboxes = {
-    title: "Services",
-    items: [
-        { id: "ch1", text: "Saç qırxma" },
-        { id: "ch2", text: "Saqqal qırxma" },
-        { id: "ch3", text: "Maska qoyulması" },
-        { id: "ch4", text: "Üz baxımı" },
-        { id: "ch5", text: "Saç rənglənməsi" },
-    ],
-};
+const checkboxes = [
+    { id: "ch1", name: "Saç qırxma" },
+    { id: "ch2", name: "Saqqal qırxma" },
+    { id: "ch3", name: "Maska qoyulması" },
+    { id: "ch4", name: "Üz baxımı" },
+    { id: "ch5", name: "Saç rənglənməsi" },
+];
 
 const Barbershops = () => {
     return (
@@ -83,7 +80,10 @@ const Barbershops = () => {
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
                         <FilterPrice />
-                        <FilterCheckbox checkboxes={checkboxes} />
+                        <FilterCheckbox
+                            title="Services"
+                            checkboxes={checkboxes}
+                        />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={33} />
