@@ -55,12 +55,7 @@ const Market = () => {
                                                     title={product.title}
                                                     price={product.price}
                                                     image={product.image}
-                                                    author={{
-                                                        id: product.seller.id,
-                                                        name: `${product.seller.firstName} ${product.seller.lastName}`,
-                                                        image: product.seller
-                                                            .image,
-                                                    }}
+                                                    author={product.seller}
                                                 />
                                             </Column>
                                         );

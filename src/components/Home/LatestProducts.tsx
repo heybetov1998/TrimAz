@@ -64,11 +64,7 @@ const LatestProducts = () => {
                                         price={product.price}
                                         image={product.image}
                                         location={"empty location"}
-                                        author={{
-                                            id: product.seller.id,
-                                            name: `${product.seller.firstName} ${product.seller.lastName}`,
-                                            image: product.seller.image,
-                                        }}
+                                        author={product.seller}
                                     />
                                 </SwiperSlide>
                             ))}

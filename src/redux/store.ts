@@ -3,6 +3,7 @@ import TopBarbersReducer from "./features/barbersSlice";
 import LatestProductsReducer from "./features/productsSlice";
 import BestBarbershopsReducer from "./features/barbershopsSlice";
 import ServicesReducer from "../redux/features/servicesSlice";
+import BlogsReducer from "../redux/features/blogsSlice";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         products: LatestProductsReducer,
         barbershops: BestBarbershopsReducer,
         services: ServicesReducer,
+        blogs: BlogsReducer,
     },
 });
 

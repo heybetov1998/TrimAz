@@ -10,11 +10,14 @@ const initialState: BlogsSliceState = {
     loading: false,
 };
 
-export const getBlogs = createAsyncThunk("blogs/getBlogs", async () => {
-    return fetch("https://localhost:7231/api/Blogs").then((response) =>
-        response.json()
-    );
-});
+export const getBlogs = createAsyncThunk(
+    "blogs/getBlogs",
+    async (take?: number) => {
+        return fetch(
+            `https://localhost:7231/api/Blogs?${take ? `take=${take}` : ""}`
+        ).then((response) => response.json());
+    }
+);
 
 const blogsSlice = createSlice({
     name: "blogs",

@@ -25,11 +25,12 @@ interface Props {
     location?: string;
     author?: {
         id: string;
+        firstName: string;
+        lastName: string;
         image: {
             name: string;
             alt: string;
         };
-        name: string;
     };
     hasHeart?: boolean;
     tags?: { name: string }[];
@@ -38,6 +39,7 @@ interface Props {
     goto?: string;
     productId?: number;
     barbershopId?: number;
+    blogId?: number;
 }
 
 const Card = (props: Props) => {
@@ -57,6 +59,8 @@ const Card = (props: Props) => {
                         ? `/market/products/${props.productId}`
                         : props.barbershopId
                         ? `/barbershops/${props.barbershopId}`
+                        : props.blogId
+                        ? `/blogs/${props.blogId}`
                         : "#"
                 }
                 className="image_holder position-relative"
@@ -104,6 +108,8 @@ const Card = (props: Props) => {
                                 ? `/market/products/${props.productId}`
                                 : props.barbershopId
                                 ? `/barbershops/${props.barbershopId}`
+                                : props.blogId
+                                ? `/blogs/${props.blogId}`
                                 : "#"
                         }
                         className="card-title"

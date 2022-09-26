@@ -9,7 +9,7 @@ const DUMMY_POSTS = [
         id: "b1",
         title: "This is blog title",
         image: {
-            src: require("../assets/images/612-500x500.jpg"),
+            name: require("../assets/images/612-500x500.jpg"),
             alt: "Booking alt",
         },
         createdDate: `${new Date().getUTCDate()}.${
@@ -20,7 +20,7 @@ const DUMMY_POSTS = [
         id: "b2",
         title: "This is blog title",
         image: {
-            src: require("../assets/images/612-500x500.jpg"),
+            name: require("../assets/images/612-500x500.jpg"),
             alt: "Booking alt",
         },
         createdDate: `${new Date().getUTCDate()}.${
@@ -31,7 +31,7 @@ const DUMMY_POSTS = [
         id: "b3",
         title: "This is blog title",
         image: {
-            src: require("../assets/images/612-500x500.jpg"),
+            name: require("../assets/images/612-500x500.jpg"),
             alt: "Booking alt",
         },
         createdDate: `${new Date().getUTCDate()}.${
@@ -42,7 +42,7 @@ const DUMMY_POSTS = [
         id: "b4",
         title: "This is blog title",
         image: {
-            src: require("../assets/images/612-500x500.jpg"),
+            name: require("../assets/images/612-500x500.jpg"),
             alt: "Booking alt",
         },
         createdDate: `${new Date().getUTCDate()}.${
@@ -53,7 +53,8 @@ const DUMMY_POSTS = [
 
 const DUMMY_AUTHOR = {
     id: "auth1",
-    name: "Aliashraf Merdanov",
+    firstName: "Aliashraf",
+    lastName: "Merdanov",
     image: {
         name: require("../assets/images/555-500x500.jpg"),
         alt: "qariban bir author",
