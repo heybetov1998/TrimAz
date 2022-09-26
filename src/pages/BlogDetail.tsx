@@ -4,53 +4,6 @@ import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 import PopularPosts from "../components/UI/PopularPosts";
 
-const DUMMY_POSTS = [
-    {
-        id: "b1",
-        title: "This is blog title",
-        image: {
-            name: require("../assets/images/612-500x500.jpg"),
-            alt: "Booking alt",
-        },
-        createdDate: `${new Date().getUTCDate()}.${
-            new Date().getMonth() + 1
-        }.${new Date().getFullYear()}`,
-    },
-    {
-        id: "b2",
-        title: "This is blog title",
-        image: {
-            name: require("../assets/images/612-500x500.jpg"),
-            alt: "Booking alt",
-        },
-        createdDate: `${new Date().getUTCDate()}.${
-            new Date().getMonth() + 1
-        }.${new Date().getFullYear()}`,
-    },
-    {
-        id: "b3",
-        title: "This is blog title",
-        image: {
-            name: require("../assets/images/612-500x500.jpg"),
-            alt: "Booking alt",
-        },
-        createdDate: `${new Date().getUTCDate()}.${
-            new Date().getMonth() + 1
-        }.${new Date().getFullYear()}`,
-    },
-    {
-        id: "b4",
-        title: "This is blog title",
-        image: {
-            name: require("../assets/images/612-500x500.jpg"),
-            alt: "Booking alt",
-        },
-        createdDate: `${new Date().getUTCDate()}.${
-            new Date().getMonth() + 1
-        }.${new Date().getFullYear()}`,
-    },
-];
-
 const DUMMY_AUTHOR = {
     id: "auth1",
     firstName: "Aliashraf",
@@ -166,7 +119,7 @@ const BlogDetail = () => (
                 </Column>
                 <Column className="order-0 order-md-1" md={6} lg={4} xl={4}>
                     <FilterSearch />
-                    <PopularPosts posts={DUMMY_POSTS} />
+                    <PopularPosts />
                 </Column>
             </Row>
         </div>

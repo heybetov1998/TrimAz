@@ -10,19 +10,7 @@ import Loader from "./Loaders/Loader";
 import NotFoundMessage from "./Messages/NotFoundMessage";
 import { useEffect } from "react";
 
-type PropsType = {
-    posts: {
-        id: string | number;
-        title: string;
-        createdDate: string;
-        image: {
-            name: string;
-            alt: string;
-        };
-    }[];
-};
-
-const PopularPosts = (props: PropsType) => {
+const PopularPosts = () => {
     const { blogs, loading } = useSelector((state: RootState) => state.blogs);
 
     const dispatch = useDispatch<AppDispatch>();
@@ -34,10 +22,10 @@ const PopularPosts = (props: PropsType) => {
     return (
         <CardFrame className="popular_posts" title="Popular blogs">
             {loading && <Loader />}
-            {!loading && props.posts.length === 0 && <NotFoundMessage />}
+            {!loading && blogs.length === 0 && <NotFoundMessage />}
             {!loading &&
-                props.posts.length > 0 &&
-                props.posts.map((post) => {
+                blogs.length > 0 &&
+                blogs.map((post) => {
                     const createdDate = convertDate(post.createdDate);
 
                     return (

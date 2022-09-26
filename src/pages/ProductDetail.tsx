@@ -29,11 +29,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/555-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/555-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                             <Column default={4} sm={4} md={4} lg={4} xl={4}>
@@ -41,11 +41,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/1077-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/1077-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                             <Column default={4} sm={4} md={4} lg={4} xl={4}>
@@ -53,11 +53,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/1077-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/1077-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                             <Column default={4} sm={4} md={4} lg={4} xl={4}>
@@ -65,11 +65,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/1077-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/1077-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                             <Column default={4} sm={4} md={4} lg={4} xl={4}>
@@ -77,11 +77,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/1077-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/1077-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                             <Column default={4} sm={4} md={4} lg={4} xl={4}>
@@ -89,11 +89,11 @@ const ProductDetail = () => (
                                     className="product_image"
                                     data-src={require("../assets/images/1077-500x500.jpg")}
                                 >
-                                    <SquareImage
+                                    {/* <SquareImage
                                         img={{
                                             src: require("../assets/images/1077-500x500.jpg"),
                                         }}
-                                    />
+                                    /> */}
                                 </div>
                             </Column>
                         </Row>

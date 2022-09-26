@@ -1,10 +1,15 @@
+import { BarberState } from "../../../redux/features/barberDetailsSlice";
 import Comments from "./Comments";
 import WriteReview from "./WriteReview";
 
-const Reviews = () => (
+type PropsType = {
+    barber?: BarberState;
+};
+
+const Reviews = (props: PropsType) => (
     <div className="reviews">
         <WriteReview />
-        <Comments />
+        <Comments reviews={props.barber?.reviews} />
     </div>
 );
 

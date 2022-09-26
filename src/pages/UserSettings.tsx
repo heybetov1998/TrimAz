@@ -14,11 +14,11 @@ const UserSettings = () => (
             <Row>
                 <Column md={4} lg={4} xl={3}>
                     <CardFrame className="management_bar">
-                        <SquareImage
+                        {/* <SquareImage
                             img={{
                                 src: require("../assets/images/1077-500x500.jpg"),
                             }}
-                        />
+                        /> */}
                         <h4 className="name">Name surname</h4>
                         <CardFrame className="management_options">
                             <ul>
