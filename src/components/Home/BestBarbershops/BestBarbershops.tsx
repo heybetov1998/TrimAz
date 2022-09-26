@@ -6,77 +6,19 @@ import Card from "../../UI/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
-import { getBestBarbershops } from "../../../redux/features/bestBarbershopsSlice";
+import { getBarbershops } from "../../../redux/features/barbershopsSlice";
 import Loader from "../../UI/Loaders/Loader";
 import NotFoundMessage from "../../UI/Messages/NotFoundMessage";
 
-const DUMMY_BARBERSHOPS = [
-    {
-        id: 1,
-        title: "Balaeli barber",
-        price: 15,
-        afterPrice: "-dan başlayaraq",
-        location: "Sovetski, Baku",
-        image: {
-            name: require("../../../assets/images/1077-500x500.jpg"),
-            alt: "Barbershop image",
-        },
-    },
-    {
-        id: 2,
-        title: "Boycut",
-        price: 25,
-        afterPrice: "-dan başlayaraq",
-        location: "28 May, Baku",
-        image: {
-            name: require("../../../assets/images/555-500x500.jpg"),
-            alt: "Barbershop image",
-        },
-    },
-    {
-        id: 3,
-        title: "Teymurun yeri",
-        price: 15,
-        afterPrice: "-dan başlayaraq",
-        location: "Çin səfirliyinin arxası",
-        image: {
-            name: require("../../../assets/images/612-500x500.jpg"),
-            alt: "Barbershop image",
-        },
-    },
-    {
-        id: 4,
-        title: "Öz bərbərim",
-        price: 5,
-        afterPrice: "-dan başlayaraq",
-        location: "Tarqovu",
-        image: {
-            name: require("../../../assets/images/685-500x500.jpg"),
-            alt: "Barbershop image",
-        },
-    },
-    {
-        id: 5,
-        title: "Figaro",
-        price: 10,
-        afterPrice: "-dan başlayaraq",
-        location: "Azadlıq metrosu, Baku",
-        image: {
-            name: require("../../../assets/images/intro.jpg"),
-            alt: "Barbershop image",
-        },
-    },
-];
-
 const BestBarbershops = () => {
-    const { bestBarbershops, loading } = useSelector(
-        (state: RootState) => state.bestBarbershops
+    const { barbershops, loading } = useSelector(
+        (state: RootState) => state.barbershops
     );
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBestBarbershops());
+        dispatch(getBarbershops(12));
     }, [dispatch]);
 
     return (
@@ -85,10 +27,8 @@ const BestBarbershops = () => {
                 <SectionHeader text="Best Barbershops" />
 
                 {loading && <Loader />}
-                {!loading && bestBarbershops.length === 0 && (
-                    <NotFoundMessage />
-                )}
-                {!loading && bestBarbershops.length > 0 && (
+                {!loading && barbershops.length === 0 && <NotFoundMessage />}
+                {!loading && barbershops.length > 0 && (
                     <div className="slider_holder position-relative">
                         <NavigationAbove id="bestBarbershopNav" />
                         <Swiper
@@ -115,7 +55,7 @@ const BestBarbershops = () => {
                             onSlideChange={() => console.log("slide change")}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
-                            {bestBarbershops.map((bshop) => (
+                            {barbershops.map((bshop) => (
                                 <SwiperSlide key={bshop.id}>
                                     <Card
                                         barbershopId={bshop.id}

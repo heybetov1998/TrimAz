@@ -6,7 +6,7 @@ import SwiperPrev from "../../UI/swiper/SwiperPrev";
 import SwiperNext from "../../UI/swiper/SwiperNext";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTopBarbers } from "../../../redux/features/topBarbersSlice";
+import { getBarbers } from "../../../redux/features/barbersSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 import Loader from "../../UI/Loaders/Loader";
 import NotFoundMessage from "../../UI/Messages/NotFoundMessage";
@@ -16,14 +16,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const TopBarbers = () => {
-    const { topBarbers, loading } = useSelector(
-        (state: RootState) => state.topBarbers
+    const { barbers, loading } = useSelector(
+        (state: RootState) => state.barbers
     );
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getTopBarbers());
+        dispatch(getBarbers());
     }, [dispatch]);
 
     return (
@@ -31,8 +31,8 @@ const TopBarbers = () => {
             <div className="container">
                 <SectionHeader text="Top barbers" />
                 {loading && <Loader />}
-                {!loading && topBarbers.length === 0 && <NotFoundMessage />}
-                {!loading && topBarbers.length > 0 && (
+                {!loading && barbers.length === 0 && <NotFoundMessage />}
+                {!loading && barbers.length > 0 && (
                     <div className="slider_holder position-relative">
                         <div className="on_slider_nav">
                             <SwiperPrev className="absolute-nav" />
@@ -55,7 +55,7 @@ const TopBarbers = () => {
                             onSlideChange={() => console.log("slide change")}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
-                            {topBarbers.map((item) => (
+                            {barbers.map((item) => (
                                 <SwiperSlide key={item.id}>
                                     <BarberSlide
                                         barberId={item.id}

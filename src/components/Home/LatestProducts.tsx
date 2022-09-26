@@ -6,19 +6,19 @@ import NavigationAbove from "../UI/swiper/NavigationAbove";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
-import { getlatestProducts } from "../../redux/features/latestProductsSlice";
+import { getProducts } from "../../redux/features/productsSlice";
 import Loader from "../UI/Loaders/Loader";
 import NotFoundMessage from "../UI/Messages/NotFoundMessage";
 
 const LatestProducts = () => {
-    const { latestProducts, loading } = useSelector(
-        (state: RootState) => state.latestProducts
+    const { products, loading } = useSelector(
+        (state: RootState) => state.products
     );
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getlatestProducts());
+        dispatch(getProducts(12));
     }, [dispatch]);
 
     return (
@@ -27,8 +27,8 @@ const LatestProducts = () => {
                 <SectionHeader text="Latest Products" />
 
                 {loading && <Loader />}
-                {!loading && latestProducts.length === 0 && <NotFoundMessage />}
-                {!loading && latestProducts.length > 0 && (
+                {!loading && products.length === 0 && <NotFoundMessage />}
+                {!loading && products.length > 0 && (
                     <div className="slider_holder position-relative">
                         <NavigationAbove id="latestProdNav" />
                         <Swiper
@@ -55,7 +55,7 @@ const LatestProducts = () => {
                             onSlideChange={() => console.log("slide change")}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
-                            {latestProducts.map((product) => (
+                            {products.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <Card
                                         hasHeart
@@ -64,11 +64,7 @@ const LatestProducts = () => {
                                         price={product.price}
                                         image={product.image}
                                         location={"empty location"}
-                                        author={{
-                                            id: product.seller.id,
-                                            name: `${product.seller.firstName} ${product.seller.lastName}`,
-                                            image: product.seller.image,
-                                        }}
+                                        author={product.seller}
                                     />
                                 </SwiperSlide>
                             ))}

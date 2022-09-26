@@ -1,23 +1,33 @@
 import CardFrame from "../CardFrame";
+import Loader from "../Loaders/Loader";
+import NotFoundMessage from "../Messages/NotFoundMessage";
 import CategoryItem from "./CategoryItem";
 import CategoryList from "./CategoryList";
 
 type ItemType = {
-    id: string;
-    text: string;
+    id: string | number;
+    name: string;
 };
 
 type PropsType = {
-    checkboxes: { title: string; items: ItemType[] };
+    title: string;
+    checkboxes: ItemType[];
+    isLoading: boolean;
 };
 
 const FilterCheckbox = (props: PropsType) => {
     return (
-        <CardFrame title={props.checkboxes.title}>
+        <CardFrame title={props.title}>
             <CategoryList>
-                {props.checkboxes.items.map((item) => (
-                    <CategoryItem key={item.id} text={item.text} />
-                ))}
+                {props.isLoading && <Loader />}
+                {!props.isLoading && props.checkboxes.length === 0 && (
+                    <NotFoundMessage />
+                )}
+                {!props.isLoading &&
+                    props.checkboxes.length > 0 &&
+                    props.checkboxes.map((item) => (
+                        <CategoryItem key={item.id} text={item.name} />
+                    ))}
             </CategoryList>
         </CardFrame>
     );

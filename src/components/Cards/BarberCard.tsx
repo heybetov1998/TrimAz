@@ -3,13 +3,10 @@ import Stars from "../UI/Stars";
 
 type PropsType = {
     barber: {
-        name: string;
-        image?: {
-            src?: any;
-            alt?: string;
-        };
-        link?: string;
-        rating: number;
+        firstName: string;
+        lastName:string;
+        imageName:string;
+        starRating: number;
     };
 };
 
@@ -18,16 +15,13 @@ const BarberCard = (props: PropsType) => {
         <CardFrame className="barber_card d-flex">
             <div className="profile_image">
                 <img
-                    src={
-                        props.barber.image?.src ??
-                        require("../../assets/images/profile-picture.png")
-                    }
-                    alt={props.barber.image?.alt ?? "Barber profile picture"}
+                    src={`https://localhost:7231/img/${props.barber.imageName}`}
+                    alt={props.barber.imageName}
                 />
             </div>
             <div className="info">
-                <div className="name">{props.barber.name}</div>
-                <Stars edit={false} value={props.barber.rating} />
+                <div className="name">{props.barber.firstName} {props.barber.lastName}</div>
+                <Stars edit={false} value={props.barber.starRating} />
             </div>
         </CardFrame>
     );

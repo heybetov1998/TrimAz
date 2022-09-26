@@ -123,7 +123,8 @@ const ProductDetail = () => (
                                     name: "profile-picture.png",
                                     alt: "some seller info",
                                 },
-                                name: "Aliyar Aliyev",
+                                firstName: "Aliyar",
+                                lastName: "Aliyev",
                             }}
                         />
                     </CardFrame>
