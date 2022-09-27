@@ -1,37 +1,31 @@
+import React from "react";
 import LightGallery from "lightgallery/react";
-import SectionPartName from "../UI/section/SectionPartName";
+import Loader from "../UI/Loaders/Loader";
+import { ImageMainState } from "../../redux/features/blogDetailsSlice";
+import Column from "../UI/grid/Column";
+import Row from "../UI/grid/Row";
 
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
-import Column from "../UI/grid/Column";
-import Row from "../UI/grid/Row";
 
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
-import Loader from "../UI/Loaders/Loader";
-import NotFoundMessage from "../UI/Messages/NotFoundMessage";
 
 type PropsType = {
     isLoading?: boolean;
-    images: {
-        name: string;
-        alt: string;
-    }[];
+    images: ImageMainState[];
 };
 
-const Portfolio = (props: PropsType) => {
+const GridGallery = (props: PropsType) => {
     const initHandler = () => {
         console.log("Light Gallery is initialized");
     };
 
     return (
-        <div className="portfolio">
-            <SectionPartName text="My Portfolio" className="mt-0" />
+        <div className="portfolio mt-5">
             {props.isLoading && <Loader />}
-            {!props.isLoading && props.images.length === 0 && (
-                <NotFoundMessage text="No image was uploaded" />
-            )}
+            {!props.isLoading && props.images.length === 0 && <></>}
             {!props.isLoading && props.images.length > 0 && (
                 <LightGallery
                     onInit={initHandler}
@@ -42,7 +36,7 @@ const Portfolio = (props: PropsType) => {
                     <div className="portfolio_images">
                         <Row>
                             {props.images.map((image, index) => {
-                                if (index < 16)
+                                if (!image.isMain)
                                     return (
                                         <Column
                                             key={index}
@@ -59,13 +53,17 @@ const Portfolio = (props: PropsType) => {
                                                 >
                                                     <img
                                                         src={`https://localhost:7231/img/${image.name}`}
-                                                        alt={image.alt}
+                                                        alt={image.name}
                                                     />
                                                 </div>
                                             </div>
                                         </Column>
                                     );
-                                return <></>;
+                                return (
+                                    <React.Fragment
+                                        key={index}
+                                    ></React.Fragment>
+                                );
                             })}
                         </Row>
                     </div>
@@ -75,4 +73,4 @@ const Portfolio = (props: PropsType) => {
     );
 };
 
-export default Portfolio;
+export default GridGallery;

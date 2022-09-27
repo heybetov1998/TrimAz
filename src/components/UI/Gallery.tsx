@@ -9,14 +9,8 @@ import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 
-type ImageType = {
-    id: string | number;
-    src: any;
-    alt?: string;
-};
-
 type PropsType = {
-    images: ImageType[];
+    images: string[];
 };
 
 const Gallery = (props: PropsType) => {
@@ -38,14 +32,11 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder single">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[0].src}
+                                    data-src={`https://localhost:7231/img/${props.images[0]}`}
                                 >
                                     <img
-                                        src={props.images[0].src}
-                                        alt={
-                                            props.images[0].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[0]}`}
+                                        alt={props.images[0]}
                                     />
                                 </div>
                             </div>
@@ -70,14 +61,11 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder single">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[0].src}
+                                    data-src={`https://localhost:7231/img/${props.images[0]}`}
                                 >
                                     <img
-                                        src={props.images[0].src}
-                                        alt={
-                                            props.images[0].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[0]}`}
+                                        alt={props.images[0]}
                                     />
                                 </div>
                             </div>
@@ -86,14 +74,11 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder single">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[1].src}
+                                    data-src={`https://localhost:7231/img/${props.images[1]}`}
                                 >
                                     <img
-                                        src={props.images[1].src}
-                                        alt={
-                                            props.images[1].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[1]}`}
+                                        alt={props.images[1]}
                                     />
                                 </div>
                             </div>
@@ -118,26 +103,20 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[0].src}
+                                    data-src={`https://localhost:7231/img/${props.images[0]}`}
                                 >
                                     <img
-                                        src={props.images[0].src}
-                                        alt={
-                                            props.images[0].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[0]}`}
+                                        alt={props.images[0]}
                                     />
                                 </div>
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[1].src}
+                                    data-src={`https://localhost:7231/img/${props.images[1]}`}
                                 >
                                     <img
-                                        src={props.images[1].src}
-                                        alt={
-                                            props.images[1].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[1]}`}
+                                        alt={props.images[1]}
                                     />
                                 </div>
                             </div>
@@ -146,14 +125,11 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder single">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[2].src}
+                                    data-src={`https://localhost:7231/img/${props.images[2]}`}
                                 >
                                     <img
-                                        src={props.images[2].src}
-                                        alt={
-                                            props.images[2].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[2]}`}
+                                        alt={props.images[2]}
                                     />
                                 </div>
                             </div>
@@ -178,26 +154,20 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[0].src}
+                                    data-src={`https://localhost:7231/img/${props.images[0]}`}
                                 >
                                     <img
-                                        src={props.images[0].src}
-                                        alt={
-                                            props.images[0].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[0]}`}
+                                        alt={props.images[0]}
                                     />
                                 </div>
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[1].src}
+                                    data-src={`https://localhost:7231/img/${props.images[1]}`}
                                 >
                                     <img
-                                        src={props.images[1].src}
-                                        alt={
-                                            props.images[1].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[1]}`}
+                                        alt={props.images[1]}
                                     />
                                 </div>
                             </div>
@@ -206,26 +176,20 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[2].src}
+                                    data-src={`https://localhost:7231/img/${props.images[2]}`}
                                 >
                                     <img
-                                        src={props.images[2].src}
-                                        alt={
-                                            props.images[2].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[2]}`}
+                                        alt={props.images[2]}
                                     />
                                 </div>
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[3].src}
+                                    data-src={`https://localhost:7231/img/${props.images[3]}`}
                                 >
                                     <img
-                                        src={props.images[3].src}
-                                        alt={
-                                            props.images[3].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[3]}`}
+                                        alt={props.images[3]}
                                     />
                                 </div>
                             </div>
@@ -250,26 +214,20 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[0].src}
+                                    data-src={`https://localhost:7231/img/${props.images[0]}`}
                                 >
                                     <img
-                                        src={props.images[0].src}
-                                        alt={
-                                            props.images[0].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[0]}`}
+                                        alt={props.images[0]}
                                     />
                                 </div>
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[1].src}
+                                    data-src={`https://localhost:7231/img/${props.images[1]}`}
                                 >
                                     <img
-                                        src={props.images[1].src}
-                                        alt={
-                                            props.images[1].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[1]}`}
+                                        alt={props.images[1]}
                                     />
                                 </div>
                             </div>
@@ -278,14 +236,11 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder single">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[2].src}
+                                    data-src={`https://localhost:7231/img/${props.images[2]}`}
                                 >
                                     <img
-                                        src={props.images[2].src}
-                                        alt={
-                                            props.images[2].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[2]}`}
+                                        alt={props.images[2]}
                                     />
                                 </div>
                             </div>
@@ -294,26 +249,20 @@ const Gallery = (props: PropsType) => {
                             <div className="gallery_item_holder">
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[3].src}
+                                    data-src={`https://localhost:7231/img/${props.images[3]}`}
                                 >
                                     <img
-                                        src={props.images[3].src}
-                                        alt={
-                                            props.images[3].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[3]}`}
+                                        alt={props.images[3]}
                                     />
                                 </div>
                                 <div
                                     className="gallery_item"
-                                    data-src={props.images[4].src}
+                                    data-src={`https://localhost:7231/img/${props.images[4]}`}
                                 >
                                     <img
-                                        src={props.images[4].src}
-                                        alt={
-                                            props.images[4].alt ??
-                                            "Gallery image"
-                                        }
+                                        src={`https://localhost:7231/img/${props.images[4]}`}
+                                        alt={props.images[4]}
                                     />
                                 </div>
                             </div>

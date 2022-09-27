@@ -1,13 +1,9 @@
+import { BarberLessDataState } from "../../redux/features/barbershopDetailsSlice";
 import CardFrame from "../UI/CardFrame";
 import Stars from "../UI/Stars";
 
 type PropsType = {
-    barber: {
-        firstName: string;
-        lastName:string;
-        imageName:string;
-        starRating: number;
-    };
+    barber: BarberLessDataState;
 };
 
 const BarberCard = (props: PropsType) => {

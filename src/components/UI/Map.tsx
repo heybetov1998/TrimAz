@@ -1,15 +1,36 @@
 import { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { LocationState } from "../../redux/features/barbershopDetailsSlice";
 
 type PropsType = {
-    lat: number;
-    lng: number;
+    locations: LocationState[];
+};
+
+const getAverage = (locations: LocationState[]) => {
+    let count = 0;
+    const average = {
+        lat: 0,
+        lng: 0,
+    };
+
+    for (const location of locations) {
+        average.lat += location.latitude;
+        average.lng += location.longtitude;
+        count++;
+    }
+
+    average.lat/=count;
+    average.lng/=count;
+    return average;
 };
 
 const Map = (props: PropsType) => {
     const center = useMemo(
-        () => ({ lat: props.lat, lng: props.lng }),
-        [props.lat, props.lng]
+        () => ({
+            lat: getAverage(props.locations).lat,
+            lng: getAverage(props.locations).lng,
+        }),
+        [props.locations]
     );
 
     const { isLoaded } = useLoadScript({
@@ -19,8 +40,16 @@ const Map = (props: PropsType) => {
     if (!isLoaded) return <div>Loading...</div>;
 
     return (
-        <GoogleMap zoom={18} center={center} mapContainerClassName="map">
-            <Marker position={center} />
+        <GoogleMap zoom={15} center={center} mapContainerClassName="map">
+            {props.locations.map((location) => (
+                <Marker
+                    key={location.latitude}
+                    position={{
+                        lat: location.latitude,
+                        lng: location.longtitude,
+                    }}
+                />
+            ))}
         </GoogleMap>
     );
 };

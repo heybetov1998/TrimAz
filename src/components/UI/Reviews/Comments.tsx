@@ -1,18 +1,17 @@
+import { ReviewsState } from "../../../redux/features/barberDetailsSlice";
 import CardFrame from "../CardFrame";
 import Comment from "./Comment";
 
-const user = {
-    id: "u1",
-    name: "Adil",
-    givenRating: 3.2,
-    comment: "Tets comesdf",
+type PropsType = {
+    reviews?: ReviewsState;
 };
 
-const Comments = () => (
+const Comments = (props: PropsType) => (
     <CardFrame>
         <ul className="comments">
-            <Comment user={user} />
-            <Comment user={user} />
+            {props.reviews?.map((review) => (
+                <Comment key={review.id} review={review} />
+            ))}
         </ul>
     </CardFrame>
 );

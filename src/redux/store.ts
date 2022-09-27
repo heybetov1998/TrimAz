@@ -4,14 +4,22 @@ import LatestProductsReducer from "./features/productsSlice";
 import BestBarbershopsReducer from "./features/barbershopsSlice";
 import ServicesReducer from "../redux/features/servicesSlice";
 import BlogsReducer from "../redux/features/blogsSlice";
+import BarberDetailsReducer from "../redux/features/barberDetailsSlice";
+import BarbershopDetailsReducer from "./features/barbershopDetailsSlice";
+import ProductDetailsReducer from "./features/productDetailSlice";
+import BlogDetailsReducer from "./features/blogDetailsSlice";
 
 export const store = configureStore({
     reducer: {
         barbers: TopBarbersReducer,
+        barberDetails: BarberDetailsReducer,
         products: LatestProductsReducer,
+        productDetails: ProductDetailsReducer,
         barbershops: BestBarbershopsReducer,
+        barbershopDetails: BarbershopDetailsReducer,
         services: ServicesReducer,
         blogs: BlogsReducer,
+        blogDetails: BlogDetailsReducer,
     },
 });
 

@@ -1,39 +1,33 @@
 import { Link } from "react-router-dom";
+import { ReviewState } from "../../../redux/features/barberDetailsSlice";
+import { convertDate } from "../Author/AuthorInfo";
 import Stars from "../Stars";
 
 type PropsType = {
-    user: {
-        id: string | number;
-        name: string;
-        givenRating: number;
-        image?: {
-            src: string;
-            alt?: string;
-        };
-        comment: string;
-    };
+    review: ReviewState;
 };
 
 const Comment = (props: PropsType) => (
     <li className="comment">
         <div className="comment_author d-flex">
-            <Link className="profile_image" to={`/users/${props.user.id}`}>
+            <Link
+                className="profile_image"
+                to={`/users/${props.review.userId}`}
+            >
                 <img
-                    src={
-                        props.user.image
-                            ? require(props.user.image.src)
-                            : require("../../../assets/images/profile-picture.png")
-                    }
-                    alt={props.user.image?.alt ?? "Profile image"}
+                    src={`https://localhost:7231/img/${props.review.userAvatar}`}
+                    alt={props.review.userAvatar}
                 />
             </Link>
             <div className="info">
-                <Link className="name" to={`/users/${props.user.id}`}>{props.user.name}</Link>
-                <p className="date">19.09.2022</p>
-                <Stars edit={false} value={props.user.givenRating} />
+                <Link className="name" to={`/users/${props.review.userId}`}>
+                    {props.review.userFirstName} {props.review.userLastName}
+                </Link>
+                <p className="date">{convertDate(props.review.createdDate)}</p>
+                <Stars edit={false} value={props.review.givenRating} />
             </div>
         </div>
-        <div className="comment_text">{props.user.comment}</div>
+        <div className="comment_text">{props.review.comment}</div>
     </li>
 );
 
