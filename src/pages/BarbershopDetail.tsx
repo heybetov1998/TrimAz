@@ -9,7 +9,6 @@ import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 import Loader from "../components/UI/Loaders/Loader";
 import Map from "../components/UI/Map";
-import MapAlt from "../components/UI/MapAlt";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
 import Reviews from "../components/UI/Reviews/Reviews";
 import SectionHeader from "../components/UI/section/SectionHeader";

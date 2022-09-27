@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 
-type PropsType = {
-    author?: {
-        firstName: string;
-        lastName: string;
-        id: string;
-        image: {
-            name: string;
-            alt: string;
-        };
+export type UserGetState = {
+    firstName: string;
+    lastName: string;
+    id: string;
+    image: {
+        name: string;
+        alt: string;
     };
+};
+
+type PropsType = {
+    author: UserGetState;
     createdDate?: string;
     className?: string;
 };
@@ -42,32 +44,26 @@ export const convertDate = (enteredDate: string | undefined) => {
 };
 
 const AuthorInfo = (props: PropsType) => {
-    const createdDate=convertDate(props.createdDate);
+    const createdDate = convertDate(props.createdDate);
 
-    if (props.author) {
-        return (
-            <div className={`author_info ${props.className ?? ""}`}>
-                <Link to={`/users/${props.author.id}`} className="author_pp">
-                    <img
-                        src={`https://localhost:7231/img/${props.author.image.name}`}
-                        alt={props.author.image.alt}
-                    />
+    return (
+        <div className={`author_info ${props.className ?? ""}`}>
+            <Link to={`/users/${props.author.id}`} className="author_pp">
+                <img
+                    src={`https://localhost:7231/img/${props.author.image.name}`}
+                    alt={props.author.image.alt}
+                />
+            </Link>
+            <div className="d-flex align-items-center">
+                <Link to={`/users/${props.author.id}`} className="author_name">
+                    {props.author.firstName} {props.author.lastName}
                 </Link>
-                <div className="d-flex align-items-center">
-                    <Link
-                        to={`/users/${props.author.id}`}
-                        className="author_name"
-                    >
-                        {props.author.firstName} {props.author.lastName}
-                    </Link>
-                    {props.createdDate && (
-                        <span className="dateHolder">{createdDate}</span>
-                    )}
-                </div>
+                {props.createdDate && (
+                    <span className="dateHolder">{createdDate}</span>
+                )}
             </div>
-        );
-    }
-    return <div></div>;
+        </div>
+    );
 };
 
 export default AuthorInfo;

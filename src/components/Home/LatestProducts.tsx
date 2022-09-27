@@ -63,7 +63,6 @@ const LatestProducts = () => {
                                         title={product.title}
                                         price={product.price}
                                         image={product.image}
-                                        location={"empty location"}
                                         author={product.seller}
                                     />
                                 </SwiperSlide>
