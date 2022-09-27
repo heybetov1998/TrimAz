@@ -4,14 +4,16 @@ import LatestProductsReducer from "./features/productsSlice";
 import BestBarbershopsReducer from "./features/barbershopsSlice";
 import ServicesReducer from "../redux/features/servicesSlice";
 import BlogsReducer from "../redux/features/blogsSlice";
-import BarberDetailsSlice from "../redux/features/barberDetailsSlice";
+import BarberDetailsReducer from "../redux/features/barberDetailsSlice";
+import BarbershopDetailsReducer from "./features/barbershopDetailsSlice";
 
 export const store = configureStore({
     reducer: {
         barbers: TopBarbersReducer,
-        barberDetails: BarberDetailsSlice,
+        barberDetails: BarberDetailsReducer,
         products: LatestProductsReducer,
         barbershops: BestBarbershopsReducer,
+        barbershopDetails: BarbershopDetailsReducer,
         services: ServicesReducer,
         blogs: BlogsReducer,
     },

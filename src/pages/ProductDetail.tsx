@@ -128,7 +128,7 @@ const ProductDetail = () => (
                             }}
                         />
                     </CardFrame>
-                    <Reviews />
+                    {/* <Reviews /> */}
                 </Column>
             </Row>
         </div>

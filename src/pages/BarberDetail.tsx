@@ -35,10 +35,10 @@ const BarberDetail = () => {
                             isLoading={loading}
                         />
                         <Videos videos={barber.videos} isLoading={loading} />
-                        <Reviews barber={barber}/>
+                        <Reviews reviews={barber.reviews} />
                     </Column>
                     <Column className="order-0 order-md-1" md={4} lg={3} xl={3}>
-                        <BarberInfo barber={barber} isLoading={loading}/>
+                        <BarberInfo barber={barber} isLoading={loading} />
                     </Column>
                 </Row>
             </div>
