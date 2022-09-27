@@ -48,7 +48,7 @@ const AuthorInfo = (props: PropsType) => {
 
     return (
         <div className={`author_info ${props.className ?? ""}`}>
-            <Link to={`/users/${props.author.id}`} className="author_pp">
+            <Link to={`/barbers/${props.author.id}`} className="author_pp">
                 <img
                     src={`https://localhost:7231/img/${props.author.image.name}`}
                     alt={props.author.image.alt}
