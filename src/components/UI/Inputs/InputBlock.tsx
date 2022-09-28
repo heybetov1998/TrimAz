@@ -5,6 +5,7 @@ type PropsType = {
     inputId?: string;
     inputType?: string;
     inputValue?: string | number;
+    onChange?: any;
 };
 
 const InputBlock = (props: PropsType) => (
@@ -16,6 +17,7 @@ const InputBlock = (props: PropsType) => (
             id={props.inputId ?? ""}
             type={props.inputType ?? "text"}
             value={props.inputValue ?? ""}
+            onChange={props.onChange}
         />
     </div>
 );

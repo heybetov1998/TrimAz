@@ -8,6 +8,7 @@ import BarberDetailsReducer from "../redux/features/barberDetailsSlice";
 import BarbershopDetailsReducer from "./features/barbershopDetailsSlice";
 import ProductDetailsReducer from "./features/productDetailSlice";
 import BlogDetailsReducer from "./features/blogDetailsSlice";
+import RegisterReducer from "./features/registerSlice";
 
 export const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
         services: ServicesReducer,
         blogs: BlogsReducer,
         blogDetails: BlogDetailsReducer,
+        register: RegisterReducer,
     },
 });
 
