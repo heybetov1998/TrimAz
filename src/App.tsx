@@ -20,6 +20,14 @@ import Register from "./pages/Register";
 import BlogDetail from "./pages/BlogDetail";
 import BlogSubLayout from "./layouts/BlogSubLayout";
 import UserSettings from "./pages/UserSettings";
+import AdminLayout from "./admin/layouts/AdminLayout";
+import BarbershopDash from "./admin/pages/Barbershops/BarbershopDash";
+import BarbershopSubAdmin from "./admin/layouts/BarbershopSubAdmin";
+import BarberSubAdmin from "./admin/layouts/BarberSubAdmin";
+import BarberDash from "./admin/pages/Barbers/BarberDash";
+import ProductSubAdmin from "./admin/layouts/ProductSubAdmin";
+import ProductDash from "./admin/pages/Products/ProductDash";
+import FeedbackDash from "./admin/pages/Feedbacks/FeedbackDash";
 
 const App = () => (
     <Routes>
@@ -55,6 +63,22 @@ const App = () => (
             <Route path="register" element={<Register />} />
             <Route path="users/:id/settings" element={<UserSettings />} />
             <Route path="*" element={<NotFound />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminLayout />}>
+            <Route path="barbershops" element={<BarbershopSubAdmin />}>
+                <Route index element={<BarbershopDash />} />
+            </Route>
+
+            <Route path="barbers" element={<BarberSubAdmin />}>
+                <Route index element={<BarberDash />} />
+            </Route>
+
+            <Route path="products" element={<ProductSubAdmin />}>
+                <Route index element={<ProductDash />} />
+            </Route>
+
+            <Route path="feedbacks" element={<FeedbackDash />} />
         </Route>
     </Routes>
 );

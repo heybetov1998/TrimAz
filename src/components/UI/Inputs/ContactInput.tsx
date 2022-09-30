@@ -5,6 +5,7 @@ type PropsType = {
     id?: string;
     value?: string | number;
     onChange?: any;
+    onBlur?: any;
 };
 
 const ContactInput = (props: PropsType) => (
@@ -14,7 +15,8 @@ const ContactInput = (props: PropsType) => (
         type={props.type ?? "text"}
         placeholder={props.placeholder ?? ""}
         defaultValue={props.value ?? ""}
-        onChange={props.onChange}
+        onChange={props.onChange ?? null}
+        onBlur={props.onBlur ?? null}
     />
 );
 

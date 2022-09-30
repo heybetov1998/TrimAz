@@ -6,6 +6,7 @@ type PropsType = {
     inputType?: string;
     inputValue?: string | number;
     onChange?: any;
+    onBlur?: any;
 };
 
 const InputBlock = (props: PropsType) => (
@@ -17,7 +18,8 @@ const InputBlock = (props: PropsType) => (
             id={props.inputId ?? ""}
             type={props.inputType ?? "text"}
             value={props.inputValue ?? ""}
-            onChange={props.onChange}
+            onChange={props.onChange ?? null}
+            onBlur={props.onBlur ?? null}
         />
     </div>
 );

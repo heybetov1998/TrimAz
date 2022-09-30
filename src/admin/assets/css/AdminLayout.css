@@ -1,0 +1,8 @@
+.sidebar {
+    width: 100%;
+    min-height: 100vh;
+}
+.datatable-image {
+    width: 30% !important;
+    padding-bottom: 30% !important;
+}

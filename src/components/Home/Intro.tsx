@@ -38,13 +38,6 @@ const Intro = () => {
         label: n.name,
     }));
 
-    // const serviceOptions: ServicesOption[] = [
-    //     { value: 1, label: "test" },
-    //     { value: 2, label: "test" },
-    //     { value: 3, label: "test" },
-    //     { value: 4, label: "test" },
-    // ];
-
     return (
         <section id="intro" style={{ backgroundImage: `url("${image}")` }}>
             <div className="section_backdrop">
@@ -65,7 +58,9 @@ const Intro = () => {
                                         <Select
                                             isMulti
                                             name="services"
-                                            options={serviceOptions}
+                                            options={
+                                                !loading ? serviceOptions : []
+                                            }
                                             className="service_selection"
                                         />
                                     </Column>
