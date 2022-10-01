@@ -28,6 +28,8 @@ import BarberDash from "./admin/pages/Barbers/BarberDash";
 import ProductSubAdmin from "./admin/layouts/ProductSubAdmin";
 import ProductDash from "./admin/pages/Products/ProductDash";
 import FeedbackDash from "./admin/pages/Feedbacks/FeedbackDash";
+import BlogSubAdmin from "./admin/layouts/BlogSubAdmin";
+import BlogDash from "./admin/pages/Blogs/BlogDash";
 
 const App = () => (
     <Routes>
@@ -76,6 +78,10 @@ const App = () => (
 
             <Route path="products" element={<ProductSubAdmin />}>
                 <Route index element={<ProductDash />} />
+            </Route>
+
+            <Route path="blogs" element={<BlogSubAdmin />}>
+                <Route index element={<BlogDash />} />
             </Route>
 
             <Route path="feedbacks" element={<FeedbackDash />} />

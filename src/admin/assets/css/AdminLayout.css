@@ -1,6 +1,6 @@
 .sidebar {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
 }
 .datatable-image {
     width: 30% !important;

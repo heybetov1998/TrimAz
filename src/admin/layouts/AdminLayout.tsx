@@ -50,6 +50,14 @@ const AdminLayout = () => {
                             </li>
                             <li>
                                 <NavLink
+                                    to={"blogs"}
+                                    className="nav-link text-white"
+                                >
+                                    Blogs
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
                                     to={"feedbacks"}
                                     className="nav-link text-white"
                                 >
