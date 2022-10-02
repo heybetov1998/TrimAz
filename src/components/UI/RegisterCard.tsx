@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import InputError from "./Inputs/InputError";
 import * as Yup from "yup";
 import Loader from "./Loaders/Loader";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
     firstName: "",
@@ -14,6 +15,8 @@ const initialValues = {
     userName: "",
     password: "",
     confirmPassword: "",
+    workStartTime: "0",
+    workEndTime: "0",
 };
 
 const validationSchema = Yup.object({
@@ -45,20 +48,29 @@ const validationSchema = Yup.object({
             [Yup.ref("password"), null],
             'Must match "password" field value'
         ),
+    workStartTime: Yup.string().required("Field is required"),
+    workEndTime: Yup.string().required("Field is required"),
 });
 
-const RegisterCard = () => {
+type PropsType = {
+    actionName: string;
+};
+
+const RegisterCard = (props: PropsType) => {
+    const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            fetch("https://localhost:7231/api/Auth/register", {
+            fetch(`https://localhost:7231/api/Auth/${props.actionName}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    navigate("/");
                     console.log(data);
                 });
         },
@@ -137,6 +149,45 @@ const RegisterCard = () => {
                 formik.errors.confirmPassword ? (
                     <InputError text={formik.errors.confirmPassword} />
                 ) : null}
+
+                {props.actionName === "RegisterBarber" && (
+                    <>
+                        <div className="input_block">
+                            <label htmlFor="workStartTime">Work Starts</label>
+                            <select
+                                id="workStartTime"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.workStartTime}
+                            >
+                                <option value="1">00:00 - 01:00</option>
+                                <option value="2">01:00 - 02:00</option>
+                                <option value="3">02:00 - 03:00</option>
+                                <option value="4">03:00 - 04:00</option>
+                            </select>
+
+                            {formik.errors.workStartTime ? (
+                                <InputError
+                                    text={formik.errors.workStartTime}
+                                />
+                            ) : null}
+                        </div>
+                        <div className="input_block">
+                            <label htmlFor="workEndTime">Work Ends</label>
+                            <select
+                                id="workEndTime"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.workEndTime}
+                            >
+                                <option value="1">00:00 - 01:00</option>
+                                <option value="2">01:00 - 02:00</option>
+                                <option value="3">02:00 - 03:00</option>
+                                <option value="4">03:00 - 04:00</option>
+                            </select>
+                        </div>
+                    </>
+                )}
 
                 <SubmitButton text="Submit" className="py-2" />
                 {formik.isSubmitting && <Loader />}

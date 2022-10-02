@@ -1,4 +1,19 @@
 #login_page {
     padding-top: 8rem;
     min-height: 100vh;
+
+    .register_selector {
+        display: block;
+        text-align: center;
+        border-radius: 10px;
+        background-color: $backgroundColor;
+        padding: 10px;
+        color: $colorWhite;
+
+        &:hover,
+        &:active,
+        &.active {
+            background-color: $mainColor;
+        }
+    }
 }

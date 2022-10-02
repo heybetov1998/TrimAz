@@ -30,6 +30,7 @@ import ProductDash from "./admin/pages/Products/ProductDash";
 import FeedbackDash from "./admin/pages/Feedbacks/FeedbackDash";
 import BlogSubAdmin from "./admin/layouts/BlogSubAdmin";
 import BlogDash from "./admin/pages/Blogs/BlogDash";
+import RegisterSubLayout from "./layouts/RegisterSubLayout";
 
 const App = () => (
     <Routes>
@@ -60,9 +61,16 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
             </Route>
 
+            <Route path="register" element={<RegisterSubLayout />}>
+                <Route index element={<Register actionName="Register"/>} />
+                <Route path="barber" element={<Register actionName="RegisterBarber"/>}/>
+                <Route path="owner" element={<Register actionName="RegisterOwner"/>}/>
+                <Route path="seller" element={<Register actionName="RegisterSeller"/>}/>
+                <Route path="*" element={<NotFound />} />
+            </Route>
+
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
             <Route path="users/:id/settings" element={<UserSettings />} />
             <Route path="*" element={<NotFound />} />
         </Route>

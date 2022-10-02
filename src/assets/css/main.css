@@ -1413,6 +1413,19 @@ label .standart_checkbox.checkbox-active {
   min-height: 100vh;
 }
 
+#login_page .register_selector {
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #232323;
+  padding: 10px;
+  color: #ffffff;
+}
+
+#login_page .register_selector:hover, #login_page .register_selector:active, #login_page .register_selector.active {
+  background-color: #e4911a;
+}
+
 #user_settings {
   padding-top: 8rem;
   min-height: 100vh;
