@@ -39,6 +39,8 @@ const LoginCard = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.statusCode === 200) {
+                        localStorage.setItem("token_id", data.user.token);
+                        localStorage.setItem("logged_user",JSON.stringify(data.user));
                         navigate("/");
                     } else {
                         setSubmitting(false);

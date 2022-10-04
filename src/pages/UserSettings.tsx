@@ -14,13 +14,9 @@ const UserSettings = () => (
             <Row>
                 <Column md={4} lg={4} xl={3}>
                     <CardFrame className="management_bar">
-                        {/* <SquareImage
-                            img={{
-                                src: require("../assets/images/1077-500x500.jpg"),
-                            }}
-                        /> */}
+                        <SquareImage img="profile-picture.png"/>
                         <h4 className="name">Name surname</h4>
-                        <CardFrame className="management_options">
+                        {/* <CardFrame className="management_options">
                             <ul>
                                 <li>
                                     <NavLink
@@ -47,7 +43,7 @@ const UserSettings = () => (
                                     </NavLink>
                                 </li>
                             </ul>
-                        </CardFrame>
+                        </CardFrame> */}
                     </CardFrame>
                 </Column>
                 <Column md={8} lg={8} xl={9}>

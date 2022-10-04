@@ -31,6 +31,7 @@ import FeedbackDash from "./admin/pages/Feedbacks/FeedbackDash";
 import BlogSubAdmin from "./admin/layouts/BlogSubAdmin";
 import BlogDash from "./admin/pages/Blogs/BlogDash";
 import RegisterSubLayout from "./layouts/RegisterSubLayout";
+import BarbershopCreate from "./admin/pages/Barbershops/BarbershopCreate";
 
 const App = () => (
     <Routes>
@@ -78,6 +79,7 @@ const App = () => (
         <Route path="/admin" element={<AdminLayout />}>
             <Route path="barbershops" element={<BarbershopSubAdmin />}>
                 <Route index element={<BarbershopDash />} />
+                <Route path="create" element={<BarbershopCreate />} />
             </Route>
 
             <Route path="barbers" element={<BarberSubAdmin />}>
