@@ -1,12 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-    BiUser,
-    BiMenu,
-    BiLogIn,
-    BiPencil,
-    BiLogOut,
-} from "react-icons/bi";
+import { BiUser, BiMenu, BiLogIn, BiPencil, BiLogOut } from "react-icons/bi";
 import { IoIosSettings } from "react-icons/io";
 
 type PropsType = {
@@ -70,12 +64,18 @@ const RightHeader = (props: PropsType) => {
                             {localStorage.getItem("logged_user") && (
                                 <>
                                     <li>
-                                        <Link to={"/users/:id/settings"}>
+                                        <a href={"/users/:id/settings"}>
                                             <IoIosSettings size={"1.2rem"} />
                                             <span className="popup_text">
                                                 Settings
                                             </span>
-                                        </Link>
+                                        </a>
+                                        {/* <Link to={"/users/:id/settings"}>
+                                            <IoIosSettings size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Settings
+                                            </span>
+                                        </Link> */}
                                     </li>
                                     <li>
                                         <Link to={"/logout"}>
