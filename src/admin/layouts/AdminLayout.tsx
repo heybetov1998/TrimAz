@@ -2,9 +2,19 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import Column from "../../components/UI/grid/Column";
 import ContainerFluid from "../../components/UI/grid/ContainerFluid";
 import Row from "../../components/UI/grid/Row";
+import NotFound from "../../pages/NotFound";
 import "../assets/css/AdminLayout.css";
 
 const AdminLayout = () => {
+    const logged_user = JSON.parse(localStorage.getItem("logged_user") || "{}");
+
+    if (
+        !localStorage.getItem("logged_user") ||
+        logged_user.roleNames.includes("Member")
+    ) {
+        return <NotFound />;
+    }
+
     return (
         <ContainerFluid>
             <Row>
@@ -24,30 +34,38 @@ const AdminLayout = () => {
                                 </Link>
                             </li>
                             <hr />
-                            <li>
-                                <NavLink
-                                    to={"barbers"}
-                                    className="nav-link text-white"
-                                >
-                                    Barbers
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to={"barbershops"}
-                                    className="nav-link text-white"
-                                >
-                                    Barbershops
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to={"products"}
-                                    className="nav-link text-white"
-                                >
-                                    Products
-                                </NavLink>
-                            </li>
+                            {logged_user.roleNames.includes("Admin") && (
+                                <li>
+                                    <NavLink
+                                        to={"barbers"}
+                                        className="nav-link text-white"
+                                    >
+                                        Barbers
+                                    </NavLink>
+                                </li>
+                            )}
+                            {(logged_user.roleNames.includes("Admin") ||
+                                logged_user.roleNames.includes("Owner")) && (
+                                <li>
+                                    <NavLink
+                                        to={"barbershops"}
+                                        className="nav-link text-white"
+                                    >
+                                        Barbershops
+                                    </NavLink>
+                                </li>
+                            )}
+                            {(logged_user.roleNames.includes("Admin") ||
+                                logged_user.roleNames.includes("Seller")) && (
+                                <li>
+                                    <NavLink
+                                        to={"products"}
+                                        className="nav-link text-white"
+                                    >
+                                        Products
+                                    </NavLink>
+                                </li>
+                            )}
                             <li>
                                 <NavLink
                                     to={"blogs"}
@@ -56,14 +74,16 @@ const AdminLayout = () => {
                                     Blogs
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink
-                                    to={"feedbacks"}
-                                    className="nav-link text-white"
-                                >
-                                    Feedbacks
-                                </NavLink>
-                            </li>
+                            {logged_user.roleNames.includes("Admin") && (
+                                <li>
+                                    <NavLink
+                                        to={"feedbacks"}
+                                        className="nav-link text-white"
+                                    >
+                                        Feedbacks
+                                    </NavLink>
+                                </li>
+                            )}
                         </ul>
                         <hr />
                         <div className="dropdown d-flex justify-content-between w-100">
@@ -78,7 +98,7 @@ const AdminLayout = () => {
                                     height="32"
                                     className="rounded-circle me-2"
                                 />
-                                <strong>heybetov1998</strong>
+                                <strong>{logged_user.userName}</strong>
                             </Link>
                             <Link to="/logout" className="btn btn-danger">
                                 Sign out

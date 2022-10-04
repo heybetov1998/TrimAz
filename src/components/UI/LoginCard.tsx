@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SubmitButton from "./Buttons/SubmitButton";
 import CardFrame from "./CardFrame";
 import InputBlock from "./Inputs/InputBlock";
@@ -39,7 +39,6 @@ const LoginCard = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.statusCode === 200) {
-                        localStorage.setItem("token_id", data.user.token);
                         localStorage.setItem("logged_user",JSON.stringify(data.user));
                         navigate("/");
                     } else {
