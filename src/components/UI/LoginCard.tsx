@@ -7,6 +7,9 @@ import SectionHeader from "./section/SectionHeader";
 import * as Yup from "yup";
 import InputError from "./Inputs/InputError";
 import Loader from "./Loaders/Loader";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { getUserSettings } from "../../redux/features/userSettingsSlice";
 
 const initialValues = {
     email: "",
@@ -26,6 +29,7 @@ const validationSchema = Yup.object({
 
 const LoginCard = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -39,7 +43,11 @@ const LoginCard = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.statusCode === 200) {
-                        localStorage.setItem("logged_user",JSON.stringify(data.user));
+                        localStorage.setItem(
+                            "logged_user",
+                            JSON.stringify(data.user)
+                        );
+                        dispatch(getUserSettings(data.user.id));
                         navigate("/");
                     } else {
                         setSubmitting(false);

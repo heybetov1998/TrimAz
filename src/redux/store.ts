@@ -9,6 +9,9 @@ import BarbershopDetailsReducer from "./features/barbershopDetailsSlice";
 import ProductDetailsReducer from "./features/productDetailSlice";
 import BlogDetailsReducer from "./features/blogDetailsSlice";
 import RegisterReducer from "./features/registerSlice";
+import UserSettingsReducer from "./features/userSettingsSlice";
+import SellersReducer from "./features/sellersSlice";
+import SellerUpdateDetailReducer from "./features/sellerUpdateDetailSlice";
 
 export const store = configureStore({
     reducer: {
@@ -22,6 +25,9 @@ export const store = configureStore({
         blogs: BlogsReducer,
         blogDetails: BlogDetailsReducer,
         register: RegisterReducer,
+        userSettings: UserSettingsReducer,
+        sellers: SellersReducer,
+        sellerUpdateDetail:SellerUpdateDetailReducer
     },
 });
 

@@ -7,7 +7,11 @@ type PropsType = {
     onClick?: () => void;
 };
 
+export const isObjectEmpty = (obj: {}) =>
+    Object.keys(obj).length === 0 && obj.constructor === Object;
+
 const RightHeader = (props: PropsType) => {
+    const loggedUser = JSON.parse(localStorage.getItem("logged_user") || "{}");
     const [isUserOptionsOpened, setIsUserOptionsOpened] = useState(false);
     const { pathname } = useLocation();
 
@@ -64,7 +68,9 @@ const RightHeader = (props: PropsType) => {
                             {localStorage.getItem("logged_user") && (
                                 <>
                                     <li>
-                                        <a href={"/users/:id/settings"}>
+                                        <a
+                                            href={`/users/${loggedUser.id}/settings`}
+                                        >
                                             <IoIosSettings size={"1.2rem"} />
                                             <span className="popup_text">
                                                 Settings

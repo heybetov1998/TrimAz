@@ -6,6 +6,8 @@ type PropsType = {
     value?: string | number;
     onChange?: any;
     onBlur?: any;
+    isDisabled?: boolean;
+    accept?: string;
 };
 
 const ContactInput = (props: PropsType) => (
@@ -17,6 +19,8 @@ const ContactInput = (props: PropsType) => (
         defaultValue={props.value ?? ""}
         onChange={props.onChange ?? null}
         onBlur={props.onBlur ?? null}
+        disabled={props.isDisabled ?? false}
+        accept={props.accept ?? "*"}
     />
 );
 

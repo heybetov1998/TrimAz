@@ -538,6 +538,15 @@ footer .rightFooter li a svg {
   color: #cccccc;
 }
 
+.contact_input:disabled,
+.message:disabled {
+  color: #3e3e3e;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .message {
   -webkit-transition: none;
   transition: none;

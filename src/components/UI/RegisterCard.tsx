@@ -54,6 +54,7 @@ const validationSchema = Yup.object({
 
 type PropsType = {
     actionName: string;
+    navigateTo?:string;
 };
 
 const RegisterCard = (props: PropsType) => {
@@ -70,7 +71,7 @@ const RegisterCard = (props: PropsType) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    navigate("/");
+                    navigate(props.navigateTo??"/");
                     console.log(data);
                 });
         },

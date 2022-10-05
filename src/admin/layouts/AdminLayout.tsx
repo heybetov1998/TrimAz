@@ -35,14 +35,24 @@ const AdminLayout = () => {
                             </li>
                             <hr />
                             {logged_user.roleNames.includes("Admin") && (
-                                <li>
-                                    <NavLink
-                                        to={"barbers"}
-                                        className="nav-link text-white"
-                                    >
-                                        Barbers
-                                    </NavLink>
-                                </li>
+                                <>
+                                    <li>
+                                        <NavLink
+                                            to={"barbers"}
+                                            className="nav-link text-white"
+                                        >
+                                            Barbers
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to={"sellers"}
+                                            className="nav-link text-white"
+                                        >
+                                            Sellers
+                                        </NavLink>
+                                    </li>
+                                </>
                             )}
                             {(logged_user.roleNames.includes("Admin") ||
                                 logged_user.roleNames.includes("Owner")) && (
@@ -92,7 +102,7 @@ const AdminLayout = () => {
                                 className="d-flex align-items-center text-white text-decoration-none"
                             >
                                 <img
-                                    src="https://github.com/mdo.png"
+                                    src={`https://localhost:7231/img/${logged_user.avatar}`}
                                     alt=""
                                     width="32"
                                     height="32"

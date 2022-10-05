@@ -33,6 +33,10 @@ import BlogDash from "./admin/pages/Blogs/BlogDash";
 import RegisterSubLayout from "./layouts/RegisterSubLayout";
 import BarbershopCreate from "./admin/pages/Barbershops/BarbershopCreate";
 import Logout from "./pages/Logout";
+import SellerDash from "./admin/pages/Sellers/SellerDash";
+import SellerSubAdmin from "./admin/layouts/SellerSubAdmin";
+import SellerCreate from "./admin/pages/Sellers/SellerCreate";
+import SellerUpdate from "./admin/pages/Sellers/SellerUpdate";
 
 const App = () => {
     const logged_user = localStorage.getItem("logged_user");
@@ -129,6 +133,12 @@ const App = () => {
 
                 <Route path="barbers" element={<BarberSubAdmin />}>
                     <Route index element={<BarberDash />} />
+                </Route>
+
+                <Route path="sellers" element={<SellerSubAdmin />}>
+                    <Route index element={<SellerDash />} />
+                    <Route path="create" element={<SellerCreate />} />
+                    <Route path=":id/update" element={<SellerUpdate />} />
                 </Route>
 
                 <Route path="products" element={<ProductSubAdmin />}>
