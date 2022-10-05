@@ -6,6 +6,11 @@
     background-color: $backgroundColor;
     border-radius: 10px;
     color: $inputBorderColor;
+
+    &:disabled{
+        color: $cardHoverBackground;
+        user-select: none;
+    }
 }
 
 .message {

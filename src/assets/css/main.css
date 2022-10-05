@@ -538,6 +538,15 @@ footer .rightFooter li a svg {
   color: #cccccc;
 }
 
+.contact_input:disabled,
+.message:disabled {
+  color: #3e3e3e;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .message {
   -webkit-transition: none;
   transition: none;
@@ -1413,6 +1422,19 @@ label .standart_checkbox.checkbox-active {
   min-height: 100vh;
 }
 
+#login_page .register_selector {
+  display: block;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #232323;
+  padding: 10px;
+  color: #ffffff;
+}
+
+#login_page .register_selector:hover, #login_page .register_selector:active, #login_page .register_selector.active {
+  background-color: #e4911a;
+}
+
 #user_settings {
   padding-top: 8rem;
   min-height: 100vh;
@@ -1437,5 +1459,9 @@ label .standart_checkbox.checkbox-active {
 
 #user_settings .management_options .option_item:hover, #user_settings .management_options .option_item.active {
   color: #e4911a;
+}
+
+#notFound .text {
+  font-size: 8vw;
 }
 /*# sourceMappingURL=main.css.map */

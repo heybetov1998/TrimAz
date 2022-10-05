@@ -5,6 +5,10 @@ type PropsType = {
     inputId?: string;
     inputType?: string;
     inputValue?: string | number;
+    onChange?: any;
+    onBlur?: any;
+    isDisabled?: boolean;
+    accept?: string;
 };
 
 const InputBlock = (props: PropsType) => (
@@ -16,6 +20,10 @@ const InputBlock = (props: PropsType) => (
             id={props.inputId ?? ""}
             type={props.inputType ?? "text"}
             value={props.inputValue ?? ""}
+            onChange={props.onChange ?? null}
+            onBlur={props.onBlur ?? null}
+            isDisabled={props.isDisabled ?? false}
+            accept={props.accept ?? "*"}
         />
     </div>
 );

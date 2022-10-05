@@ -1,20 +1,17 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {
-    BiBasket,
-    BiUser,
-    BiMenu,
-    BiLogIn,
-    BiPencil,
-    BiLogOut,
-} from "react-icons/bi";
+import { BiUser, BiMenu, BiLogIn, BiPencil, BiLogOut } from "react-icons/bi";
 import { IoIosSettings } from "react-icons/io";
 
 type PropsType = {
     onClick?: () => void;
 };
 
+export const isObjectEmpty = (obj: {}) =>
+    Object.keys(obj).length === 0 && obj.constructor === Object;
+
 const RightHeader = (props: PropsType) => {
+    const loggedUser = JSON.parse(localStorage.getItem("logged_user") || "{}");
     const [isUserOptionsOpened, setIsUserOptionsOpened] = useState(false);
     const { pathname } = useLocation();
 
@@ -30,14 +27,14 @@ const RightHeader = (props: PropsType) => {
     return (
         <div className="h-100 right_header">
             <ul className="h-100 d-flex justify-content-end align-items-center">
-                <li>
+                {/* <li>
                     <NavLink
                         className="right_item d-flex justify-content-center align-items-center"
                         to={"#"}
                     >
                         <BiBasket size={"1.4rem"} />
                     </NavLink>
-                </li>
+                </li> */}
                 <li>
                     <NavLink
                         className="right_item d-flex justify-content-center align-items-center"
@@ -48,30 +45,54 @@ const RightHeader = (props: PropsType) => {
                     </NavLink>
                     {isUserOptionsOpened && (
                         <ul className="user_manager_popup">
-                            <li>
-                                <Link to={"/login"}>
-                                    <BiLogIn size={"1.2rem"} />
-                                    <span className="popup_text">Login</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={"/register"}>
-                                    <BiPencil size={"1.2rem"} />
-                                    <span className="popup_text">Register</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={"/users/:id/settings"}>
-                                    <IoIosSettings size={"1.2rem"} />
-                                    <span className="popup_text">Settings</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={"/logout"}>
-                                    <BiLogOut size={"1.2rem"} />
-                                    <span className="popup_text">Logout</span>
-                                </Link>
-                            </li>
+                            {!localStorage.getItem("logged_user") && (
+                                <>
+                                    <li>
+                                        <Link to={"/login"}>
+                                            <BiLogIn size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Login
+                                            </span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to={"/register"}>
+                                            <BiPencil size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Register
+                                            </span>
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            {localStorage.getItem("logged_user") && (
+                                <>
+                                    <li>
+                                        <a
+                                            href={`/users/${loggedUser.id}/settings`}
+                                        >
+                                            <IoIosSettings size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Settings
+                                            </span>
+                                        </a>
+                                        {/* <Link to={"/users/:id/settings"}>
+                                            <IoIosSettings size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Settings
+                                            </span>
+                                        </Link> */}
+                                    </li>
+                                    <li>
+                                        <Link to={"/logout"}>
+                                            <BiLogOut size={"1.2rem"} />
+                                            <span className="popup_text">
+                                                Logout
+                                            </span>
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     )}
                 </li>

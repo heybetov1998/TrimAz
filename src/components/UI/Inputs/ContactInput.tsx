@@ -4,6 +4,10 @@ type PropsType = {
     className?: string;
     id?: string;
     value?: string | number;
+    onChange?: any;
+    onBlur?: any;
+    isDisabled?: boolean;
+    accept?: string;
 };
 
 const ContactInput = (props: PropsType) => (
@@ -13,6 +17,10 @@ const ContactInput = (props: PropsType) => (
         type={props.type ?? "text"}
         placeholder={props.placeholder ?? ""}
         defaultValue={props.value ?? ""}
+        onChange={props.onChange ?? null}
+        onBlur={props.onBlur ?? null}
+        disabled={props.isDisabled ?? false}
+        accept={props.accept ?? "*"}
     />
 );
 
