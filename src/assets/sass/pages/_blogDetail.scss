@@ -30,5 +30,8 @@
         color: $colorWhite;
         text-align: justify;
         margin-bottom: 7rem;
+        & > p {
+            white-space: pre-line;
+        }
     }
 }

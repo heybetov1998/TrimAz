@@ -81,16 +81,20 @@ const BarbershopDetail = () => {
                 <div className="our_location">
                     <SectionPartName text="Our Location" />
                     {loading && <Loader />}
-                    {!loading && barbershop.locations.length === 0 && (
-                        <NotFoundMessage text="Location not found" />
-                    )}
-                    {!loading && barbershop.locations.length > 0 && (
-                        <Map locations={barbershop.locations} />
+                    {!loading && (
+                        <Map
+                            locations={[
+                                {
+                                    latitude: barbershop.latitude,
+                                    longtitude: barbershop.longtitude,
+                                },
+                            ]}
+                        />
                     )}
                 </div>
                 <div className="our_reviews">
                     <SectionPartName text="Comments &amp; Reviews" />
-                    <Reviews reviews={barbershop.reviews} />
+                    <Reviews reviews={barbershop.reviews} isWritable={false}/>
                 </div>
             </div>
         </section>

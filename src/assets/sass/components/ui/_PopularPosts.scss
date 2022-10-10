@@ -1,16 +1,23 @@
 .popular_posts {
     .post_item {
         .post_image {
+            position: relative;
             display: block;
-            width: 100%;
-            height: 0;
-            padding-bottom: 100%;
-            border-radius: 5px;
             overflow: hidden;
+            border-radius: 10px;
+
+            &::after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+            }
 
             img {
+                position: absolute;
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
+                object-position: 50% 50%;
 
                 &:hover {
                     transform: scale(1.2, 1.2);

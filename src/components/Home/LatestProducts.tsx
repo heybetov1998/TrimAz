@@ -58,7 +58,6 @@ const LatestProducts = () => {
                             {products.map((product) => (
                                 <SwiperSlide key={product.id}>
                                     <Card
-                                        hasHeart
                                         productId={product.id}
                                         title={product.title}
                                         price={product.price}

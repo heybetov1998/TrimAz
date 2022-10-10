@@ -132,7 +132,7 @@ const Card = (props: Props) => {
                         <span className="price">{props.price} AZN</span>
                     )}
                     {props.afterPrice && (
-                        <span className="after_price">{props.afterPrice}</span>
+                        <span className="after_price"> AZN{props.afterPrice}</span>
                     )}
                 </div>
 

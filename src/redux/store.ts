@@ -12,6 +12,9 @@ import RegisterReducer from "./features/registerSlice";
 import UserSettingsReducer from "./features/userSettingsSlice";
 import SellersReducer from "./features/sellersSlice";
 import SellerUpdateDetailReducer from "./features/sellerUpdateDetailSlice";
+import BarberUpdateDetailReducer from "./features/barberUpdateDetailSlice";
+import ProductUpdateReducer from "./features/productUpdateSlice";
+import LocationReducer from "./features/locationSlice";
 
 export const store = configureStore({
     reducer: {
@@ -27,7 +30,10 @@ export const store = configureStore({
         register: RegisterReducer,
         userSettings: UserSettingsReducer,
         sellers: SellersReducer,
-        sellerUpdateDetail:SellerUpdateDetailReducer
+        sellerUpdateDetail: SellerUpdateDetailReducer,
+        barberUpdateDetail: BarberUpdateDetailReducer,
+        productUpdate: ProductUpdateReducer,
+        location: LocationReducer,
     },
 });
 

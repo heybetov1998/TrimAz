@@ -12,7 +12,7 @@ import image from "../../assets/images/intro.jpg";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-interface ServicesOption {
+export interface ServicesOption {
     readonly value: number;
     readonly label: string;
 }

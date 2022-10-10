@@ -35,8 +35,6 @@ const SellerUpdate = () => {
         (state: RootState) => state.sellerUpdateDetail
     );
 
-    console.log(seller);
-
     useEffect(() => {
         dispatch(getSellerUpdateDetail(id));
         initialState.current = {
@@ -57,8 +55,7 @@ const SellerUpdate = () => {
                 body: JSON.stringify(values),
             })
                 .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
+                .then(() => {
                     navigate("/admin/sellers");
                 });
         },

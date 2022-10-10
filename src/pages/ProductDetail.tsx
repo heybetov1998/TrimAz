@@ -102,7 +102,7 @@ const ProductDetail = () => {
                                 />
                             )}
                         </CardFrame>
-                        <Reviews reviews={product.reviews} />
+                        <Reviews reviews={product.reviews} isWritable={true}/>
                     </Column>
                 </Row>
             </div>

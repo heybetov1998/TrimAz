@@ -21,8 +21,9 @@ export type ServiceNameState = {
 
 export type BarbershopState = {
     name: string;
+    latitude:number,
+    longtitude:number,
     barbers: BarberLessDataState[];
-    locations: LocationState[];
     services: ServiceNameState[];
     images: string[];
     reviews: ReviewState[];
@@ -36,8 +37,9 @@ export type BarbershopDetailsState = {
 const initialState: BarbershopDetailsState = {
     barbershop: {
         name: "",
+        latitude:0,
+        longtitude:0,
         barbers: [],
-        locations: [],
         services: [],
         images: [],
         reviews: [],

@@ -6,8 +6,19 @@ import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
 import { getBarbershops } from "../../../redux/features/barbershopsSlice";
 import SquareImage from "../../../components/UI/Images/SquareImage";
+import Loader from "../../../components/UI/Loaders/Loader";
 
 import "../../assets/css/AdminLayout.css";
+
+const submitHandler = (id: any) => {
+    fetch(`https://localhost:7231/api/Barbershops?id=${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json;",
+        },
+        body: JSON.stringify(id),
+    }).then((response) => response.json());
+};
 
 const columns = [
     {
@@ -18,6 +29,28 @@ const columns = [
         sortable: false,
     },
     { name: "Name", selector: (row: any) => row.name, sortable: true },
+    {
+        name: "Actions",
+        selector: (row: any) => (
+            <>
+                <Link to={`${row.id}/update`} className="btn btn-primary me-1">
+                    Update
+                </Link>
+                <form
+                    className="d-inline-block"
+                    onSubmit={(e: any) => {
+                        e.preventDefault();
+                        return submitHandler(row.id);
+                    }}
+                >
+                    <button type="submit" className="btn btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </>
+        ),
+        sortable: false,
+    },
 ];
 
 const BarbershopDash = () => {
@@ -40,7 +73,14 @@ const BarbershopDash = () => {
                 </Link>
             </div>
             <div>
-                <DataTable columns={columns} data={barbershops} pagination />
+                {loading && <Loader />}
+                {!loading && (
+                    <DataTable
+                        columns={columns}
+                        data={barbershops}
+                        pagination
+                    />
+                )}
             </div>
         </>
     );

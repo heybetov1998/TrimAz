@@ -16,7 +16,7 @@ const PopularPosts = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBlogs(5));
+        dispatch(getBlogs());
     }, [dispatch]);
 
     return (
@@ -25,33 +25,36 @@ const PopularPosts = () => {
             {!loading && blogs.length === 0 && <NotFoundMessage />}
             {!loading &&
                 blogs.length > 0 &&
-                blogs.map((post) => {
+                blogs.map((post, index) => {
                     const createdDate = convertDate(post.createdDate);
 
-                    return (
-                        <Row key={post.id} className="post_item mb-3">
-                            <Column default={4} sm={4} md={4} lg={4} xl={4}>
-                                <Link
-                                    className="post_image"
-                                    to={`/blogs/${post.id}`}
-                                >
-                                    <img
-                                        src={`https://localhost:7231/img/${post.image.name}`}
-                                        alt={post.image.alt}
-                                    />
-                                </Link>
-                            </Column>
-                            <Column default={8} sm={8} md={8} lg={8} xl={8}>
-                                <Link
-                                    to={`/blogs/${post.id}`}
-                                    className="post_title"
-                                >
-                                    {post.title}
-                                </Link>
-                                <p>{createdDate}</p>
-                            </Column>
-                        </Row>
-                    );
+                    if (index < 5) {
+                        return (
+                            <Row key={post.id} className="post_item mb-3">
+                                <Column default={4} sm={4} md={4} lg={4} xl={4}>
+                                    <Link
+                                        className="post_image"
+                                        to={`/blogs/${post.id}`}
+                                    >
+                                        <img
+                                            src={`https://localhost:7231/img/${post.image.name}`}
+                                            alt={post.image.alt}
+                                        />
+                                    </Link>
+                                </Column>
+                                <Column default={8} sm={8} md={8} lg={8} xl={8}>
+                                    <Link
+                                        to={`/blogs/${post.id}`}
+                                        className="post_title"
+                                    >
+                                        {post.title}
+                                    </Link>
+                                    <p>{createdDate}</p>
+                                </Column>
+                            </Row>
+                        );
+                    }
+                    return null;
                 })}
         </CardFrame>
     );

@@ -3,9 +3,20 @@ import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SquareImage from "../../../components/UI/Images/SquareImage";
+import Loader from "../../../components/UI/Loaders/Loader";
 import SectionPartName from "../../../components/UI/section/SectionPartName";
 import { getProducts } from "../../../redux/features/productsSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
+
+const submitHandler = (id: any) => {
+    fetch(`https://localhost:7231/api/Products?id=${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json;",
+        },
+        body: JSON.stringify(id),
+    }).then((response) => response.json());
+};
 
 const columns = [
     {
@@ -24,6 +35,29 @@ const columns = [
         name: "Price",
         selector: (row: any) => row.price,
         sortable: true,
+    },
+    { name: "Seller", selector: (row: any) => <div>{row.seller.firstName} {row.seller.lastName}</div>, sortable: true },
+    {
+        name: "Actions",
+        selector: (row: any) => (
+            <>
+                <Link to={`${row.id}/update`} className="btn btn-primary me-1">
+                    Update
+                </Link>
+                <form
+                    className="d-inline-block"
+                    onSubmit={(e: any) => {
+                        e.preventDefault();
+                        return submitHandler(row.id);
+                    }}
+                >
+                    <button type="submit" className="btn btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </>
+        ),
+        sortable: false,
     },
 ];
 
@@ -47,7 +81,10 @@ const ProductDash = () => {
                 </Link>
             </div>
             <div>
-                <DataTable columns={columns} data={products} pagination />
+                {loading && <Loader />}
+                {!loading && (
+                    <DataTable columns={columns} data={products} pagination />
+                )}
             </div>
         </>
     );

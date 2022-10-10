@@ -8,6 +8,7 @@ type PropsType = {
     onBlur?: any;
     isDisabled?: boolean;
     accept?: string;
+    isMultiple?: boolean;
 };
 
 const ContactInput = (props: PropsType) => (
@@ -21,6 +22,7 @@ const ContactInput = (props: PropsType) => (
         onBlur={props.onBlur ?? null}
         disabled={props.isDisabled ?? false}
         accept={props.accept ?? "*"}
+        multiple={props.isMultiple ?? false}
     />
 );
 

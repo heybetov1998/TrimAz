@@ -34,8 +34,8 @@ const BarberDetail = () => {
                             services={barber.services}
                             isLoading={loading}
                         />
-                        <Videos videos={barber.videos} isLoading={loading} />
-                        <Reviews reviews={barber.reviews} />
+                        {/* <Videos videos={barber.videos} isLoading={loading} /> */}
+                        <Reviews reviews={barber.reviews} isWritable={true}/>
                     </Column>
                     <Column className="order-0 order-md-1" md={4} lg={3} xl={3}>
                         <BarberInfo barber={barber} isLoading={loading} />

@@ -10,6 +10,16 @@ import { AppDispatch, RootState } from "../../../redux/store";
 
 import "../../assets/css/AdminLayout.css";
 
+const submitHandler = (id: any) => {
+    fetch(`https://localhost:7231/api/Sellers?id=${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json;",
+        },
+        body: JSON.stringify(id),
+    }).then((response) => response.json());
+};
+
 const columns = [
     {
         name: "Avatar",
@@ -31,9 +41,17 @@ const columns = [
                 <Link to={`${row.id}/update`} className="btn btn-primary me-1">
                     Update
                 </Link>
-                <Link to={`${row.id}/delete`} className="btn btn-danger">
-                    Delete
-                </Link>
+                <form
+                    className="d-inline-block"
+                    onSubmit={(e: any) => {
+                        e.preventDefault();
+                        return submitHandler(row.id);
+                    }}
+                >
+                    <button type="submit" className="btn btn-danger">
+                        Delete
+                    </button>
+                </form>
             </>
         ),
         sortable: false,

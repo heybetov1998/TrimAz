@@ -62,7 +62,7 @@ const BlogDetail = () => {
                                     <AuthorInfo
                                         className="blog_author"
                                         author={blog.author}
-                                        createdDate="September 1, 2003"
+                                        createdDate={blog.createdDate}
                                     />
                                 </div>
                                 <div className="blog_content">

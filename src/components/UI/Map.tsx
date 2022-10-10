@@ -40,7 +40,7 @@ const Map = (props: PropsType) => {
     if (!isLoaded) return <div>Loading...</div>;
 
     return (
-        <GoogleMap zoom={15} center={center} mapContainerClassName="map">
+        <GoogleMap zoom={16} center={center} mapContainerClassName="map">
             {props.locations.map((location) => (
                 <Marker
                     key={location.latitude}

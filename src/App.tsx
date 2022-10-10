@@ -37,6 +37,12 @@ import SellerDash from "./admin/pages/Sellers/SellerDash";
 import SellerSubAdmin from "./admin/layouts/SellerSubAdmin";
 import SellerCreate from "./admin/pages/Sellers/SellerCreate";
 import SellerUpdate from "./admin/pages/Sellers/SellerUpdate";
+import BarberCreate from "./admin/pages/Barbers/BarberCreate";
+import BarberUpdate from "./admin/pages/Barbers/BarberUpdate";
+import ProductCreate from "./admin/pages/Products/ProductCreate";
+import ProductUpdate from "./admin/pages/Products/ProductUpdate";
+import BlogCreate from "./admin/pages/Blogs/BlogCreate";
+import BlogUpdate from "./admin/pages/Blogs/BlogUpdate";
 
 const App = () => {
     const logged_user = localStorage.getItem("logged_user");
@@ -111,7 +117,7 @@ const App = () => {
                         )
                     }
                 />
-                <Route path="/logout" element={<Logout/>}/>
+                <Route path="/logout" element={<Logout />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
 
@@ -133,6 +139,8 @@ const App = () => {
 
                 <Route path="barbers" element={<BarberSubAdmin />}>
                     <Route index element={<BarberDash />} />
+                    <Route path="create" element={<BarberCreate />} />
+                    <Route path=":id/update" element={<BarberUpdate />} />
                 </Route>
 
                 <Route path="sellers" element={<SellerSubAdmin />}>
@@ -143,10 +151,14 @@ const App = () => {
 
                 <Route path="products" element={<ProductSubAdmin />}>
                     <Route index element={<ProductDash />} />
+                    <Route path="create" element={<ProductCreate />} />
+                    <Route path=":id/update" element={<ProductUpdate />} />
                 </Route>
 
                 <Route path="blogs" element={<BlogSubAdmin />}>
                     <Route index element={<BlogDash />} />
+                    <Route path="create" element={<BlogCreate />} />
+                    <Route path=":id/update" element={<BlogUpdate />} />
                 </Route>
 
                 <Route path="feedbacks" element={<FeedbackDash />} />

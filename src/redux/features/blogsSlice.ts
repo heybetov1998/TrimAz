@@ -1,11 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export type BlogsSliceState = {
-    blogs: any[];
+export type ImageGetDTO = {
+    name: string;
+    alt: string;
+};
+
+export type UserGetDTO = {
+    id: string;
+    firstName: string;
+    lastName: string;
+    image: ImageGetDTO;
+};
+
+export type BlogGetDTO = {
+    blogs: {
+        id: number;
+        title: string;
+        content: string;
+        image: ImageGetDTO;
+        author: UserGetDTO;
+        createdDate: string;
+    }[];
     loading: boolean;
 };
 
-const initialState: BlogsSliceState = {
+const initialState: BlogGetDTO = {
     blogs: [],
     loading: false,
 };

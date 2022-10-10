@@ -51,7 +51,6 @@ const Market = () => {
                                             >
                                                 <Card
                                                     productId={product.id}
-                                                    hasHeart
                                                     title={product.title}
                                                     price={product.price}
                                                     image={product.image}
