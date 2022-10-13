@@ -1032,18 +1032,18 @@ label .standart_checkbox.checkbox-active {
           transform: scale(1.2, 1.2);
 }
 
-.square_image.old_square {
-  overflow: hidden !important;
-  border-radius: 20px !important;
-  width: 100% !important;
-  padding-bottom: 100% !important;
-  height: 0 !important;
+.old_square {
+  overflow: hidden;
+  border-radius: 20px;
+  width: 100%;
+  padding-bottom: 100%;
+  height: 0;
 }
 
-.square_image.old_square img {
-  width: 100% !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
+.old_square img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .lds-ring {
@@ -1103,6 +1103,14 @@ label .standart_checkbox.checkbox-active {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.custom_select {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 #intro {

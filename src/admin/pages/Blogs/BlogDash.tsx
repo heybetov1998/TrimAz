@@ -4,11 +4,11 @@ import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
-import SquareImage from "../../../components/UI/Images/SquareImage";
 import { getBlogs } from "../../../redux/features/blogsSlice";
 
 import "../../assets/css/AdminLayout.css";
 import Loader from "../../../components/UI/Loaders/Loader";
+import SquareOld from "../../../components/UI/Images/SquareOld";
 
 const submitHandler = (id: any) => {
     fetch(`https://localhost:7231/api/Blogs?id=${id}`, {
@@ -24,7 +24,7 @@ const columns = [
     {
         name: "Image",
         selector: (row: any) => (
-            <SquareImage className="datatable-image" img={row.image.name} />
+            <SquareOld className="datatable-image" img={row.image.name} />
         ),
         sortable: false,
     },

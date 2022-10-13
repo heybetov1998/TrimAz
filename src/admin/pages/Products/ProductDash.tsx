@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SquareImage from "../../../components/UI/Images/SquareImage";
+import SquareOld from "../../../components/UI/Images/SquareOld";
 import Loader from "../../../components/UI/Loaders/Loader";
 import SectionPartName from "../../../components/UI/section/SectionPartName";
 import { getProducts } from "../../../redux/features/productsSlice";
@@ -22,7 +22,7 @@ const columns = [
     {
         name: "Image",
         selector: (row: any) => (
-            <SquareImage className="datatable-image" img={row.image.name} />
+            <SquareOld className="datatable-image" img={row.image.name} />
         ),
         sortable: false,
     },

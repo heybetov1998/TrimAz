@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
 import { getBarbershops } from "../../../redux/features/barbershopsSlice";
-import SquareImage from "../../../components/UI/Images/SquareImage";
 import Loader from "../../../components/UI/Loaders/Loader";
 
 import "../../assets/css/AdminLayout.css";
+import SquareOld from "../../../components/UI/Images/SquareOld";
 
 const submitHandler = (id: any) => {
     fetch(`https://localhost:7231/api/Barbershops?id=${id}`, {
@@ -24,7 +24,7 @@ const columns = [
     {
         name: "Image",
         selector: (row: any) => (
-            <SquareImage className="datatable-image" img={row.image.name} />
+            <SquareOld className="datatable-image" img={row.image.name} />
         ),
         sortable: false,
     },

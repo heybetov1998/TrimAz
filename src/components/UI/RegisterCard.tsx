@@ -15,8 +15,6 @@ const initialValues = {
     userName: "",
     password: "",
     confirmPassword: "",
-    workStartTime: "0",
-    workEndTime: "0",
 };
 
 const validationSchema = Yup.object({
@@ -48,13 +46,13 @@ const validationSchema = Yup.object({
             [Yup.ref("password"), null],
             'Must match "password" field value'
         ),
-    workStartTime: Yup.string().required("Field is required"),
-    workEndTime: Yup.string().required("Field is required"),
+    // workStartTime: Yup.string().required("Field is required"),
+    // workEndTime: Yup.string().required("Field is required"),
 });
 
 type PropsType = {
     actionName: string;
-    navigateTo?:string;
+    navigateTo?: string;
 };
 
 const RegisterCard = (props: PropsType) => {
@@ -71,7 +69,7 @@ const RegisterCard = (props: PropsType) => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    navigate(props.navigateTo??"/");
+                    navigate(props.navigateTo ?? "/");
                     console.log(data);
                 });
         },
@@ -152,42 +150,45 @@ const RegisterCard = (props: PropsType) => {
                 ) : null}
 
                 {props.actionName === "RegisterBarber" && (
-                    <>
-                        <div className="input_block">
-                            <label htmlFor="workStartTime">Work Starts</label>
-                            <select
-                                id="workStartTime"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.workStartTime}
-                            >
-                                <option value="1">00:00 - 01:00</option>
-                                <option value="2">01:00 - 02:00</option>
-                                <option value="3">02:00 - 03:00</option>
-                                <option value="4">03:00 - 04:00</option>
-                            </select>
+                    // <>
+                    //     <div className="input_block">
+                    //         <label htmlFor="workStartTime">Work Starts</label>
+                    //         <select
+                    //             id="workStartTime"
+                    //             onBlur={formik.handleBlur}
+                    //             onChange={formik.handleChange}
+                    //             // value={formik.values.workStartTime}
+                    //         >
+                    //             {times.map((time) => (
+                    //                 <option value={time.id}>
+                    //                     {time.range}
+                    //                 </option>
+                    //             ))}
+                    //         </select>
 
-                            {formik.errors.workStartTime ? (
-                                <InputError
-                                    text={formik.errors.workStartTime}
-                                />
-                            ) : null}
-                        </div>
-                        <div className="input_block">
-                            <label htmlFor="workEndTime">Work Ends</label>
-                            <select
-                                id="workEndTime"
-                                onBlur={formik.handleBlur}
-                                onChange={formik.handleChange}
-                                value={formik.values.workEndTime}
-                            >
-                                <option value="1">00:00 - 01:00</option>
-                                <option value="2">01:00 - 02:00</option>
-                                <option value="3">02:00 - 03:00</option>
-                                <option value="4">03:00 - 04:00</option>
-                            </select>
-                        </div>
-                    </>
+                    //         {/* {formik.errors.workStartTime ? (
+                    //             <InputError
+                    //                 text={formik.errors.workStartTime}
+                    //             />
+                    //         ) : null} */}
+                    //     </div>
+                    //     <div className="input_block">
+                    //         <label htmlFor="workEndTime">Work Ends</label>
+                    //         <select
+                    //             id="workEndTime"
+                    //             onBlur={formik.handleBlur}
+                    //             onChange={formik.handleChange}
+                    //             // value={formik.values.workEndTime}
+                    //         >
+                    //             {times.map((time) => (
+                    //                 <option value={time.id}>
+                    //                     {time.range}
+                    //                 </option>
+                    //             ))}
+                    //         </select>
+                    //     </div>
+                    // </>
+                    <></>
                 )}
 
                 <SubmitButton text="Submit" className="py-2" />

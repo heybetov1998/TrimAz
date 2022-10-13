@@ -53,6 +53,7 @@ const BarbershopCreate = () => {
             <CardFrame>
                 <form onSubmit={formik.handleSubmit}>
                     <InputBlock
+                        name="Name"
                         inputId="name"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}

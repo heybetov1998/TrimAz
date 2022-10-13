@@ -5,6 +5,7 @@ export type UpdateState = {
     title: string;
     content: string;
     price: number;
+    images: string[];
 };
 
 export type ProductUpdateState = {
@@ -18,6 +19,7 @@ const initialState: ProductUpdateState = {
         title: "",
         content: "",
         price: 0,
+        images: [],
     },
     loading: false,
 };

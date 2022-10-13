@@ -1,52 +1,48 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export type UpdateState = {
-    id: number;
     title: string;
     content: string;
-    price: number;
 };
 
-export type ProductUpdateState = {
-    product: UpdateState;
+export type BlogUpdateState = {
+    blog: UpdateState;
     loading: boolean;
 };
 
-const initialState: ProductUpdateState = {
-    product: {
-        id: 0,
+const initialState: BlogUpdateState = {
+    blog: {
         title: "",
         content: "",
-        price: 0,
     },
     loading: false,
 };
 
-export const getProductUpdate = createAsyncThunk(
-    "products/getProductUpdate",
+export const getBlogUpdate = createAsyncThunk(
+    "blogs/getBlogUpdate",
     async (id: string | undefined) => {
-        return fetch(`https://localhost:7231/api/Products/${id}`).then(
+        return fetch(`https://localhost:7231/api/Blogs/${id}`).then(
             (response) => response.json()
         );
     }
 );
 
-const productUpdateSlice = createSlice({
-    name: "productUpdate",
+const blogUpdateSlice = createSlice({
+    name: "blogUpdate",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getProductUpdate.pending, (state, action) => {
+        builder.addCase(getBlogUpdate.pending, (state, action) => {
             state.loading = true;
         });
-        builder.addCase(getProductUpdate.fulfilled, (state, action) => {
+        builder.addCase(getBlogUpdate.fulfilled, (state, action) => {
             state.loading = false;
-            state.product = action.payload;
+            state.blog = action.payload;
         });
-        builder.addCase(getProductUpdate.rejected, (state, action) => {
+        builder.addCase(getBlogUpdate.rejected, (state, action) => {
             state.loading = false;
         });
     },
 });
 
-export default productUpdateSlice.reducer;
+export default blogUpdateSlice.reducer;

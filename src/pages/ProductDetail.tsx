@@ -101,8 +101,16 @@ const ProductDetail = () => {
                                     author={product.seller}
                                 />
                             )}
+                            {product.seller.phoneNumber !== null && (
+                                <a
+                                    className="btn btn-warning mt-4"
+                                    href={`https://wa.me/994${product.seller.phoneNumber}`}
+                                >
+                                    Buy
+                                </a>
+                            )}
                         </CardFrame>
-                        <Reviews reviews={product.reviews} isWritable={true}/>
+                        <Reviews reviews={product.reviews} isWritable={true} />
                     </Column>
                 </Row>
             </div>

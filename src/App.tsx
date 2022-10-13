@@ -43,6 +43,7 @@ import ProductCreate from "./admin/pages/Products/ProductCreate";
 import ProductUpdate from "./admin/pages/Products/ProductUpdate";
 import BlogCreate from "./admin/pages/Blogs/BlogCreate";
 import BlogUpdate from "./admin/pages/Blogs/BlogUpdate";
+import BarbershopUpdate from "./admin/pages/Barbershops/BarbershopUpdate";
 
 const App = () => {
     const logged_user = localStorage.getItem("logged_user");
@@ -135,6 +136,7 @@ const App = () => {
                 <Route path="barbershops" element={<BarbershopSubAdmin />}>
                     <Route index element={<BarbershopDash />} />
                     <Route path="create" element={<BarbershopCreate />} />
+                    <Route path=":id/update" element={<BarbershopUpdate />} />
                 </Route>
 
                 <Route path="barbers" element={<BarberSubAdmin />}>
