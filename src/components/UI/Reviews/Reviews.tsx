@@ -5,17 +5,14 @@ import WriteReview from "./WriteReview";
 
 type PropsType = {
     reviews: ReviewState[];
+    isWritable: boolean;
 };
 
 const Reviews = (props: PropsType) => (
     <div className="reviews">
-        <WriteReview />
-        {props.reviews.length > 0 && (
-            <Comments reviews={props.reviews} />
-        )}
-        {props.reviews.length === 0 && (
-            <NotFoundMessage text="No review" />
-        )}
+        {props.isWritable && <WriteReview />}
+        {props.reviews.length > 0 && <Comments reviews={props.reviews} />}
+        {props.reviews.length === 0 && <NotFoundMessage text="No review" />}
     </div>
 );
 

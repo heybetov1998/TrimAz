@@ -52,16 +52,14 @@ const Portfolio = (props: PropsType) => {
                                             lg={3}
                                             xl={3}
                                         >
-                                            <div className="d-flex justify-content-center">
-                                                <div
-                                                    className="portfolio_item"
-                                                    data-src={`https://localhost:7231/img/${image.name}`}
-                                                >
-                                                    <img
-                                                        src={`https://localhost:7231/img/${image.name}`}
-                                                        alt={image.alt}
-                                                    />
-                                                </div>
+                                            <div
+                                                className="portfolio_item"
+                                                data-src={`https://localhost:7231/img/${image.name}`}
+                                            >
+                                                <img
+                                                    src={`https://localhost:7231/img/${image.name}`}
+                                                    alt={image.alt}
+                                                />
                                             </div>
                                         </Column>
                                     );

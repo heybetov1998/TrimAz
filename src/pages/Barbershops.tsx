@@ -65,7 +65,7 @@ const Barbershops = () => {
                                                     title={bshop.name}
                                                     price={bshop.price}
                                                     image={bshop.image}
-                                                    location={bshop.location}
+                                                    // location={bshop.location}
                                                     afterPrice={
                                                         bshop.afterPrice
                                                     }

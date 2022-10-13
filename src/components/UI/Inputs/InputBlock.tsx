@@ -9,6 +9,7 @@ type PropsType = {
     onBlur?: any;
     isDisabled?: boolean;
     accept?: string;
+    isMultiple?: boolean;
 };
 
 const InputBlock = (props: PropsType) => (
@@ -24,6 +25,7 @@ const InputBlock = (props: PropsType) => (
             onBlur={props.onBlur ?? null}
             isDisabled={props.isDisabled ?? false}
             accept={props.accept ?? "*"}
+            isMultiple={props.isMultiple ?? false}
         />
     </div>
 );

@@ -1,13 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { UserGetState } from "../../components/UI/Author/AuthorInfo";
 import { ReviewsState } from "./barberDetailsSlice";
+
+export type SellerGetState = {
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    id: string;
+    image: {
+        name: string;
+        alt: string;
+    };
+};
 
 export type ProductInfoState = {
     title: string;
     price: number;
     content: string;
     mainImage: string;
-    seller: UserGetState;
+    seller: SellerGetState;
     images: string[];
     reviews: ReviewsState;
 };
@@ -26,6 +36,7 @@ const initialState: ProductDetailsState = {
         seller: {
             firstName: "",
             lastName: "",
+            phoneNumber: "",
             id: "",
             image: {
                 name: "",

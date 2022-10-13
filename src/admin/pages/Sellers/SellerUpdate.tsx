@@ -19,6 +19,10 @@ const validationSchema = Yup.object({
     lastName: Yup.string()
         .required("Field is required")
         .max(100, "Must be 100 or less characters"),
+    phoneNumber: Yup.string()
+        .required("Field is required")
+        .nullable()
+        .test((val: any) => !isNaN(val)),
 });
 
 const SellerUpdate = () => {
@@ -29,13 +33,13 @@ const SellerUpdate = () => {
         id: "",
         firstName: "",
         lastName: "",
+        phoneNumber: "",
+        avatarImage: [],
     });
 
     const { seller, loading } = useSelector(
         (state: RootState) => state.sellerUpdateDetail
     );
-
-    console.log(seller);
 
     useEffect(() => {
         dispatch(getSellerUpdateDetail(id));
@@ -43,22 +47,48 @@ const SellerUpdate = () => {
             id: seller.id,
             firstName: seller.firstName,
             lastName: seller.lastName,
+            avatarImage: [],
+            phoneNumber: seller.phoneNumber,
         };
-    }, [id, dispatch, seller.firstName, seller.lastName, seller.id]);
+    }, [
+        id,
+        dispatch,
+        seller.firstName,
+        seller.lastName,
+        seller.id,
+        seller.phoneNumber,
+    ]);
 
     const formik = useFormik({
         initialValues: initialState.current,
         validationSchema: validationSchema,
         enableReinitialize: true,
         onSubmit: (values) => {
+            const formData = new FormData();
+            formData.append("id", id!);
+            formData.append("firstName", values.firstName);
+            formData.append("lastName", values.lastName);
+            formData.append("phoneNumber",values.phoneNumber);
+            if (values.avatarImage.length > 0) {
+                values.avatarImage.forEach((image) => {
+                    formData.append("avatarImage", image);
+                });
+            }
+
+            console.log(
+                formData.getAll("id"),
+                formData.getAll("firstName"),
+                formData.getAll("lastName"),
+                formData.getAll("avatarImage")
+            );
+
             fetch(`https://localhost:7231/api/Sellers?id=${id}`, {
                 method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(values),
+                headers: { Accept: "*/*" },
+                body: formData,
             })
                 .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
+                .then(() => {
                     navigate("/admin/sellers");
                 });
         },
@@ -89,6 +119,30 @@ const SellerUpdate = () => {
                         />
                         {formik.touched.lastName && formik.errors.lastName ? (
                             <InputError text={formik.errors.lastName} />
+                        ) : null}
+                        <InputBlock
+                            inputId="avatarImage"
+                            name="Profile Picture"
+                            inputType="file"
+                            onChange={(event: any) => {
+                                const files = event.target.files;
+                                let myFiles = Array.from(files);
+                                formik.setFieldValue("avatarImage", myFiles);
+                            }}
+                            onBlur={formik.handleBlur}
+                            isMultiple={false}
+                            accept="image/*"
+                        />
+                        <InputBlock
+                            name="Phone Number"
+                            inputId="phoneNumber"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            inputValue={formik.values.phoneNumber}
+                        />
+                        {formik.touched.phoneNumber &&
+                        formik.errors.phoneNumber ? (
+                            <InputError text={formik.errors.phoneNumber} />
                         ) : null}
                         <SubmitButton text="Save changes" />
                     </form>

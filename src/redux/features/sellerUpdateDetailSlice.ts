@@ -4,6 +4,7 @@ export type SellerDetailState = {
     id: string;
     firstName: string;
     lastName: string;
+    phoneNumber: string;
 };
 
 export type SellerUpdateDetailState = {
@@ -16,6 +17,7 @@ const initialState: SellerUpdateDetailState = {
         id: "",
         firstName: "",
         lastName: "",
+        phoneNumber: "",
     },
     loading: false,
 };
