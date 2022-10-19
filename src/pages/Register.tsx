@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 import RegisterCard from "../components/UI/RegisterCard";

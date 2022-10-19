@@ -11,6 +11,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import Loader from "../UI/Loaders/Loader";
 import NotFoundMessage from "../UI/Messages/NotFoundMessage";
+import React from "react";
 
 type PropsType = {
     isLoading?: boolean;
@@ -73,4 +74,4 @@ const Portfolio = (props: PropsType) => {
     );
 };
 
-export default Portfolio;
+export const PortfolioMemo=React.memo(Portfolio)

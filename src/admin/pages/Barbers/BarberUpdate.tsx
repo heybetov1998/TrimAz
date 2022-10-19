@@ -2,9 +2,7 @@ import { useFormik } from "formik";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import Select from "react-select";
 import * as Yup from "yup";
-import { ServicesOption } from "../../../components/Home/Intro";
 import SubmitButton from "../../../components/UI/Buttons/SubmitButton";
 import CardFrame from "../../../components/UI/CardFrame";
 import Column from "../../../components/UI/grid/Column";
@@ -28,7 +26,7 @@ const validationSchema = Yup.object({
 });
 
 const BarberUpdate = () => {
-    const [selectedBarbershop,setSelectedBarbershop]=useState(0);
+    const [selectedBarbershop, setSelectedBarbershop] = useState(0);
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -40,18 +38,20 @@ const BarberUpdate = () => {
         portfolioImages: [],
     });
 
+    const selectBarbershopHandler = (event: any) => {
+        event.preventDefault();
+        setSelectedBarbershop(event.target.value);
+    };
+
+    console.log(selectedBarbershop);
+
     const { barber, loading } = useSelector(
         (state: RootState) => state.barberUpdateDetail
     );
 
-    const { barbershops, loading: barbershopLoading } = useSelector(
+    const { barbershops } = useSelector(
         (state: RootState) => state.barbershops
     );
-
-    const barbershopOptions: ServicesOption[] = barbershops.map((n) => ({
-        value: n.id,
-        label: n.name,
-    }));
 
     useEffect(() => {
         dispatch(getBarberUpdateDetail(id));
@@ -165,12 +165,29 @@ const BarberUpdate = () => {
                                 isMultiple={true}
                                 accept="image/*"
                             />
-                            <Select
+
+                            <select
+                                className="custom_select mb-4"
+                                name="barbershops"
+                                id="barbershops"
+                                onChange={selectBarbershopHandler}
+                            >
+                                <option value={0}>Select barbershop</option>
+                                {barbershops.map((barbershop) => (
+                                    <option
+                                        key={barbershop.id}
+                                        value={barbershop.id}
+                                    >
+                                        {barbershop.name}
+                                    </option>
+                                ))}
+                            </select>
+                            {/* <Select
                                 name="barbershops"
                                 options={!barbershopLoading ? barbershopOptions : []}
                                 className="service_selection"
                                 // onChange={option=>setSelectedBarbershop(option?.value)}
-                            />
+                            /> */}
                             <SubmitButton text="Save changes" />
                         </form>
                         <br />
