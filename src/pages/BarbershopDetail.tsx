@@ -24,6 +24,10 @@ const BarbershopDetail = () => {
         (state: RootState) => state.barbershopDetails
     );
 
+    const commentHandler = (ev: any) => {
+        ev.preventDefault();
+    };
+
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
@@ -94,7 +98,11 @@ const BarbershopDetail = () => {
                 </div>
                 <div className="our_reviews">
                     <SectionPartName text="Comments &amp; Reviews" />
-                    <Reviews reviews={barbershop.reviews} isWritable={false}/>
+                    <Reviews
+                        submitter={commentHandler}
+                        reviews={barbershop.reviews}
+                        isWritable={false}
+                    />
                 </div>
             </div>
         </section>

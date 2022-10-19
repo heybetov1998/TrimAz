@@ -17,6 +17,7 @@ import ProductUpdateReducer from "./features/productUpdateSlice";
 import LocationReducer from "./features/locationSlice";
 import BlogUpdateReducer from "./features/blogUpdateSlice";
 import TimeReducer from "./features/timeSlice";
+import ReviewReducer from "./features/reviewSlice";
 
 export const store = configureStore({
     reducer: {
@@ -37,7 +38,8 @@ export const store = configureStore({
         barberUpdateDetail: BarberUpdateDetailReducer,
         productUpdate: ProductUpdateReducer,
         location: LocationReducer,
-        times:TimeReducer,
+        times: TimeReducer,
+        review: ReviewReducer,
     },
 });
 

@@ -1,5 +1,4 @@
 import { BarberState } from "../../redux/features/barberDetailsSlice";
-import SubmitButton from "../UI/Buttons/SubmitButton";
 import CardFrame from "../UI/CardFrame";
 import SquareImage from "../UI/Images/SquareImage";
 import Loader from "../UI/Loaders/Loader";
@@ -30,13 +29,13 @@ const BarberInfo = (props: PropsType) => (
                             />
                         </div>
                     </div>
-                    <div>
+                    {/* <div>
                         <SubmitButton
                             className="mt-3"
                             text="Reserve"
                             type="button"
                         />
-                    </div>
+                    </div> */}
                 </div>
             </>
         )}

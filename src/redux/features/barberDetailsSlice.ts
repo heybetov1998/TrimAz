@@ -20,7 +20,7 @@ export type VideosState = {
 export type ReviewState = {
     id: number;
     userId: string;
-    userAvatar:string;
+    userAvatar: string;
     userFirstName: string;
     userLastName: string;
     createdDate: string;
@@ -29,6 +29,11 @@ export type ReviewState = {
 };
 
 export type ReviewsState = ReviewState[];
+
+export type TimeState = {
+    id: number;
+    range: string;
+};
 
 export type BarberState = {
     firstName: string;
@@ -39,6 +44,7 @@ export type BarberState = {
     services: ServicesState;
     videos: VideosState;
     reviews: ReviewsState;
+    times: TimeState[];
 };
 
 export type BarberDetailsState = {
@@ -56,6 +62,7 @@ const initialState: BarberDetailsState = {
         services: [],
         videos: [],
         reviews: [],
+        times: [],
     },
     loading: false,
 };

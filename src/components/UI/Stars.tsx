@@ -4,11 +4,13 @@ import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 type PropsType = {
     edit: boolean;
     value: number;
+    isHalf?: boolean;
+    onChange?: (newValue: number) => void;
 };
 
 const Stars = (props: PropsType) => (
     <ReactStars
-        isHalf={true}
+        isHalf={props.isHalf ?? true}
         size={24}
         emptyIcon={<IoIosStarOutline />}
         halfIcon={<IoIosStarHalf />}
@@ -17,6 +19,7 @@ const Stars = (props: PropsType) => (
         color="#cccccc"
         edit={props.edit}
         value={props.value}
+        onChange={props.onChange ?? null}
     />
 );
 

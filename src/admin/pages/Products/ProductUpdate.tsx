@@ -15,14 +15,6 @@ import Row from "../../../components/UI/grid/Row";
 import Column from "../../../components/UI/grid/Column";
 import SquareImage from "../../../components/UI/Images/SquareImage";
 
-const initialValues = {
-    id: 0,
-    title: "",
-    content: "",
-    price: 0,
-    images: [],
-};
-
 const validationSchema = Yup.object({
     title: Yup.string().required(),
     content: Yup.string().required(),
