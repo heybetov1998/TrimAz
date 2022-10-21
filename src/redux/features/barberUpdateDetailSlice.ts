@@ -8,6 +8,7 @@ export type BarberDetailState = {
         name: string;
         alt: string;
     }[];
+    barbershopId: number;
     services: {
         id: number;
         name: string;
@@ -25,8 +26,9 @@ const initialState: BarberUpdateDetailState = {
         id: "",
         firstName: "",
         lastName: "",
+        barbershopId: 0,
         images: [],
-        services:[],
+        services: [],
     },
     loading: false,
 };

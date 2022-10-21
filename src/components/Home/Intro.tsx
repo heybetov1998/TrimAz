@@ -39,8 +39,6 @@ const Intro = () => {
         setSelectedTime(event.target.value);
     };
 
-    console.log(selectedService, selectedTime);
-
     const submitHandler = (event: any) => {
         event.preventDefault();
         if (selectedService !== 0 && selectedTime !== 0) {
@@ -49,6 +47,11 @@ const Intro = () => {
                 selectedService.toString()
             );
             sessionStorage.setItem("selected_time", selectedTime.toString());
+
+            console.log(
+                sessionStorage.getItem("selected_service"),
+                sessionStorage.getItem("selected_time")
+            );
         }
     };
 
