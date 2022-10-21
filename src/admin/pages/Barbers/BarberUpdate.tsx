@@ -26,7 +26,13 @@ const validationSchema = Yup.object({
 });
 
 const BarberUpdate = () => {
-    const [selectedBarbershop, setSelectedBarbershop] = useState(0);
+    const { barber, loading } = useSelector(
+        (state: RootState) => state.barberUpdateDetail
+    );
+    const [selectedBarbershop, setSelectedBarbershop] = useState(
+        barber.barbershopId
+    );
+    const [selectedServices, setSelectedServices] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -45,10 +51,6 @@ const BarberUpdate = () => {
 
     console.log(selectedBarbershop);
 
-    const { barber, loading } = useSelector(
-        (state: RootState) => state.barberUpdateDetail
-    );
-
     const { barbershops } = useSelector(
         (state: RootState) => state.barbershops
     );
@@ -56,6 +58,9 @@ const BarberUpdate = () => {
     useEffect(() => {
         dispatch(getBarberUpdateDetail(id));
         dispatch(getBarbershops());
+
+        setSelectedBarbershop(barber.barbershopId);
+
         initialState.current = {
             id: id!,
             firstName: barber.firstName,
@@ -63,7 +68,14 @@ const BarberUpdate = () => {
             avatarImage: [],
             portfolioImages: [],
         };
-    }, [id, dispatch, barber.firstName, barber.lastName, barber.id]);
+    }, [
+        id,
+        dispatch,
+        barber.firstName,
+        barber.lastName,
+        barber.id,
+        barber.barbershopId,
+    ]);
 
     const formik = useFormik({
         initialValues: initialState.current,
@@ -74,6 +86,7 @@ const BarberUpdate = () => {
             formData.append("id", values.id);
             formData.append("firstName", values.firstName);
             formData.append("lastName", values.lastName);
+            formData.append("barbershopId", selectedBarbershop.toString());
             if (values.avatarImage.length > 0) {
                 values.avatarImage.forEach((image) => {
                     formData.append("avatarImage", image);
@@ -88,7 +101,8 @@ const BarberUpdate = () => {
                 formData.getAll("firstName"),
                 formData.getAll("lastName"),
                 formData.getAll("avatarImage"),
-                formData.getAll("portfolioImages")
+                formData.getAll("portfolioImages"),
+                formData.getAll("barbershopId")
             );
 
             fetch(`https://localhost:7231/api/Barbers?id=${id}`, {
@@ -170,6 +184,7 @@ const BarberUpdate = () => {
                                 className="custom_select mb-4"
                                 name="barbershops"
                                 id="barbershops"
+                                defaultValue={selectedBarbershop}
                                 onChange={selectBarbershopHandler}
                             >
                                 <option value={0}>Select barbershop</option>
