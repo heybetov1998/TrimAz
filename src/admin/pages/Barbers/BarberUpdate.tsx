@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import SubmitButton from "../../../components/UI/Buttons/SubmitButton";
 import CardFrame from "../../../components/UI/CardFrame";
+import StandartCheckbox from "../../../components/UI/Checkboxes/StandartCheckbox";
+import FilterCheckbox from "../../../components/UI/Filters/FilterCheckbox";
 import Column from "../../../components/UI/grid/Column";
 import Row from "../../../components/UI/grid/Row";
 import SquareImage from "../../../components/UI/Images/SquareImage";
@@ -14,6 +16,7 @@ import Loader from "../../../components/UI/Loaders/Loader";
 import SectionPartName from "../../../components/UI/section/SectionPartName";
 import { getBarbershops } from "../../../redux/features/barbershopsSlice";
 import { getBarberUpdateDetail } from "../../../redux/features/barberUpdateDetailSlice";
+import { getServices } from "../../../redux/features/servicesSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 
 const validationSchema = Yup.object({
@@ -197,12 +200,7 @@ const BarberUpdate = () => {
                                     </option>
                                 ))}
                             </select>
-                            {/* <Select
-                                name="barbershops"
-                                options={!barbershopLoading ? barbershopOptions : []}
-                                className="service_selection"
-                                // onChange={option=>setSelectedBarbershop(option?.value)}
-                            /> */}
+
                             <SubmitButton text="Save changes" />
                         </form>
                         <br />

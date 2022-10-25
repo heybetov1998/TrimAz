@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import ResultBar from "../components/UI/Bars/ResultBar";
-import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
 import FilterSearch from "../components/UI/Filters/FilterSearch";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
-import { getServices } from "../redux/features/servicesSlice";
 import Card from "../components/UI/Card";
 import { getBarbershops } from "../redux/features/barbershopsSlice";
 import Loader from "../components/UI/Loaders/Loader";
@@ -17,15 +15,12 @@ const Barbershops = () => {
     const { barbershops, loading } = useSelector(
         (state: RootState) => state.barbershops
     );
-    const { services, loading: serviceLoading } = useSelector(
-        (state: RootState) => state.services
-    );
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         dispatch(getBarbershops());
-        dispatch(getServices());
+        // dispatch(getServices());
     }, [dispatch]);
 
     return (
@@ -35,11 +30,11 @@ const Barbershops = () => {
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
                         <FilterPrice />
-                        <FilterCheckbox
+                        {/* <FilterCheckbox
                             title="Services"
                             checkboxes={services}
                             isLoading={serviceLoading}
-                        />
+                        /> */}
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={barbershops.length} />

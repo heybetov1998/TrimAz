@@ -69,34 +69,6 @@ const UserSettings = () => {
                                 <h4 className="name mb-0">
                                     {loggedUser.firstName} {loggedUser.lastName}
                                 </h4>
-                                {/* <CardFrame className="management_options">
-                            <ul>
-                                <li>
-                                    <NavLink
-                                        to={"/users/:id/settings"}
-                                        className="option_item"
-                                    >
-                                        Settings
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        to={"/users/:id/reservations"}
-                                        className="option_item"
-                                    >
-                                        Reservations
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        to={"/users/:id/wishlist"}
-                                        className="option_item"
-                                    >
-                                        Wishlist
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </CardFrame> */}
                             </CardFrame>
                         </Column>
                         <Column md={8} lg={8} xl={9}>

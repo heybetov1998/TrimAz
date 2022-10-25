@@ -1,33 +1,52 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import BarberCard from "../components/Cards/BarberCard";
 import ResultBar from "../components/UI/Bars/ResultBar";
-import FilterCheckbox from "../components/UI/Filters/FilterCheckbox";
 import FilterPrice from "../components/UI/Filters/FilterPrice";
 import FilterSearch from "../components/UI/Filters/FilterSearch";
 import Column from "../components/UI/grid/Column";
 import Row from "../components/UI/grid/Row";
 import { AppDispatch, RootState } from "../redux/store";
-import { getBarbers } from "../redux/features/barbersSlice";
-import { getServices } from "../redux/features/servicesSlice";
+import {
+    FilterProps,
+    getBarbers,
+    getBarbersFiltered,
+} from "../redux/features/barbersSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
 
 const Barbers = () => {
+    const [searchParams] = useSearchParams();
+
     const { barbers, loading } = useSelector(
         (state: RootState) => state.barbers
-    );
-    const { services, loading: serviceLoading } = useSelector(
-        (state: RootState) => state.services
     );
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBarbers());
-        dispatch(getServices());
-    }, [dispatch]);
+        if (
+            (searchParams.get("serviceId") === "0" &&
+                searchParams.get("timeId") === "0") ||
+            (searchParams.get("serviceId") === null &&
+                searchParams.get("timeId") === null)
+        ) {
+            console.log(
+                searchParams.get("serviceId"),
+                searchParams.get("timeId")
+            );
+
+            dispatch(getBarbers());
+        } else {
+            const filters: FilterProps = {
+                serviceId: searchParams.get("serviceId"),
+                timeId: searchParams.get("timeId"),
+            };
+            dispatch(getBarbersFiltered(filters));
+        }
+        // dispatch(getServices());
+    }, [dispatch, searchParams]);
 
     return (
         <section id="market">
@@ -36,11 +55,11 @@ const Barbers = () => {
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
                         <FilterPrice />
-                        <FilterCheckbox
+                        {/* <FilterCheckbox
                             title="Services"
                             checkboxes={services}
                             isLoading={serviceLoading}
-                        />
+                        /> */}
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={barbers.length} />
