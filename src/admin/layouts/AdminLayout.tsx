@@ -52,6 +52,14 @@ const AdminLayout = () => {
                                             Sellers
                                         </NavLink>
                                     </li>
+                                    <li>
+                                        <NavLink
+                                            to={"owners"}
+                                            className="nav-link text-white"
+                                        >
+                                            Owners
+                                        </NavLink>
+                                    </li>
                                 </>
                             )}
                             {(logged_user.roleNames.includes("Admin") ||

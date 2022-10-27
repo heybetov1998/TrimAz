@@ -2,6 +2,7 @@ type PropsType = {
     id: string;
     name: string;
     placeholder?: string;
+    onChange?: (ev: any) => void;
 };
 
 const PriceInput = (props: PropsType) => {
@@ -15,6 +16,7 @@ const PriceInput = (props: PropsType) => {
                 name={props.name}
                 placeholder={props.placeholder ?? "0 AZN"}
                 className="price_input"
+                onChange={props.onChange}
             />
         </div>
     );
