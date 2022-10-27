@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import BarberCard from "../components/Cards/BarberCard";
 import ResultBar from "../components/UI/Bars/ResultBar";
@@ -32,12 +32,16 @@ const Barbers = () => {
             (searchParams.get("serviceId") === null &&
                 searchParams.get("timeId") === null)
         ) {
-            console.log(
-                searchParams.get("serviceId"),
-                searchParams.get("timeId")
-            );
-
-            dispatch(getBarbers());
+            if (
+                (searchParams.get("minPrice") === "0" &&
+                    searchParams.get("maxPrice") === "0") ||
+                (searchParams.get("minPrice") === null &&
+                    searchParams.get("maxPrice") === null)
+            ) {
+                dispatch(getBarbers());
+            } else {
+                console.log("price else girdi");
+            }
         } else {
             const filters: FilterProps = {
                 serviceId: searchParams.get("serviceId"),
@@ -54,7 +58,7 @@ const Barbers = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
-                        <FilterPrice />
+                        <FilterPrice currentPage="barbers" />
                         {/* <FilterCheckbox
                             title="Services"
                             checkboxes={services}

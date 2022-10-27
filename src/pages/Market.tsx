@@ -28,7 +28,7 @@ const Market = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
-                        <FilterPrice />
+                        <FilterPrice currentPage="market" />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
                         <ResultBar itemCount={products.length} />

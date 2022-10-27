@@ -20,6 +20,7 @@ import TimeReducer from "./features/timeSlice";
 import ReviewReducer from "./features/reviewSlice";
 import FeedbacksReducer from "./features/feedbacksSlice";
 import OwnersReducer from "./features/ownersSlice";
+import FilterPriceReducer from "./features/filterPriceSlice";
 
 export const store = configureStore({
     reducer: {
@@ -44,6 +45,7 @@ export const store = configureStore({
         review: ReviewReducer,
         feedbacks: FeedbacksReducer,
         owners: OwnersReducer,
+        filterPrice: FilterPriceReducer,
     },
 });
 

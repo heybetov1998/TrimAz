@@ -29,7 +29,7 @@ const Barbershops = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
-                        <FilterPrice />
+                        <FilterPrice currentPage="barbershops"/>
                         {/* <FilterCheckbox
                             title="Services"
                             checkboxes={services}
