@@ -11,7 +11,9 @@ import { AppDispatch, RootState } from "../redux/store";
 import {
     FilterProps,
     getBarbers,
+    getBarbersByPrice,
     getBarbersFiltered,
+    PriceProps,
 } from "../redux/features/barbersSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
@@ -40,7 +42,11 @@ const Barbers = () => {
             ) {
                 dispatch(getBarbers());
             } else {
-                console.log("price else girdi");
+                const prices: PriceProps = {
+                    minPrice: searchParams.get("minPrice"),
+                    maxPrice: searchParams.get("maxPrice"),
+                };
+                dispatch(getBarbersByPrice(prices));
             }
         } else {
             const filters: FilterProps = {
