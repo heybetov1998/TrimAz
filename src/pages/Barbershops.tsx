@@ -7,11 +7,18 @@ import Row from "../components/UI/grid/Row";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
 import Card from "../components/UI/Card";
-import { getBarbershops } from "../redux/features/barbershopsSlice";
+import {
+    getBarbershops,
+    getBarbershopsByPrice,
+} from "../redux/features/barbershopsSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
+import { useSearchParams } from "react-router-dom";
+import { PriceProps } from "../redux/features/barbersSlice";
 
 const Barbershops = () => {
+    const [searchParams] = useSearchParams();
+
     const { barbershops, loading } = useSelector(
         (state: RootState) => state.barbershops
     );
@@ -19,9 +26,22 @@ const Barbershops = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBarbershops());
+        if (
+            (searchParams.get("minPrice") === "0" &&
+                searchParams.get("maxPrice") === "0") ||
+            (searchParams.get("minPrice") === null &&
+                searchParams.get("maxPrice") === null)
+        ) {
+            dispatch(getBarbershops());
+        } else {
+            const prices: PriceProps = {
+                minPrice: searchParams.get("minPrice"),
+                maxPrice: searchParams.get("maxPrice"),
+            };
+            dispatch(getBarbershopsByPrice(prices));
+        }
         // dispatch(getServices());
-    }, [dispatch]);
+    }, [dispatch, searchParams]);
 
     return (
         <section id="market">
@@ -29,7 +49,7 @@ const Barbershops = () => {
                 <Row>
                     <Column md={4} lg={3} xl={3}>
                         <FilterSearch />
-                        <FilterPrice currentPage="barbershops"/>
+                        <FilterPrice currentPage="barbershops" />
                         {/* <FilterCheckbox
                             title="Services"
                             checkboxes={services}
