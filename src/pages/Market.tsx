@@ -10,6 +10,7 @@ import { AppDispatch, RootState } from "../redux/store";
 import {
     getProducts,
     getProductsByPrice,
+    getProductsBySearch,
 } from "../redux/features/productsSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
@@ -32,7 +33,15 @@ const Market = () => {
             (searchParams.get("minPrice") === null &&
                 searchParams.get("maxPrice") === null)
         ) {
-            dispatch(getProducts());
+            if (
+                searchParams.get("search") === null ||
+                searchParams.get("search") === "null" ||
+                searchParams.get("search") === ""
+            )
+                dispatch(getProducts());
+            else {
+                dispatch(getProductsBySearch(searchParams.get("search")));
+            }
         } else {
             const prices: PriceProps = {
                 minPrice: searchParams.get("minPrice"),
@@ -47,7 +56,7 @@ const Market = () => {
             <div className="container">
                 <Row>
                     <Column md={4} lg={3} xl={3}>
-                        <FilterSearch currentPage="market"/>
+                        <FilterSearch currentPage="market" />
                         <FilterPrice currentPage="market" />
                     </Column>
                     <Column md={8} lg={9} xl={9}>

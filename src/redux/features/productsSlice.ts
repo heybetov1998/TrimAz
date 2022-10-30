@@ -29,6 +29,15 @@ export const getProductsByPrice = createAsyncThunk(
     }
 );
 
+export const getProductsBySearch = createAsyncThunk(
+    "products/getProductsBySearch",
+    async (keywords: string | null) => {
+        return fetch(
+            `https://localhost:7231/api/Products/Search?search=${keywords}`
+        ).then((response) => response.json());
+    }
+);
+
 const productsSlice = createSlice({
     name: "products",
     initialState,
@@ -53,6 +62,17 @@ const productsSlice = createSlice({
             state.products = action.payload;
         });
         builder.addCase(getProductsByPrice.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getProductsBySearch.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getProductsBySearch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getProductsBySearch.rejected, (state, action) => {
             state.loading = false;
         });
     },
