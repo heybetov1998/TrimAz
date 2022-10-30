@@ -12,6 +12,7 @@ import {
     FilterProps,
     getBarbers,
     getBarbersByPrice,
+    getBarbersBySearch,
     getBarbersFiltered,
     PriceProps,
 } from "../redux/features/barbersSlice";
@@ -40,7 +41,15 @@ const Barbers = () => {
                 (searchParams.get("minPrice") === null &&
                     searchParams.get("maxPrice") === null)
             ) {
-                dispatch(getBarbers());
+                if (
+                    searchParams.get("search") === null ||
+                    searchParams.get("search") === "null" ||
+                    searchParams.get("search") === ""
+                )
+                    dispatch(getBarbers());
+                else {
+                    dispatch(getBarbersBySearch(searchParams.get("search")));
+                }
             } else {
                 const prices: PriceProps = {
                     minPrice: searchParams.get("minPrice"),

@@ -47,6 +47,15 @@ export const getBarbersByPrice = createAsyncThunk(
     }
 );
 
+export const getBarbersBySearch = createAsyncThunk(
+    "barbers/getBarbersBySearch",
+    async (keywords: string | null) => {
+        return fetch(
+            `https://localhost:7231/api/Barbers/Search?search=${keywords}`
+        ).then((response) => response.json());
+    }
+);
+
 const barbersSlice = createSlice({
     name: "barbers",
     initialState,
@@ -82,6 +91,17 @@ const barbersSlice = createSlice({
             state.barbers = action.payload;
         });
         builder.addCase(getBarbersByPrice.rejected, (state, action) => {
+            state.loading = true;
+        });
+        //
+        builder.addCase(getBarbersBySearch.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBarbersBySearch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.barbers = action.payload;
+        });
+        builder.addCase(getBarbersBySearch.rejected, (state, action) => {
             state.loading = true;
         });
     },
