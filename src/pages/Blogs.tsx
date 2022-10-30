@@ -6,18 +6,29 @@ import Row from "../components/UI/grid/Row";
 import PopularPosts from "../components/UI/PopularPosts";
 import { AppDispatch, RootState } from "../redux/store";
 import { useEffect } from "react";
-import { getBlogs } from "../redux/features/blogsSlice";
+import { getBlogs, getBlogsBySearch } from "../redux/features/blogsSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
+import { useSearchParams } from "react-router-dom";
 
 const Blogs = () => {
+    const [searchParams] = useSearchParams();
+
     const { blogs, loading } = useSelector((state: RootState) => state.blogs);
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBlogs());
-    }, [dispatch]);
+        if (
+            searchParams.get("search") === null ||
+            searchParams.get("search") === "null" ||
+            searchParams.get("search") === ""
+        )
+            dispatch(getBlogs());
+        else {
+            dispatch(getBlogsBySearch(searchParams.get("search")));
+        }
+    }, [dispatch, searchParams]);
 
     return (
         <section id="blogs">
@@ -51,8 +62,8 @@ const Blogs = () => {
                         </Row>
                     </Column>
                     <Column className="order-0 order-md-1" md={6} lg={4} xl={4}>
-                        <FilterSearch currentPage="blogs"/>
-                        <PopularPosts />
+                        <FilterSearch currentPage="blogs" />
+                        {/* <PopularPosts /> */}
                     </Column>
                 </Row>
             </div>

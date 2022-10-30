@@ -38,6 +38,15 @@ export const getBlogs = createAsyncThunk(
     }
 );
 
+export const getBlogsBySearch = createAsyncThunk(
+    "blogs/getBlogsBySearch",
+    async (keywords: string | null) => {
+        return fetch(
+            `https://localhost:7231/api/Blogs/Search?search=${keywords}`
+        ).then((response) => response.json());
+    }
+);
+
 const blogsSlice = createSlice({
     name: "blogs",
     initialState,
@@ -51,6 +60,17 @@ const blogsSlice = createSlice({
             state.blogs = action.payload;
         });
         builder.addCase(getBlogs.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getBlogsBySearch.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBlogsBySearch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.blogs = action.payload;
+        });
+        builder.addCase(getBlogsBySearch.rejected, (state, action) => {
             state.loading = false;
         });
     },
