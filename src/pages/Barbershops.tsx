@@ -10,6 +10,7 @@ import Card from "../components/UI/Card";
 import {
     getBarbershops,
     getBarbershopsByPrice,
+    getBarbershopsBySearch,
 } from "../redux/features/barbershopsSlice";
 import Loader from "../components/UI/Loaders/Loader";
 import NotFoundMessage from "../components/UI/Messages/NotFoundMessage";
@@ -32,7 +33,15 @@ const Barbershops = () => {
             (searchParams.get("minPrice") === null &&
                 searchParams.get("maxPrice") === null)
         ) {
-            dispatch(getBarbershops());
+            if (
+                searchParams.get("search") === null ||
+                searchParams.get("search") === "null" ||
+                searchParams.get("search") === ""
+            )
+                dispatch(getBarbershops());
+            else {
+                dispatch(getBarbershopsBySearch(searchParams.get("search")));
+            }
         } else {
             const prices: PriceProps = {
                 minPrice: searchParams.get("minPrice"),
@@ -48,7 +57,7 @@ const Barbershops = () => {
             <div className="container">
                 <Row>
                     <Column md={4} lg={3} xl={3}>
-                        <FilterSearch />
+                        <FilterSearch currentPage="barbershops" />
                         <FilterPrice currentPage="barbershops" />
                         {/* <FilterCheckbox
                             title="Services"

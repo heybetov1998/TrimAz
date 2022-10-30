@@ -51,7 +51,7 @@ const Blogs = () => {
                         </Row>
                     </Column>
                     <Column className="order-0 order-md-1" md={6} lg={4} xl={4}>
-                        <FilterSearch />
+                        <FilterSearch currentPage="blogs"/>
                         <PopularPosts />
                     </Column>
                 </Row>

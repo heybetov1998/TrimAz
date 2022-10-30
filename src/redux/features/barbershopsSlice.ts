@@ -31,6 +31,15 @@ export const getBarbershopsByPrice = createAsyncThunk(
     }
 );
 
+export const getBarbershopsBySearch = createAsyncThunk(
+    "barbershops/getBarbershopsBySearch",
+    async (keywords: string | null) => {
+        return fetch(
+            `https://localhost:7231/api/Barbershops/Search?search=${keywords}`
+        ).then((response) => response.json());
+    }
+);
+
 const barbershopsSlice = createSlice({
     name: "barbershops",
     initialState,
@@ -55,6 +64,17 @@ const barbershopsSlice = createSlice({
             state.barbershops = action.payload;
         });
         builder.addCase(getBarbershopsByPrice.rejected, (state, action) => {
+            state.loading = true;
+        });
+        //
+        builder.addCase(getBarbershopsBySearch.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBarbershopsBySearch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.barbershops = action.payload;
+        });
+        builder.addCase(getBarbershopsBySearch.rejected, (state, action) => {
             state.loading = true;
         });
     },

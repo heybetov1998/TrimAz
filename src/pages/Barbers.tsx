@@ -63,7 +63,7 @@ const Barbers = () => {
             <div className="container">
                 <Row>
                     <Column md={4} lg={3} xl={3}>
-                        <FilterSearch />
+                        <FilterSearch currentPage="barbers" />
                         <FilterPrice currentPage="barbers" />
                         {/* <FilterCheckbox
                             title="Services"
