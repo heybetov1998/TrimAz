@@ -22,6 +22,15 @@ export const getBarbershops = createAsyncThunk(
     }
 );
 
+export const getOwnerBarbershops = createAsyncThunk(
+    "barbershops/getOwnerBarbershops",
+    async (ownerId: any) => {
+        return fetch(
+            `https://localhost:7231/api/Barbershops/Owner?ownerId=${ownerId}`
+        ).then((response) => response.json());
+    }
+);
+
 export const getBarbershopsByPrice = createAsyncThunk(
     "barbershops/getBarbershopsByPrice",
     async (prices: PriceProps) => {
@@ -75,6 +84,17 @@ const barbershopsSlice = createSlice({
             state.barbershops = action.payload;
         });
         builder.addCase(getBarbershopsBySearch.rejected, (state, action) => {
+            state.loading = true;
+        });
+        //
+        builder.addCase(getOwnerBarbershops.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getOwnerBarbershops.fulfilled, (state, action) => {
+            state.loading = false;
+            state.barbershops = action.payload;
+        });
+        builder.addCase(getOwnerBarbershops.rejected, (state, action) => {
             state.loading = true;
         });
     },

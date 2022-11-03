@@ -20,6 +20,15 @@ export const getProducts = createAsyncThunk(
     }
 );
 
+export const getSellerProducts = createAsyncThunk(
+    "products/getSellerProducts",
+    async (userId:any) => {
+        return fetch(`https://localhost:7231/api/Products/Seller?sellerId=${userId}`).then((response) =>
+            response.json()
+        );
+    }
+);
+
 export const getProductsByPrice = createAsyncThunk(
     "products/getProductsByPrice",
     async (prices: PriceProps) => {
@@ -73,6 +82,17 @@ const productsSlice = createSlice({
             state.products = action.payload;
         });
         builder.addCase(getProductsBySearch.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getSellerProducts.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getSellerProducts.fulfilled, (state, action) => {
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getSellerProducts.rejected, (state, action) => {
             state.loading = false;
         });
     },

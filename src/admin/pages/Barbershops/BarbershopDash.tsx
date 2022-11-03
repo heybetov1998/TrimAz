@@ -4,7 +4,10 @@ import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
-import { getBarbershops } from "../../../redux/features/barbershopsSlice";
+import {
+    getBarbershops,
+    getOwnerBarbershops,
+} from "../../../redux/features/barbershopsSlice";
 import Loader from "../../../components/UI/Loaders/Loader";
 
 import "../../assets/css/AdminLayout.css";
@@ -53,6 +56,8 @@ const columns = [
     },
 ];
 
+const logged_user = JSON.parse(localStorage.getItem("logged_user") || "{}");
+
 const BarbershopDash = () => {
     const { barbershops, loading } = useSelector(
         (state: RootState) => state.barbershops
@@ -61,7 +66,11 @@ const BarbershopDash = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBarbershops());
+        if (logged_user.roleNames.includes("Admin")) {
+            dispatch(getBarbershops());
+        } else {
+            dispatch(getOwnerBarbershops(logged_user.id));
+        }
     }, [dispatch]);
 
     return (

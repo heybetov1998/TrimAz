@@ -9,7 +9,7 @@ import Row from "./UI/grid/Row";
 import { NavLink, useLocation } from "react-router-dom";
 
 const dataArray = [
-    { where: "/", text: "Home" },
+    { where: "/barbers", text: "Barbers" },
     { where: "/barbershops", text: "Barbershops" },
     // { where: "/women", text: "Women" },
     { where: "/market", text: "Market" },

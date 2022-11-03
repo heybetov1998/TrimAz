@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import SquareOld from "../../../components/UI/Images/SquareOld";
 import Loader from "../../../components/UI/Loaders/Loader";
 import SectionPartName from "../../../components/UI/section/SectionPartName";
-import { getProducts } from "../../../redux/features/productsSlice";
+import {
+    getProducts,
+    getSellerProducts,
+} from "../../../redux/features/productsSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 
 const submitHandler = (id: any) => {
@@ -36,7 +39,15 @@ const columns = [
         selector: (row: any) => row.price,
         sortable: true,
     },
-    { name: "Seller", selector: (row: any) => <div>{row.seller.firstName} {row.seller.lastName}</div>, sortable: true },
+    {
+        name: "Seller",
+        selector: (row: any) => (
+            <div>
+                {row.seller.firstName} {row.seller.lastName}
+            </div>
+        ),
+        sortable: true,
+    },
     {
         name: "Actions",
         selector: (row: any) => (
@@ -61,6 +72,8 @@ const columns = [
     },
 ];
 
+const logged_user = JSON.parse(localStorage.getItem("logged_user") || "{}");
+
 const ProductDash = () => {
     const { products, loading } = useSelector(
         (state: RootState) => state.products
@@ -69,7 +82,14 @@ const ProductDash = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getProducts());
+        if (
+            logged_user.roleNames.includes("Seller") &&
+            !logged_user.roleNames.includes("Admin")
+        ) {
+            dispatch(getSellerProducts(logged_user.id));
+        } else {
+            dispatch(getProducts());
+        }
     }, [dispatch]);
 
     return (

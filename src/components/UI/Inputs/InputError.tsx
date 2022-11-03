@@ -1,5 +1,5 @@
 type PropsType = {
-    text?: string;
+    text?: any;
 };
 
 const InputError = (props: PropsType) => (
