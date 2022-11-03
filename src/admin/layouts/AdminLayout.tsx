@@ -102,6 +102,16 @@ const AdminLayout = () => {
                                     </NavLink>
                                 </li>
                             )}
+                            {logged_user.roleNames.includes("Barber") && (
+                                <li>
+                                    <NavLink
+                                        to={"services"}
+                                        className="nav-link text-white"
+                                    >
+                                        Services
+                                    </NavLink>
+                                </li>
+                            )}
                         </ul>
                         <hr />
                         <div className="dropdown d-flex justify-content-between w-100">

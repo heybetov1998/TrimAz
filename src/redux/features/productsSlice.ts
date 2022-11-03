@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { PriceProps } from "./barbersSlice";
 
 export type ProductsSliceState = {
     products: any[];
@@ -19,6 +20,33 @@ export const getProducts = createAsyncThunk(
     }
 );
 
+export const getSellerProducts = createAsyncThunk(
+    "products/getSellerProducts",
+    async (userId:any) => {
+        return fetch(`https://localhost:7231/api/Products/Seller?sellerId=${userId}`).then((response) =>
+            response.json()
+        );
+    }
+);
+
+export const getProductsByPrice = createAsyncThunk(
+    "products/getProductsByPrice",
+    async (prices: PriceProps) => {
+        return fetch(
+            `https://localhost:7231/api/Products/ByPrice?minPrice=${prices.minPrice}&maxPrice=${prices.maxPrice}`
+        ).then((response) => response.json());
+    }
+);
+
+export const getProductsBySearch = createAsyncThunk(
+    "products/getProductsBySearch",
+    async (keywords: string | null) => {
+        return fetch(
+            `https://localhost:7231/api/Products/Search?search=${keywords}`
+        ).then((response) => response.json());
+    }
+);
+
 const productsSlice = createSlice({
     name: "products",
     initialState,
@@ -32,6 +60,39 @@ const productsSlice = createSlice({
             state.products = action.payload;
         });
         builder.addCase(getProducts.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getProductsByPrice.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getProductsByPrice.fulfilled, (state, action) => {
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getProductsByPrice.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getProductsBySearch.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getProductsBySearch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getProductsBySearch.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getSellerProducts.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getSellerProducts.fulfilled, (state, action) => {
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getSellerProducts.rejected, (state, action) => {
             state.loading = false;
         });
     },

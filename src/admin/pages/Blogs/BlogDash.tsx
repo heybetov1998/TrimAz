@@ -4,7 +4,7 @@ import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { useEffect } from "react";
-import { getBlogs } from "../../../redux/features/blogsSlice";
+import { getBlogs, getUserBlogs } from "../../../redux/features/blogsSlice";
 
 import "../../assets/css/AdminLayout.css";
 import Loader from "../../../components/UI/Loaders/Loader";
@@ -62,13 +62,19 @@ const columns = [
     },
 ];
 
+const logged_user = JSON.parse(localStorage.getItem("logged_user") || "{}");
+
 const BlogDash = () => {
     const { blogs, loading } = useSelector((state: RootState) => state.blogs);
 
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        dispatch(getBlogs());
+        if (logged_user.roleNames.includes("Admin")) {
+            dispatch(getBlogs());
+        } else {
+            dispatch(getUserBlogs(logged_user.id));
+        }
     }, [dispatch]);
 
     return (

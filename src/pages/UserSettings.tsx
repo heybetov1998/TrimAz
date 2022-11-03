@@ -9,17 +9,30 @@ import { isObjectEmpty } from "../components/UI/Navbar/RightHeader";
 import SectionHeader from "../components/UI/section/SectionHeader";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import InputError from "../components/UI/Inputs/InputError";
+import { useState } from "react";
 
 const UserSettings = () => {
     const loggedUser = JSON.parse(localStorage.getItem("logged_user") || "{}");
 
+    const [currentUser, setCurrentUser] = useState(loggedUser);
+
     const initialValues = {
-        userName: loggedUser.userName,
-        email: loggedUser.email,
-        // avatar: [],
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+        userName: currentUser.userName,
+        email: currentUser.email,
+        phoneNumber: currentUser.phoneNumber,
+        avatarImage: [],
     };
 
     const validationSchema = Yup.object({
+        firstName: Yup.string()
+            .required("Field is required")
+            .max(50, "Must be 50 or less characters"),
+        lastName: Yup.string()
+            .required("Field is required")
+            .max(100, "Must be 100 or less characters"),
         email: Yup.string()
             .required("Field is required")
             .max(100, "Must be 100 or less characters")
@@ -28,7 +41,9 @@ const UserSettings = () => {
             .required("Field is required")
             .min(6, "Must be 6 or more characters")
             .max(50, "Must be 50 or less characters"),
-        // avatar: Yup.array().min(1, "select at least 1 file"),
+        phoneNumber: Yup.string()
+            .test((val: any) => !isNaN(val))
+            .nullable(),
     });
 
     //FORM
@@ -36,22 +51,48 @@ const UserSettings = () => {
         initialValues: initialValues,
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            // let data = new FormData();
-            // values.avatar.forEach((photo, index) => {
-            //     data.append(`photo${index}`, values.avatar[index]);
-            // });
+            let formData = new FormData();
 
-            console.log(values);
+            formData.append("id", loggedUser.id);
+            formData.append("firstName", values.firstName);
+            formData.append("lastName", values.lastName);
+            formData.append("phoneNumber", values.phoneNumber);
+
+            if (values.avatarImage.length > 0) {
+                values.avatarImage.forEach((image) => {
+                    formData.append("avatarImage", image);
+                });
+            }
+
+            console.log(
+                formData.get("id"),
+                formData.get("firstName"),
+                formData.get("lastName"),
+                formData.get("phoneNumber"),
+                formData.getAll("avatarImage")
+            );
+
             fetch(`https://localhost:7231/api/Users`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(values),
+                method: "PUT",
+                headers: { Accept: "*/*" },
+                body: formData,
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
+                    const localData = JSON.parse(
+                        localStorage.getItem("logged_user") || "{}"
+                    );
+                    localData.firstName = data.firstName;
+                    localData.lastName = data.lastName;
+                    localData.phoneNumber = data.phoneNumber;
+                    localData.avatar = data.avatar;
+
+                    localStorage.setItem(
+                        "logged_user",
+                        JSON.stringify(localData)
+                    );
+
+                    setCurrentUser(localData);
                 });
         },
     });
@@ -60,14 +101,15 @@ const UserSettings = () => {
         <section id="user_settings">
             <div className="container">
                 <SectionHeader text="User Settings" />
-                {isObjectEmpty(loggedUser) && <NotFoundMessage />}
-                {!isObjectEmpty(loggedUser) && (
+                {isObjectEmpty(currentUser) && <NotFoundMessage />}
+                {!isObjectEmpty(currentUser) && (
                     <Row>
                         <Column md={4} lg={4} xl={3}>
                             <CardFrame className="management_bar">
-                                <SquareImage img={loggedUser.avatar} />
+                                <SquareImage img={currentUser.avatar} />
                                 <h4 className="name mb-0">
-                                    {loggedUser.firstName} {loggedUser.lastName}
+                                    {currentUser.firstName}{" "}
+                                    {currentUser.lastName}
                                 </h4>
                             </CardFrame>
                         </Column>
@@ -75,6 +117,44 @@ const UserSettings = () => {
                             <form onSubmit={formik.handleSubmit}>
                                 <CardFrame title="Personal Information">
                                     <Row>
+                                        <Column lg={6} xl={6}>
+                                            <InputBlock
+                                                inputId="firstName"
+                                                name="Firstname"
+                                                inputValue={
+                                                    formik.values.firstName
+                                                }
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.firstName &&
+                                            formik.errors.firstName ? (
+                                                <InputError
+                                                    text={
+                                                        formik.errors.firstName
+                                                    }
+                                                />
+                                            ) : null}
+                                        </Column>
+                                        <Column lg={6} xl={6}>
+                                            <InputBlock
+                                                inputId="lastName"
+                                                name="Lastname"
+                                                inputValue={
+                                                    formik.values.lastName
+                                                }
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.lastName &&
+                                            formik.errors.lastName ? (
+                                                <InputError
+                                                    text={
+                                                        formik.errors.lastName
+                                                    }
+                                                />
+                                            ) : null}
+                                        </Column>
                                         <Column lg={6} xl={6}>
                                             <InputBlock
                                                 inputId="userName"
@@ -102,28 +182,44 @@ const UserSettings = () => {
                                         />
                                     </Column> */}
                                         <Column lg={6} xl={6}>
-                                            {/* <InputBlock
-                                                inputId="avatar"
+                                            <InputBlock
+                                                inputId="avatarImage"
+                                                name="Change Avatar"
                                                 inputType="file"
-                                                accept="image/*"
-                                                name="Change avatar"
                                                 onChange={(event: any) => {
                                                     const files =
                                                         event.target.files;
                                                     let myFiles =
                                                         Array.from(files);
                                                     formik.setFieldValue(
-                                                        "avatar",
+                                                        "avatarImage",
                                                         myFiles
                                                     );
                                                 }}
-                                                // onChange={(event: any) => {
-                                                //     formik.setFieldValue(
-                                                //         "avatar",
-                                                //         event.target.files[0]
-                                                //     );
-                                                // }}
-                                            /> */}
+                                                onBlur={formik.handleBlur}
+                                                isMultiple={false}
+                                                accept="image/*"
+                                            />
+                                        </Column>
+                                        <Column lg={6} xl={6}>
+                                            <InputBlock
+                                                name="Phone Number"
+                                                inputId="phoneNumber"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                inputValue={
+                                                    formik.values.phoneNumber
+                                                }
+                                            />
+                                            {formik.touched.phoneNumber &&
+                                            formik.errors.phoneNumber ? (
+                                                <InputError
+                                                    text={
+                                                        formik.errors
+                                                            .phoneNumber
+                                                    }
+                                                />
+                                            ) : null}
                                         </Column>
                                     </Row>
                                 </CardFrame>

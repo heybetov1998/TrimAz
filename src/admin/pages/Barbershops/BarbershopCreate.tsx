@@ -17,6 +17,8 @@ const BarbershopCreate = () => {
         (state: any) => state.location.location.defaultLocation
     );
 
+    const logged_user = JSON.parse(localStorage.getItem("logged_user") || "{}");
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -27,6 +29,7 @@ const BarbershopCreate = () => {
         }),
         onSubmit: (values) => {
             const formData = new FormData();
+            formData.append("ownerId", logged_user.id);
             formData.append("name", values.name);
             formData.append("latitude", location.lat);
             formData.append("longtitude", location.lng);
