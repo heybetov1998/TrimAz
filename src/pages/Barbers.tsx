@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import BarberCard from "../components/Cards/BarberCard";
 import ResultBar from "../components/UI/Bars/ResultBar";
@@ -81,7 +81,10 @@ const Barbers = () => {
                         /> */}
                     </Column>
                     <Column md={8} lg={9} xl={9}>
-                        <ResultBar itemCount={barbers.length} />
+                        <ResultBar
+                            pageName="barbers"
+                            itemCount={barbers.length}
+                        />
                         <div className="results">
                             <Row>
                                 {loading && <Loader />}

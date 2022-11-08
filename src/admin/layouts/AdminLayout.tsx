@@ -112,6 +112,39 @@ const AdminLayout = () => {
                                     </NavLink>
                                 </li>
                             )}
+                            {!logged_user.roleNames.includes("Admin") &&
+                                logged_user.roleNames.includes("Barber") && (
+                                    <li>
+                                        <NavLink
+                                            to={`barbers/${logged_user.id}/update`}
+                                            className="nav-link text-white"
+                                        >
+                                            Update My Info
+                                        </NavLink>
+                                    </li>
+                                )}
+                            {!logged_user.roleNames.includes("Admin") &&
+                                logged_user.roleNames.includes("Seller") && (
+                                    <li>
+                                        <NavLink
+                                            to={`sellers/${logged_user.id}/update`}
+                                            className="nav-link text-white"
+                                        >
+                                            Update My Info
+                                        </NavLink>
+                                    </li>
+                                )}
+                            {!logged_user.roleNames.includes("Admin") &&
+                                logged_user.roleNames.includes("Owner") && (
+                                    <li>
+                                        <NavLink
+                                            to={`owners/${logged_user.id}/update`}
+                                            className="nav-link text-white"
+                                        >
+                                            Update My Info
+                                        </NavLink>
+                                    </li>
+                                )}
                         </ul>
                         <hr />
                         <div className="dropdown d-flex justify-content-between w-100">

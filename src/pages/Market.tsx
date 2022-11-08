@@ -60,7 +60,10 @@ const Market = () => {
                         <FilterPrice currentPage="market" />
                     </Column>
                     <Column md={8} lg={9} xl={9}>
-                        <ResultBar itemCount={products.length} />
+                        <ResultBar
+                            pageName="market"
+                            itemCount={products.length}
+                        />
                         <div className="results">
                             <Row>
                                 {loading && <Loader />}
