@@ -9,7 +9,7 @@ import InputBlock from "../../../components/UI/Inputs/InputBlock";
 import InputError from "../../../components/UI/Inputs/InputError";
 import Loader from "../../../components/UI/Loaders/Loader";
 import SectionPartName from "../../../components/UI/section/SectionPartName";
-import { getSellerUpdateDetail } from "../../../redux/features/sellerUpdateDetailSlice";
+import { getOwnerUpdateDetail } from "../../../redux/features/ownerUpdateDetailSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 
 const validationSchema = Yup.object({
@@ -19,13 +19,9 @@ const validationSchema = Yup.object({
     lastName: Yup.string()
         .required("Field is required")
         .max(100, "Must be 100 or less characters"),
-    phoneNumber: Yup.string()
-        .required("Field is required")
-        .nullable()
-        .test((val: any) => !isNaN(val)),
 });
 
-const SellerUpdate = () => {
+const OwnerUpdate = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -33,31 +29,22 @@ const SellerUpdate = () => {
         id: "",
         firstName: "",
         lastName: "",
-        phoneNumber: "",
         avatarImage: [],
     });
 
-    const { seller, loading } = useSelector(
-        (state: RootState) => state.sellerUpdateDetail
+    const { owner, loading } = useSelector(
+        (state: RootState) => state.ownerUpdateDetail
     );
 
     useEffect(() => {
-        dispatch(getSellerUpdateDetail(id));
+        dispatch(getOwnerUpdateDetail(id));
         initialState.current = {
-            id: seller.id,
-            firstName: seller.firstName,
-            lastName: seller.lastName,
+            id: owner.id,
+            firstName: owner.firstName,
+            lastName: owner.lastName,
             avatarImage: [],
-            phoneNumber: seller.phoneNumber,
         };
-    }, [
-        id,
-        dispatch,
-        seller.firstName,
-        seller.lastName,
-        seller.id,
-        seller.phoneNumber,
-    ]);
+    }, [id, dispatch, owner.firstName, owner.lastName, owner.id]);
 
     const formik = useFormik({
         initialValues: initialState.current,
@@ -68,7 +55,6 @@ const SellerUpdate = () => {
             formData.append("id", id!);
             formData.append("firstName", values.firstName);
             formData.append("lastName", values.lastName);
-            formData.append("phoneNumber",values.phoneNumber);
             if (values.avatarImage.length > 0) {
                 values.avatarImage.forEach((image) => {
                     formData.append("avatarImage", image);
@@ -82,20 +68,29 @@ const SellerUpdate = () => {
                 formData.getAll("avatarImage")
             );
 
-            fetch(`https://localhost:7231/api/Sellers?id=${id}`, {
+            fetch(`https://localhost:7231/api/Owners`, {
                 method: "PUT",
                 headers: { Accept: "*/*" },
                 body: formData,
             })
                 .then((response) => response.json())
-                .then(() => {
+                .then((data) => {
+                    const localData = JSON.parse(
+                        localStorage.getItem("logged_user") || "{}"
+                    );
+                    localData.avatar = data.avatarImage;
+
+                    localStorage.setItem(
+                        "logged_user",
+                        JSON.stringify(localData)
+                    );
                     navigate("/admin");
                 });
         },
     });
     return (
         <>
-            <SectionPartName className="my-4" text="Update Seller" />
+            <SectionPartName className="my-4" text="Update Owner" />
             <CardFrame>
                 {loading && <Loader />}
                 {!loading && (
@@ -110,6 +105,7 @@ const SellerUpdate = () => {
                         {formik.touched.firstName && formik.errors.firstName ? (
                             <InputError text={formik.errors.firstName} />
                         ) : null}
+
                         <InputBlock
                             inputId="lastName"
                             name="Lastname"
@@ -120,6 +116,7 @@ const SellerUpdate = () => {
                         {formik.touched.lastName && formik.errors.lastName ? (
                             <InputError text={formik.errors.lastName} />
                         ) : null}
+
                         <InputBlock
                             inputId="avatarImage"
                             name="Profile Picture"
@@ -133,17 +130,6 @@ const SellerUpdate = () => {
                             isMultiple={false}
                             accept="image/*"
                         />
-                        <InputBlock
-                            name="Phone Number"
-                            inputId="phoneNumber"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            inputValue={formik.values.phoneNumber}
-                        />
-                        {formik.touched.phoneNumber &&
-                        formik.errors.phoneNumber ? (
-                            <InputError text={formik.errors.phoneNumber} />
-                        ) : null}
                         <SubmitButton text="Save changes" />
                     </form>
                 )}
@@ -152,4 +138,4 @@ const SellerUpdate = () => {
     );
 };
 
-export default SellerUpdate;
+export default OwnerUpdate;

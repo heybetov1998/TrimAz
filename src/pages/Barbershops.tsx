@@ -66,7 +66,7 @@ const Barbershops = () => {
                         /> */}
                     </Column>
                     <Column md={8} lg={9} xl={9}>
-                        <ResultBar itemCount={barbershops.length} />
+                        <ResultBar pageName="barbershops" itemCount={barbershops.length} />
                         <div className="results">
                             <Row>
                                 {loading && <Loader />}

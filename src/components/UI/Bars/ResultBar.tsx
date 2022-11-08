@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 type PropsType = {
     itemCount: number;
+    pageName: string;
 };
 
 const ResultBar = (props: PropsType) => (
@@ -8,7 +11,10 @@ const ResultBar = (props: PropsType) => (
             <span>
                 {props.itemCount !== 0 ? props.itemCount : "No"} items found
             </span>
-            <button className="clear_filter">Clear filter</button>
+            <Link to={`/${props.pageName}`} className="clear_filter">
+                Clear filter
+            </Link>
+            <button></button>
         </div>
     </div>
 );

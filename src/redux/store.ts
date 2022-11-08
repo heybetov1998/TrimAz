@@ -21,6 +21,7 @@ import ReviewReducer from "./features/reviewSlice";
 import FeedbacksReducer from "./features/feedbacksSlice";
 import OwnersReducer from "./features/ownersSlice";
 import FilterPriceReducer from "./features/filterPriceSlice";
+import OwnerUpdateDetailReducer from "./features/ownerUpdateDetailSlice";
 
 export const store = configureStore({
     reducer: {
@@ -46,6 +47,7 @@ export const store = configureStore({
         feedbacks: FeedbacksReducer,
         owners: OwnersReducer,
         filterPrice: FilterPriceReducer,
+        ownerUpdateDetail: OwnerUpdateDetailReducer,
     },
 });
 

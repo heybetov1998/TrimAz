@@ -115,7 +115,7 @@ const BarberUpdate = () => {
             })
                 .then((response) => response.json())
                 .then(() => {
-                    navigate("/admin/barbers");
+                    navigate("/admin");
                 });
         },
     });
