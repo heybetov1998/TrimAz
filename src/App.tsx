@@ -48,6 +48,7 @@ import OwnerSubAdmin from "./admin/layouts/OwnerSubAdmin";
 import OwnerDash from "./admin/pages/Owners/OwnerDash";
 import OwnerCreate from "./admin/pages/Owners/OwnerCreate";
 import OwnerUpdate from "./admin/pages/Owners/OwnerUpdate";
+import BarberServices from "./admin/pages/Barbers/BarberServices";
 
 const App = () => {
     const logged_user = localStorage.getItem("logged_user");
@@ -147,6 +148,7 @@ const App = () => {
                     <Route index element={<BarberDash />} />
                     <Route path="create" element={<BarberCreate />} />
                     <Route path=":id/update" element={<BarberUpdate />} />
+                    <Route path=":id/services" element={<BarberServices />} />
                 </Route>
 
                 <Route path="sellers" element={<SellerSubAdmin />}>

@@ -19,6 +19,15 @@ export const getServices = createAsyncThunk(
     }
 );
 
+export const getBarberServices = createAsyncThunk(
+    "services/getBarberServices",
+    async (barberId: any) => {
+        return fetch(
+            `https://localhost:7231/api/Barbers/Services?barberId=${barberId}`
+        ).then((response) => response.json());
+    }
+);
+
 const servicesSlice = createSlice({
     name: "services",
     initialState,
@@ -32,6 +41,17 @@ const servicesSlice = createSlice({
             state.services = action.payload;
         });
         builder.addCase(getServices.rejected, (state, action) => {
+            state.loading = false;
+        });
+        //
+        builder.addCase(getBarberServices.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBarberServices.fulfilled, (state, action) => {
+            state.loading = false;
+            state.services = action.payload;
+        });
+        builder.addCase(getBarberServices.rejected, (state, action) => {
             state.loading = false;
         });
     },

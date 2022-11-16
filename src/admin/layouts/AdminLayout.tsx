@@ -102,16 +102,17 @@ const AdminLayout = () => {
                                     </NavLink>
                                 </li>
                             )}
-                            {logged_user.roleNames.includes("Barber") && (
-                                <li>
-                                    <NavLink
-                                        to={"services"}
-                                        className="nav-link text-white"
-                                    >
-                                        Services
-                                    </NavLink>
-                                </li>
-                            )}
+                            {!logged_user.roleNames.includes("Admin") &&
+                                logged_user.roleNames.includes("Barber") && (
+                                    <li>
+                                        <NavLink
+                                            to={`barbers/${logged_user.id}/services`}
+                                            className="nav-link text-white"
+                                        >
+                                            Services
+                                        </NavLink>
+                                    </li>
+                                )}
                             {!logged_user.roleNames.includes("Admin") &&
                                 logged_user.roleNames.includes("Barber") && (
                                     <li>
