@@ -11,6 +11,7 @@ import { getBarberServices } from "../../../redux/features/servicesSlice";
 import { AppDispatch, RootState } from "../../../redux/store";
 
 interface serviceType {
+    serviceId: number;
     name: string;
     price: number;
 }
@@ -31,8 +32,11 @@ const BarberServices = () => {
         const serviceForm: any = document.getElementById("serviceForm");
         const entries: any = new FormData(serviceForm).entries();
 
+        let serviceString = "[";
+
         for (const service of services) {
             const serviceObj: serviceType = {
+                serviceId: service.serviceId,
                 name: service.name,
                 price: service.price,
             };
@@ -40,20 +44,21 @@ const BarberServices = () => {
             for (const [key, val] of entries) {
                 if (service.name === key) {
                     serviceObj.price = +val;
-                    formData.append("services", JSON.stringify(serviceObj));
+                    serviceString += JSON.stringify(serviceObj) + ",";
                     break;
                 }
             }
         }
+        serviceString = serviceString.slice(0, -1);
+        serviceString += "]";
 
-        console.log(formData.get("barberId"), formData.getAll("services"));
+        formData.append("services", serviceString);
+
+        console.log(formData.get("barberId"), formData.get("services"));
 
         fetch(`https://localhost:7231/api/Services`, {
             method: "PUT",
             headers: { Accept: "*/*" },
-            // headers:{
-            // "Content-Type": "application/json;",
-            // },
             body: formData,
         })
             .then((response) => response.json())
