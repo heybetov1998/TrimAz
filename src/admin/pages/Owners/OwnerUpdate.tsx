@@ -75,15 +75,6 @@ const OwnerUpdate = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    const localData = JSON.parse(
-                        localStorage.getItem("logged_user") || "{}"
-                    );
-                    localData.avatar = data.avatarImage;
-
-                    localStorage.setItem(
-                        "logged_user",
-                        JSON.stringify(localData)
-                    );
                     navigate("/admin");
                 });
         },
